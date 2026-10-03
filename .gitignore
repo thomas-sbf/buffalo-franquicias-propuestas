@@ -1,0 +1,10 @@
+# Design System original: 2 GB con Brandbook, precios y material confidencial (no se publica)
+Buffalo Waffles Design System/
+
+# Capturas de sitios de terceros usadas en la investigación
+01-research/benchmark-capturas/
+01-research/tendencias-capturas/
+
+# Configuración local
+.claude/
+.DS_Store

@@ -1,0 +1,37 @@
+/* Buffalo Waffles DS web v2 — radios, bordes, sombras y foco
+   Heredado del DS original: look sticker (contorno ink grueso, formas píldora, sombras cálidas
+   marrones, sombra dura "pop" que se hunde al presionar). Nuevo en v2: tokens de foco
+   accesible y sombras que dependen del tema (--shadow-rgb, --pop en semantic.css). */
+
+:root{
+  --radius-xs:6px;
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:24px;    /* tarjetas */
+  --radius-xl:32px;    /* bloques grandes, hero split */
+  --radius-pill:999px; /* botones, badges, inputs */
+
+  --border-hair:1px;
+  --border-thin:1.5px;
+  --border-bold:2px;   /* botones, inputs, tarjetas */
+  --border-sticker:3px;/* sticker, mascota, KPI destacados */
+
+  /* Sombras cálidas: el color sale del tema (crema = marrón, noche = negro) */
+  --shadow-sm:0 1px 2px rgba(var(--shadow-rgb, 61,32,18),.12);
+  --shadow-md:0 4px 14px rgba(var(--shadow-rgb, 61,32,18),.14);
+  --shadow-lg:0 12px 32px rgba(var(--shadow-rgb, 61,32,18),.18);
+  /* Sombra dura sticker: usa --pop del tema (ink en claro, crema en noche) */
+  --shadow-pop:0 6px 0 var(--pop, #191410);
+  --shadow-pop-sm:0 3px 0 var(--pop, #191410);
+  --shadow-pop-lg:0 10px 0 var(--pop, #191410);
+
+  /* ---------- Foco visible (WCAG 2.4.7 / 2.4.11) ----------
+     Anillo sólido de 3 px separado 3 px del elemento. El color sale del tema (--focus-ring):
+     ink en claros (14,94 vs crema), oro en noche (10,08 vs ink), crema en teal (4,91).
+     Nunca solo oro sobre claro (1,48 vs crema). */
+  --focus-ring-width:3px;
+  --focus-ring-offset:3px;
+
+  /* Alias DS original */
+  --ring-focus:0 0 0 var(--focus-ring-width) var(--focus-ring, #191410);
+}

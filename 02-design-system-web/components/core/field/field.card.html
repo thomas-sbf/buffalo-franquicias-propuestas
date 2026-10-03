@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- @dsCard group="Web v2 · Core" name="Field (inputs)" subtitle="Inputs, selects, opciones tipo tarjeta y consentimiento. Hereda Input.jsx." -->
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Field (inputs) · DS web Buffalo Waffles</title>
+<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../base/demo.css">
+</head>
+<body class="ds-page">
+<div class="ds-cardhead"><p class="ds-cardhead__title">Field (inputs)</p><p>Inputs, selects, opciones tipo tarjeta y consentimiento. Hereda Input.jsx. · <a href="field.md">Notas de uso</a> · <a href="../../../index.html#c-field">Índice</a></p></div>
+<main>
+<p class="ds-variant">Variante: Campos (reposo, error, select, textarea)</p>
+
+<div class="bw-theme-blanco ds-pad">
+  <div class="bw-leadform__row bw-leadform__row--2" style="max-width:760px">
+    <div class="bw-field">
+      <label class="bw-field__label" for="f-nombre-field0">Nombre <span class="bw-field__req" aria-hidden="true">*</span></label>
+      <input class="bw-input" id="f-nombre-field0" name="firstname" autocomplete="given-name" required placeholder="Ej.: Camila">
+    </div>
+    <div class="bw-field is-invalid">
+      <label class="bw-field__label" for="f-mail-field0">Correo <span class="bw-field__req" aria-hidden="true">*</span></label>
+      <input class="bw-input" id="f-mail-field0" type="email" value="camila@correo" aria-invalid="true" aria-describedby="f-mail-err-field0">
+      <p class="bw-field__error" id="f-mail-err-field0">Revisa el correo: le falta el dominio (por ejemplo, @gmail.com).</p>
+    </div>
+    <div class="bw-field">
+      <label class="bw-field__label" for="f-region-field0">Región de interés</label>
+      <select class="bw-select" id="f-region-field0"><option>Selecciona una región</option><option>Metropolitana</option><option>Valparaíso</option></select>
+    </div>
+    <div class="bw-field">
+      <label class="bw-field__label" for="f-msg-field0">Mensaje <span class="bw-field__opt">(opcional)</span></label>
+      <textarea class="bw-textarea" id="f-msg-field0" placeholder="Cuéntanos lo que quieras saber"></textarea>
+    </div>
+  </div>
+</div>
+<p class="ds-variant">Variante: Opciones tipo tarjeta y consentimiento</p>
+
+<div class="bw-theme-blanco ds-pad" style="max-width:820px">
+  <fieldset class="bw-choices">
+    <legend class="bw-field__label">¿Cómo te imaginas el negocio?</legend>
+    <label class="bw-choice"><input type="radio" name="perfil-field1" checked><span class="bw-choice__box">Operarlo yo</span></label>
+    <label class="bw-choice"><input type="radio" name="perfil-field1"><span class="bw-choice__box">Invertir y contratar un administrador</span></label>
+    <label class="bw-choice"><input type="radio" name="perfil-field1"><span class="bw-choice__box">Aún no lo sé</span></label>
+  </fieldset>
+  <label class="bw-check" style="margin-top:20px"><input type="checkbox" required><span>Acepto que Buffalo Waffles trate mis datos para evaluar mi postulación y contactarme, según la <a href="#privacidad">Política de Privacidad</a>.</span></label>
+</div>
+</main>
+
+</body>
+</html>

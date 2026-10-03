@@ -1,0 +1,17 @@
+/* CTA band — empujón final con voz de marca + CTA principal y secundario.
+   Temas recomendados: .bw-block-oro (CTA ink) o .bw-theme-noche (CTA oro). Mascota opcional:
+   aquí SÍ puede ir (no hay cifras de rentabilidad en esta banda). */
+
+.bw-ctaband{ position:relative; overflow:hidden; }
+.bw-ctaband__inner{
+  position:relative; z-index:1;
+  display:grid; gap:var(--stack-lg); align-items:center;
+  width:min(var(--container-max), 100% - 2 * var(--gutter)); margin-inline:auto;
+}
+@media (min-width:1024px){ .bw-ctaband__inner{ grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr); } }
+.bw-ctaband__title{ font-family:var(--font-display); font-weight:900; font-size:var(--fs-h1); line-height:var(--lh-heading); text-transform:uppercase; color:var(--heading); text-wrap:balance; }
+.bw-ctaband__text{ font-size:var(--fs-lead); font-weight:500; line-height:1.5; color:var(--text-soft); max-width:52ch; margin-top:var(--stack-sm); }
+.bw-ctaband .bw-btn-group{ margin-top:var(--stack-md); }
+.bw-ctaband__mascot{ justify-self:center; width:min(60vw, 320px); margin-bottom:calc(-1 * var(--section-y)); }
+.bw-ctaband__mascot img{ width:100%; }
+@media (max-width:1023px){ .bw-ctaband__mascot{ width:min(56vw, 240px); } }

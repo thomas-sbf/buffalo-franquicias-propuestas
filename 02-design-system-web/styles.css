@@ -1,0 +1,42 @@
+/* Buffalo Waffles — Design System WEB v2 (sitio de franquicias)
+   Punto de entrada único: enlaza este archivo y tienes tokens, base y todos los componentes.
+   Solo @import (sin build). En HubSpot: tokens/ + base/ van al CSS del tema; cada carpeta de
+   components/modulos/ es un módulo y su .css va en el module.css correspondiente. */
+
+/* 1. Tokens */
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/effects.css";
+@import "tokens/motion.css";
+@import "tokens/semantic.css";
+
+/* 2. Base */
+@import "base/base.css";
+@import "base/type.css";
+@import "base/layout.css";
+
+/* 3. Componentes core (heredados del DS original, adaptados a HTML/CSS) */
+@import "components/core/button/button.css";
+@import "components/core/badge/badge.css";
+@import "components/core/section-header/section-header.css";
+@import "components/core/logo/logo.css";
+@import "components/core/field/field.css";
+
+/* 4. Módulos de sección (1 carpeta = 1 módulo HubSpot) */
+@import "components/modulos/header/header.css";
+@import "components/modulos/hero/hero.css";
+@import "components/modulos/statbar/statbar.css";
+@import "components/modulos/features/features.css";
+@import "components/modulos/process/process.css";
+@import "components/modulos/requisitos/requisitos.css";
+@import "components/modulos/support/support.css";
+@import "components/modulos/testimonial/testimonial.css";
+@import "components/modulos/locations/locations.css";
+@import "components/modulos/leadform/leadform.css";
+@import "components/modulos/faq/faq.css";
+@import "components/modulos/blog-teaser/blog-teaser.css";
+@import "components/modulos/cta-band/cta-band.css";
+@import "components/modulos/footer/footer.css";
+@import "components/modulos/sticky-cta/sticky-cta.css";

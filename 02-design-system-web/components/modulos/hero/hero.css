@@ -1,0 +1,65 @@
+/* Hero — 4 elementos fijos (benchmark §8.2): H1 de propiedad con voz de marca, "Inversión desde",
+   3–4 KPI con superíndice de nota, y 2 CTAs (Postula + secundario de baja fricción).
+   Variantes: --foto (foto de marca con velo), --mascota (fondo oscuro con mascota a sangre),
+   --split (texto + producto/formulario). Un solo <h1> por página: va aquí. */
+
+.bw-hero{ position:relative; overflow:hidden; padding-block:var(--section-y); }
+.bw-hero__inner{ position:relative; z-index:1; width:min(var(--container-wide), 100% - 2 * var(--gutter)); margin-inline:auto; }
+.bw-hero__content{ display:flex; flex-direction:column; gap:var(--stack-md); max-width:44rem; }
+.bw-hero__title{
+  font-family:var(--font-display); font-weight:var(--fw-black);
+  font-size:var(--fs-display); line-height:var(--lh-display); letter-spacing:var(--ls-display);
+  text-transform:uppercase; color:var(--heading); text-wrap:balance;
+}
+.bw-hero__title .bw-kicker{ display:block; font-size:.42em; margin-top:.3em; text-transform:none; }
+.bw-hero__lead{ font-size:var(--fs-lead); font-weight:500; line-height:1.5; color:var(--text-soft); max-width:var(--measure-lead); text-wrap:pretty; }
+.bw-hero__invest{
+  display:inline-flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px; align-self:flex-start;
+  padding:10px 16px; border-radius:var(--radius-md);
+  background:var(--surface-raised); color:var(--text); border:var(--border-bold) solid var(--border);
+  font-size:var(--fs-sm); line-height:1.3;
+}
+.bw-hero__invest strong{ font-family:var(--font-display); font-weight:900; font-size:1.375rem; letter-spacing:.01em; font-variant-numeric:tabular-nums; }
+.bw-hero__microcopy{ font-size:var(--fs-xs); color:var(--text-muted); }
+.bw-hero__stats{ margin-top:var(--stack-lg); }
+
+/* ---------- Variante FOTO (usar junto a .bw-theme-noche) ----------
+   Velo ink sobre la foto. Peor caso (píxel blanco puro bajo el texto):
+   velo 0,78 → crema 7,40:1 · blanco 9,05:1 · oro 4,99:1. Por eso aquí el texto atenuado
+   se fuerza a crema (el crema-muted bajaría a 3,85:1). El texto vive en el 0–55 % izquierdo.
+   La foto va en <img> con width/height, fetchpriority="high" y SIN lazy (es el LCP). */
+.bw-hero--foto{ min-height:min(88vh, 860px); display:flex; align-items:center; --text-muted:var(--bw-cream); --text-soft:var(--bw-cream); }
+.bw-hero__bg{ position:absolute; inset:0; z-index:0; }
+.bw-hero__bg img{ width:100%; height:100%; object-fit:cover; object-position:var(--bw-focal, 50% 40%); }
+.bw-hero__bg::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(25,20,16,.88) 0%, rgba(25,20,16,.78) 55%, rgba(25,20,16,.5) 100%); }
+@media (max-width:767px){ .bw-hero__bg::after{ background:rgba(25,20,16,.8); } }
+
+/* ---------- Variante MASCOTA ----------
+   Fondo de tema (noche u oro); la mascota sangra por el borde. Nunca junto a cifras de rentabilidad:
+   en esta variante los KPI van DEBAJO del bloque y la mascota no los toca. */
+.bw-hero--mascota .bw-hero__inner{ display:grid; gap:var(--stack-lg); }
+.bw-hero__mascot{ position:relative; justify-self:center; width:min(78vw, 420px); margin-bottom:calc(-1 * var(--section-y)); }
+.bw-hero__mascot img{ width:100%; filter:drop-shadow(0 18px 30px rgba(0,0,0,.35)); }
+@media (min-width:1024px){
+  .bw-hero--mascota .bw-hero__inner{ grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); align-items:end; }
+  .bw-hero__mascot{ width:min(100%, 560px); justify-self:end; margin-right:-2vw; }
+}
+
+/* ---------- Variante SPLIT ---------- */
+.bw-hero--split .bw-hero__inner{ display:grid; gap:var(--stack-xl); align-items:center; }
+.bw-hero--split .bw-hero__title{ font-size:var(--fs-h1); line-height:var(--lh-heading); }
+.bw-hero__media{ position:relative; display:grid; place-items:center; width:min(100%, 520px); justify-self:center; padding-block:4%; }
+.bw-hero__media-bg{
+  position:absolute; inset:16% 4% 2%; border-radius:var(--radius-xl);
+  background:var(--accent); border:var(--border-sticker) solid var(--bw-ink);
+  transform:rotate(-3deg);
+}
+.bw-hero__media img{ position:relative; width:min(78%, 400px); filter:drop-shadow(0 16px 24px rgba(61,32,18,.28)); }
+.bw-hero__sticker{ position:absolute; z-index:2; top:6%; right:4%; }
+@media (min-width:1024px){
+  .bw-hero--split .bw-hero__inner{ grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); }
+}
+
+/* Mostrar solo en mobile/desktop */
+@media (max-width:767px){ .bw-hide-mobile{ display:none !important; } }
+@media (min-width:768px){ .bw-hide-desktop{ display:none !important; } }

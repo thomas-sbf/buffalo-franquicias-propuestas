@@ -1,0 +1,35 @@
+/* FAQ — acordeón nativo con <details>/<summary>: sin JS, accesible por teclado, indexable.
+   Agrupado en 4 categorías (A1 §8.13): Inversión · Operación · Proceso · Contrato.
+   En HubSpot: módulo con repeater de preguntas + JSON-LD FAQPage (ver faq.md). */
+
+.bw-faq{ display:grid; gap:var(--stack-lg); }
+@media (min-width:1024px){
+  .bw-faq--cols{ grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); align-items:start; }
+  .bw-faq--cols > .bw-section-header{ position:sticky; top:calc(var(--header-h) + 24px); }
+}
+.bw-faq__group{ display:grid; gap:0; }
+.bw-faq__group + .bw-faq__group{ margin-top:var(--stack-lg); }
+.bw-faq__group-title{ margin-bottom:12px; }
+.bw-faq__item{ border-bottom:var(--border-bold) solid var(--border); }
+.bw-faq__item:first-of-type{ border-top:var(--border-bold) solid var(--border); }
+.bw-faq__q{
+  list-style:none; cursor:pointer;
+  display:grid; grid-template-columns:1fr 36px; gap:16px; align-items:center;
+  padding:18px 2px;
+  font-family:var(--font-body); font-weight:700; font-size:var(--fs-body); line-height:1.4; color:var(--text);
+}
+.bw-faq__q::-webkit-details-marker{ display:none; }
+.bw-faq__q::after{
+  content:""; width:36px; height:36px; border-radius:50%;
+  border:var(--border-bold) solid var(--border);
+  background:
+    linear-gradient(var(--text),var(--text)) center / 14px 2.5px no-repeat,
+    linear-gradient(var(--text),var(--text)) center / 2.5px 14px no-repeat;
+  transition:transform var(--dur-base) var(--ease-standard), background-color var(--dur-base) var(--ease-standard);
+}
+.bw-faq__item[open] > .bw-faq__q::after{ transform:rotate(45deg); background-color:var(--accent); }
+.bw-faq__q:hover{ color:var(--text); text-decoration:underline; text-decoration-color:var(--accent); text-decoration-thickness:3px; text-underline-offset:6px; }
+.bw-faq__a{ padding:0 2px 22px; font-size:var(--fs-body); line-height:var(--lh-body); color:var(--text-soft); max-width:68ch; }
+.bw-faq__a > * + *{ margin-top:.8em; }
+.bw-faq__a ol{ padding-left:1.3em; display:grid; gap:4px; }
+.bw-faq__more{ margin-top:var(--stack-md); }

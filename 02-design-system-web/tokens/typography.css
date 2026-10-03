@@ -1,0 +1,64 @@
+/* Buffalo Waffles DS web v2 — tipografía fluida
+   Familias (Brandbook 2026 p.14–17):
+   - Mostin (primaria): titulares, botones, etiquetas, cifras KPI. Mayúsculas, pesos 700/900.
+   - Montserrat (secundaria): texto corrido, formularios, tablas, notas legales.
+   - Teenage Dreams (terciaria, DEMO): 1–3 palabras por pantalla. Nunca en cifras, párrafos ni formularios.
+
+   Escala fluida con clamp(rem, rem + vw, rem): el término rem respeta el zoom del usuario
+   (WCAG 1.4.4). Valores calculados para un viewport de 360 px (mínimo) a 1440 px (máximo).
+   Los px entre paréntesis son el valor a 360 → 1440 px. */
+
+:root{
+  --font-display:'Mostin',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-script:'Teenage Dreams','Mostin',cursive;   /* si la licencia no llega, cae a Mostin */
+  --font-outline:'Mostin Outline','Mostin',sans-serif;
+
+  --fw-regular:400;   /* @kind font */
+  --fw-medium:500;    /* @kind font */
+  --fw-semibold:600;  /* @kind font */
+  --fw-bold:700;      /* @kind font */
+  --fw-extrabold:800; /* @kind font */
+  --fw-black:900;     /* @kind font */
+
+  /* ---------- Escala fluida ---------- */
+  --fs-display-xl:clamp(3.5rem, 1.75rem + 7.8vw, 10rem);   /* 56 → 140  hero XXL (Dirección B) */
+  --fs-display:clamp(3rem, 1.6rem + 5.6vw, 7.5rem);        /* 48 → 106  hero estándar */
+  --fs-h1:clamp(2.5rem, 1.75rem + 3.4vw, 5rem);            /* 40 → 77 */
+  --fs-h2:clamp(2rem, 1.45rem + 2.4vw, 3.5rem);            /* 32 → 56   título de sección */
+  --fs-h3:clamp(1.5rem, 1.25rem + 1.1vw, 2.25rem);         /* 24 → 36 */
+  --fs-h4:clamp(1.25rem, 1.12rem + 0.55vw, 1.625rem);      /* 20 → 26 */
+  --fs-stat:clamp(2.75rem, 1.9rem + 3.8vw, 5.5rem);        /* 44 → 85   cifras KPI */
+  --fs-kicker:clamp(1.5rem, 1.25rem + 1.1vw, 2.25rem);     /* 24 → 36   script; ≥ 24 px = "texto grande" WCAG */
+  --fs-lead:clamp(1.125rem, 1.06rem + 0.3vw, 1.375rem);    /* 18 → 21 */
+  --fs-body:clamp(1rem, 0.975rem + 0.12vw, 1.0625rem);     /* 16 → 17 */
+  --fs-sm:0.875rem;     /* 14  UI secundaria, captions */
+  --fs-xs:0.8125rem;    /* 13  MÍNIMO para notas al pie y disclaimers */
+  --fs-micro:0.75rem;   /* 12  solo etiquetas en MAYÚSCULAS con tracking; nunca texto corrido */
+  --fs-btn-sm:0.875rem;
+  --fs-btn:1rem;
+  --fs-btn-lg:1.125rem;
+
+  /* Alias de compatibilidad con el DS original (valores fijos en px → ahora fluidos) */
+  --fs-lg:var(--fs-lead);
+
+  /* ---------- Alturas de línea ---------- */
+  --lh-display:1;       /* @kind font · Mostin UC grande: compacto pero con aire para tildes (É, Í, Ñ) */
+  --lh-heading:1.05;    /* @kind font */
+  --lh-snug:1.15;       /* @kind font · h4, botones de 2 líneas, labels */
+  --lh-normal:1.45;     /* @kind font · UI, tablas */
+  --lh-body:1.6;        /* @kind font · texto corrido */
+  --lh-tight:var(--lh-heading); /* alias DS original */
+
+  /* ---------- Tracking ---------- */
+  --ls-display:0;          /* @kind font · Mostin ya es condensada */
+  --ls-heading:0.01em;     /* @kind font */
+  --ls-caps:0.06em;        /* @kind font · botones, badges */
+  --ls-caps-wide:0.12em;   /* @kind font · micro-etiquetas UC */
+  --ls-body:0;             /* @kind font */
+
+  /* ---------- Medidas de línea ---------- */
+  --measure-body:68ch;     /* párrafos */
+  --measure-lead:56ch;
+  --measure-heading:18ch;  /* titulares de sección: cortos */
+}

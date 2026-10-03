@@ -1,0 +1,39 @@
+/* Badge — adaptado de components/core/Badge.jsx. Píldora UC para categorías, estados y stickers.
+   Cambios v2: se elimina el tono strawberry con texto blanco (4,31:1, no AA) y se agregan
+   tonos de estado para el mapa de disponibilidad (siempre con texto, nunca solo color). */
+
+.bw-badge{
+  --_bg:var(--bw-gold); --_fg:var(--bw-ink); --_bd:transparent;
+  display:inline-flex; align-items:center; gap:6px;
+  min-height:28px; padding:4px 12px;
+  font-family:var(--font-display); font-weight:var(--fw-bold); font-size:var(--fs-micro);
+  line-height:1.1; letter-spacing:var(--ls-caps); text-transform:uppercase; white-space:nowrap;
+  color:var(--_fg); background:var(--_bg);
+  border:var(--border-thin) solid var(--_bd);
+  border-radius:var(--radius-pill);
+  width:fit-content; max-width:100%;   /* no se estira dentro de columnas flex */
+}
+.bw-badge--sm{ min-height:22px; padding:2px 9px; font-size:0.6875rem; }
+.bw-badge--lg{ min-height:34px; padding:6px 16px; font-size:var(--fs-sm); }
+
+/* Tonos (texto/fondo · ratio) */
+.bw-badge--oro{ --_bg:var(--bw-gold); --_fg:var(--bw-ink); }               /* 10,08 */
+.bw-badge--tinta{ --_bg:var(--bw-ink); --_fg:var(--bw-cream); }            /* 14,94 */
+.bw-badge--magenta{ --_bg:var(--bw-magenta); --_fg:var(--bw-ink); }        /* 4,95 */
+.bw-badge--teal{ --_bg:var(--bw-teal); --_fg:var(--bw-white); }            /* 6,01 */
+.bw-badge--kraft{ --_bg:var(--bw-kraft); --_fg:var(--bw-ink); }            /* 7,17 */
+.bw-badge--crema{ --_bg:var(--bw-cream); --_fg:var(--bw-ink); --_bd:var(--bw-ink); } /* 14,94 */
+.bw-badge--alerta{ --_bg:var(--bw-strawberry-700); --_fg:var(--bw-white); } /* 6,26 */
+
+/* Contorno: texto y borde del color "para texto" del tema (siempre AA) */
+.bw-badge--outline{ --_bg:transparent; --_fg:var(--text); --_bd:var(--border); }
+
+/* Sticker: rotado, contorno grueso y sombra dura. Solo en capa de marca, nunca sobre cifras. */
+.bw-badge--sticker{ border-width:var(--border-bold); --_bd:var(--bw-ink); box-shadow:0 3px 0 var(--bw-ink); transform:rotate(-4deg); }
+
+/* Estados de disponibilidad territorial (mapa / lista) */
+.bw-badge--estado::before{ content:""; width:8px; height:8px; border-radius:50%; background:currentColor; flex:none; }
+.bw-badge--presencia{ --_bg:var(--bw-ink); --_fg:var(--bw-cream); }       /* con locales */
+.bw-badge--disponible{ --_bg:var(--bw-teal); --_fg:var(--bw-white); }      /* 6,01 */
+.bw-badge--pocas{ --_bg:var(--bw-gold); --_fg:var(--bw-ink); }             /* 10,08 */
+.bw-badge--tomada{ --_bg:var(--bw-cream-deep); --_fg:var(--bw-ink-soft); --_bd:var(--bw-control-line); } /* 9,39 */

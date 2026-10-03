@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Franquicia Buffalo Waffles · Los números sobre la mesa (prototipo A5-1)</title>
+<meta name="description" content="Inversión, costos mensuales, plazos y presencia de la franquicia Buffalo Waffles en un tablero con su fuente a la vista. Simula tu escenario y postula.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#191410">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="ds/assets/fonts/Mostin-Black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="ds/tokens/fonts.css">
+<link rel="stylesheet" href="ds/tokens/colors.css">
+<link rel="stylesheet" href="ds/tokens/typography.css">
+<link rel="stylesheet" href="ds/tokens/spacing.css">
+<link rel="stylesheet" href="ds/tokens/effects.css">
+<link rel="stylesheet" href="ds/tokens/motion.css">
+<link rel="stylesheet" href="ds/tokens/semantic.css">
+<link rel="stylesheet" href="ds/base/base.css">
+<link rel="stylesheet" href="css/a5-1.css">
+<link rel="icon" href="img/logo-badge-negativo.webp" type="image/webp">
+</head>
+<body class="bw-theme-noche has-mbar">
+<a class="bw-skip-link" href="#main">Saltar al contenido</a>
+
+<!-- Íconos de apoyo del DS v2 (assets/iconos), en sprite inline + 4 nuevos (search, pause, copy, alert) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 11.5h.01"/><path d="M12 11.5h.01"/><path d="M15 11.5h.01"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1.5 1.5 0 0 1-1.6 1.5A16.5 16.5 0 0 1 3.5 5.6 1.5 1.5 0 0 1 5 4Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2a5 5 0 0 1 5 5.3"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 11.5V20h13v-8.5"/><path d="M10 20v-5h4v5"/></symbol>
+    <symbol id="i-bike" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="16.5" r="3.5"/><circle cx="18" cy="16.5" r="3.5"/><path d="M6 16.5 9.5 9h5l3.5 7.5"/><path d="M9.5 9 12 16.5h-6"/><path d="M13.5 6h2.5l-1.5 3"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8 7.5 9.5 4.3-1.5 7.5-5 7.5-9.5V6L12 3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="m11 12 8.5-8.5"/><path d="m16 7 2.5 2.5"/><path d="m14 9 2 2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4"/><path d="M4 20h16"/><path d="m7.5 15 3.5-4 3 2.5 5-6.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.5Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 21v-7.5h2.5l.5-3h-3V8.8c0-.9.4-1.6 1.7-1.6h1.4V4.6c-.5-.1-1.4-.2-2.4-.2-2.4 0-3.9 1.4-3.9 4v2.1H9v3h2.3V21"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 10.5V16"/><path d="M8 7.5v.01"/><path d="M12 16v-3.2a2.2 2.2 0 0 1 4.4 0V16"/><path d="M12 10.5V16"/></symbol>
+    <symbol id="i-xsocial" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 4.5 19.5 19.5"/><path d="M19.5 4.5 4.5 19.5"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l7 4V6L7 10H4Z"/><path d="M17.5 9a4 4 0 0 1 0 6"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 9 9.5-4.5L21.5 9 12 13.5 2.5 9Z"/><path d="M6.5 11v4.5c1.5 1.5 3.5 2 5.5 2s4-.5 5.5-2V11"/><path d="M21.5 9v5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5"/><path d="M12 16.2v.01"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ BARRA SUPERIOR ============ -->
+<header class="topbar">
+  <a class="topbar__logo" href="#portada" aria-label="Buffalo Waffles Franquicias, ir al inicio">
+    <img src="img/logo-wordmark-negativo.webp" width="189" height="33" alt="Buffalo Waffles">
+  </a>
+  <div class="topbar__status">
+    <span class="live">En vivo</span>
+    <span class="cap">Tablero del inversionista · corte de datos <mark class="bw-pending">[fecha a confirmar]</mark></span>
+  </div>
+  <div class="topbar__actions">
+    <a class="tlink" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles" target="_blank" rel="noopener">Agenda una reunión</a>
+    <a class="btn btn--sm topbar__cta" href="#postula">Postula <svg class="ico ico--go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <button class="topbar__menu" type="button" aria-haspopup="dialog" aria-controls="indice" data-open-index>
+      <svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg> Índice
+    </button>
+  </div>
+</header>
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ============ RIEL: índice del deck (escritorio) ============ -->
+<nav class="rail" aria-label="Índice del tablero">
+  <p class="cap rail__title">Índice del tablero</p>
+  <ol data-index>
+    <li><a href="#portada"><span>00</span>Portada</a></li>
+    <li><a href="#trato"><span>01</span>El trato</a></li>
+    <li><a href="#simulador"><span>02</span>Simulador</a></li>
+    <li><a href="#presencia"><span>03</span>Presencia</a></li>
+    <li><a href="#ruta"><span>04</span>La ruta</a></li>
+    <li><a href="#operacion"><span>05</span>Operación</a></li>
+    <li><a href="#red"><span>06</span>La red</a></li>
+    <li><a href="#postula"><span>07</span>Postulación</a></li>
+    <li><a href="#preguntas"><span>08</span>Preguntas</a></li>
+  </ol>
+  <div class="rail__foot">
+    <div class="rail__legend" aria-label="Cómo leer las fuentes">
+      <span class="cap">Cómo leer el tablero</span>
+      <span class="src src--sitio">Publicado en el sitio</span>
+      <span class="src src--blog">Publicado en el blog</span>
+      <span class="src src--pend">Por confirmar</span>
+    </div>
+    <a class="btn btn--sm" href="#postula">Postula</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ 00 · PORTADA ============ -->
+<section class="slide hero" id="portada" aria-labelledby="h1">
+  <div class="wrap">
+    <div class="hero__kicker">
+      <span class="chip-live"><span class="live">Deck en vivo</span></span>
+      <span class="cap">Franquicias Buffalo Waffles · Chile</span>
+    </div>
+    <img class="hero__handm" src="img/mano-king-kong-sm.webp" width="300" height="321" alt="">
+    <h1 class="h1" id="h1">
+      <span class="ln"><span class="w" style="--i:0">Tu</span> <span class="w" style="--i:1">Buffalo,</span></span>
+      <span class="ln"><span class="w" style="--i:2">con</span> <span class="w" style="--i:3">los</span> <span class="w" style="--i:4">números</span></span>
+      <span class="ln"><span class="w" style="--i:5">sobre</span> <span class="w" style="--i:6">la</span> <span class="w mesa">mesa.</span></span>
+    </h1>
+
+    <div class="hero__grid">
+      <div class="hero__copy">
+        <p class="lede">Cuánto se invierte, qué se paga cada mes, cuánto demora abrir y dónde ya estamos. Todo lo que Buffalo Waffles ha publicado, ordenado en un tablero, con su fuente a la vista y lo pendiente marcado como pendiente.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--lg" href="#postula">Postula <svg class="ico ico--go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--lg btn--ghost" href="#simulador">Simula tu escenario</a>
+        </div>
+        <p class="hero__micro">Postular toma un minuto y <mark class="bw-pending">no tiene costo ni compromiso [a confirmar]</mark>.</p>
+        <div class="hero__legend" aria-label="Cómo leer las fuentes">
+          <span class="src src--sitio">Publicado en el sitio</span>
+          <span class="src src--blog">Publicado en el blog</span>
+          <span class="src src--pend">Por confirmar con Buffalo</span>
+        </div>
+      </div>
+
+      <div class="kpis">
+        <img class="hero__hand" src="img/mano-king-kong.webp" width="1122" height="1200" alt="" loading="lazy">
+        <article class="kpi kpi--inv isl bw-island">
+          <p class="kpi__lab">Inversión total</p>
+          <p class="num kpi__val"><small>desde</small><br>$40.000.000<sup class="fn"><a href="#n1" aria-label="Nota 1">1</a></sup></p>
+          <p class="kpi__txt">Según formato y ubicación. Considera habilitación, equipamiento y capacitación. <mark class="bw-pending">¿Incluye el derecho de franquicia? [a confirmar]</mark></p>
+          <span class="src src--sitio">Sitio actual · Pregunta frecuente 1</span>
+        </article>
+        <article class="kpi kpi--plazo">
+          <p class="kpi__lab">Apertura</p>
+          <p class="num kpi__val">2–4 <small>meses</small></p>
+          <p class="kpi__txt">Desde la firma hasta abrir.</p>
+          <span class="src">Sitio · FAQ 6</span>
+        </article>
+        <article class="kpi kpi--contrato isl bw-island">
+          <p class="kpi__lab">Contrato</p>
+          <p class="num kpi__val">20 <small>años</small></p>
+          <p class="kpi__txt">De uso de marca y modelo.</p>
+          <span class="src src--sitio">Sitio · FAQ 14</span>
+        </article>
+        <article class="kpi kpi--reg">
+          <p class="kpi__lab">Presencia</p>
+          <p class="num kpi__val">11 <small>regiones</small><sup class="fn"><a href="#n4" aria-label="Nota 4">4</a></sup></p>
+          <div class="strip-mini" aria-hidden="true">
+            <i class="on" style="--i:0"></i><i class="on" style="--i:1"></i><i class="on" style="--i:2"></i><i></i><i></i><i class="on" style="--i:5"></i><i class="on" style="--i:6"></i><i class="on" style="--i:7"></i><i class="on" style="--i:8"></i><i></i><i class="on" style="--i:10"></i><i class="on" style="--i:11"></i><i class="on" style="--i:12"></i><i></i><i></i><i class="on" style="--i:15"></i>
+          </div>
+          <p class="kpi__txt">De Arica a Punta Arenas.</p>
+          <span class="src src--sitio">Sitio · mapa</span>
+        </article>
+        <article class="kpi kpi--loc isl bw-island">
+          <p class="kpi__lab">Locales en la red</p>
+          <p class="num kpi__val"><mark class="bw-pending">+50 · 55</mark><sup class="fn"><a href="#n3" aria-label="Nota 3">3</a></sup></p>
+          <p class="kpi__txt">El sitio dice +50; el blog, más de 55. Falta una cifra única con fecha de corte.</p>
+          <span class="src src--pend">Por confirmar</span>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ticker "en vivo": datos publicados, sin cifras de rentabilidad. Se puede pausar. -->
+<div class="ticker bw-block-oro" data-ticker data-paused="false">
+  <span class="ticker__tag" aria-hidden="true">En vivo</span>
+  <div class="ticker__viewport" role="region" aria-label="Datos publicados del modelo" tabindex="0">
+    <div class="ticker__track">
+      <ul class="ticker__list">
+        <li>11 regiones</li><li>2–4 meses desde la firma</li><li>Contrato de 20 años</li><li>1 KAM cada 10 franquiciados</li><li>Equipo tipo 2 + 2</li><li>Presencial + delivery</li><li>Sin experiencia gastronómica previa</li><li>Operas tú o con administrador</li><li>Marca 100&nbsp;% chilena</li>
+      </ul>
+      <ul class="ticker__list" aria-hidden="true">
+        <li>11 regiones</li><li>2–4 meses desde la firma</li><li>Contrato de 20 años</li><li>1 KAM cada 10 franquiciados</li><li>Equipo tipo 2 + 2</li><li>Presencial + delivery</li><li>Sin experiencia gastronómica previa</li><li>Operas tú o con administrador</li><li>Marca 100&nbsp;% chilena</li>
+      </ul>
+    </div>
+  </div>
+  <button class="ticker__pause" type="button" aria-pressed="false" aria-label="Pausar la cinta de datos" data-ticker-btn>
+    <svg class="ico" aria-hidden="true"><use href="#i-pause"/></svg>
+  </button>
+</div>
+
+<!-- ============ 01 · EL TRATO ============ -->
+<section class="slide" id="trato" aria-labelledby="t-trato">
+  <div class="wrap">
+    <header class="slide-head">
+      <p class="slide-no"><b>01</b> / 08 · El trato</p>
+      <h2 class="h2" id="t-trato"><span class="kin">Lo que pones.</span><br><span class="hl">Lo que ponemos.</span></h2>
+      <p class="lede">Una franquicia es un acuerdo entre dos partes. Este es el nuestro en una sola hoja: cada línea con su fuente, sin letra chica.</p>
+    </header>
+
+    <div class="ledger" data-ledger>
+      <div class="ledger__tabs" role="group" aria-label="Elige qué columna ver">
+        <button type="button" aria-pressed="true" data-ledger-btn="tu">Tú pones</button>
+        <button type="button" aria-pressed="false" data-ledger-btn="bw">Buffalo pone</button>
+      </div>
+      <div class="ledger__col ledger__col--tu">
+        <div class="ledger__head"><h3>Tú pones</h3><span class="cap">Debe</span></div>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-key"/></svg><div><h4>La inversión</h4><p>Desde $40.000.000, según formato y ubicación.<sup class="fn"><a href="#n1" aria-label="Nota 1">1</a></sup></p><span class="src src--sitio">FAQ 1</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-flag"/></svg><div><h4>El derecho de franquicia</h4><p><mark class="bw-pending" title="Publicado en el blog. Pendiente de validar con el cliente.">$10.000.000 + IVA</mark>, pago único al firmar.<sup class="fn"><a href="#n2" aria-label="Nota 2">2</a></sup></p><span class="src src--blog">Blog · 12 ago 2026 · validar</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg><div><h4>Un 9&nbsp;% mensual de tus ventas netas</h4><p><mark class="bw-pending" title="Publicado en el blog. Pendiente de validar con el cliente.">7&nbsp;% de royalty + 2&nbsp;% de fondo de marketing</mark>.<sup class="fn"><a href="#n2" aria-label="Nota 2">2</a></sup></p><span class="src src--blog">Blog · validar</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><div><h4>La gestión diaria</h4><p>La haces tú o la delegas en un administrador. En ambos casos, sigues los indicadores del local.</p><span class="src src--sitio">FAQ 4</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg><div><h4>El estándar</h4><p>Compromiso con la marca, orientación comercial y disposición a operar con sus estándares.</p><span class="src src--sitio">FAQ 13</span></div></li>
+        </ol>
+      </div>
+      <div class="ledger__mid" aria-hidden="true"><span>=</span></div>
+      <div class="ledger__col ledger__col--bw isl bw-island">
+        <div class="ledger__head"><h3>Buffalo pone</h3><span class="cap">Haber</span></div>
+        <ol>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><div><h4>La marca</h4><p>Una marca 100&nbsp;% chilena, con identidad propia y presencia de Arica a Punta Arenas.</p><span class="src src--sitio">FAQ 16 · blog</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-store"/></svg><div><h4>El sistema</h4><p>Manuales operativos, acceso a proveedores homologados y desarrollo de productos.</p><span class="src src--sitio">FAQ 2 y 9</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><div><h4>Un KAM que te sigue</h4><p>Un KAM (consultor de franquicia) acompaña a un máximo de 10 franquiciados.</p><span class="src src--blog">Blog</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-cap"/></svg><div><h4>Capacitación y apertura</h4><p>Capacitación inicial, apoyo en la apertura y seguimiento después. <mark class="bw-pending">Días u horas de capacitación [a confirmar]</mark></p><span class="src src--sitio">FAQ 2 y 9</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><div><h4>El local</h4><p>Acompañamiento en la búsqueda, evaluación y negociación de la ubicación.</p><span class="src src--sitio">FAQ 8</span></div></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-megaphone"/></svg><div><h4>El marketing de la red</h4><p>Campañas digitales, promociones y posicionamiento, financiados con el fondo de marketing.</p><span class="src src--sitio">FAQ 12 · blog</span></div></li>
+        </ol>
+      </div>
+    </div>
+
+    <figure class="quote-band">
+      <blockquote>«Tú pones la inversión y la gestión diaria del local, y la marca pone el sistema, la reputación y el respaldo.»</blockquote>
+      <figcaption class="cap"><cite>Blog Buffalo Waffles · «Cómo funciona una franquicia de comida» · 12 ago 2026</cite></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 02 · SIMULADOR ============ -->
+<section class="slide" id="simulador" aria-labelledby="t-sim">
+  <div class="wrap">
+    <header class="slide-head">
+      <p class="slide-no"><b>02</b> / 08 · Simulador</p>
+      <h2 class="h2" id="t-sim"><span class="kin">Arma</span> tu <span class="hl">escenario.</span></h2>
+      <p class="lede">Mueve los controles y mira cómo se arma la estructura de costos con las cifras publicadas. No proyectamos ventas ni utilidades: eso se conversa con datos reales en la reunión inicial.</p>
+    </header>
+
+    <div class="sim" data-sim>
+      <p class="sim__mini" aria-hidden="true"><span>Piso <b data-mini-piso>$40.000.000</b></span><span>Al mes <b data-mini-mes>$90.000</b></span><span data-mini-ok>✓ cubre</span></p>
+      <form class="sim__controls" aria-label="Controles del simulador" onsubmit="return false">
+        <div class="ctrl">
+          <div class="ctrl__top">
+            <label class="ctrl__lab" for="s-cap"><b>A</b>¿Con cuánto capital cuentas?</label>
+            <output class="ctrl__out" for="s-cap" id="o-cap">$40.000.000</output>
+          </div>
+          <input class="range" id="s-cap" type="range" min="10000000" max="150000000" step="5000000" value="40000000" aria-describedby="h-cap">
+          <div class="ctrl__scale" aria-hidden="true"><span>$10M</span><span>$150M</span></div>
+          <p class="bw-sr-only" id="h-cap">Usa las flechas del teclado para moverte de a $5.000.000.</p>
+        </div>
+
+        <div class="ctrl">
+          <div class="ctrl__top"><label class="ctrl__lab" for="s-reg"><b>B</b>¿En qué región?</label></div>
+          <select class="select" id="s-reg" data-region-select>
+            <option value="XV">Arica y Parinacota</option><option value="I">Tarapacá</option><option value="II">Antofagasta</option><option value="III">Atacama</option><option value="IV">Coquimbo</option><option value="V">Valparaíso</option><option value="RM" selected>Metropolitana</option><option value="VI">O'Higgins</option><option value="VII">Maule</option><option value="XVI">Ñuble</option><option value="VIII">Biobío</option><option value="IX">La Araucanía</option><option value="XIV">Los Ríos</option><option value="X">Los Lagos</option><option value="XI">Aysén</option><option value="XII">Magallanes</option>
+          </select>
+        </div>
+
+        <div class="ctrl">
+          <fieldset class="seg seg--wide">
+            <legend class="ctrl__lab" style="margin-bottom:12px"><b>C</b>¿Qué formato te imaginas?</legend>
+            <label><input type="radio" name="s-fmt" value="isla" checked><span>Isla o módulo</span></label>
+            <label><input type="radio" name="s-fmt" value="local"><span>Local</span></label>
+            <label><input type="radio" name="s-fmt" value="food"><span>Food court</span></label>
+          </fieldset>
+          <p class="ctrl__help"><mark class="bw-pending">Formatos tentativos, no publicados [a confirmar]</mark></p>
+        </div>
+
+        <div class="ctrl">
+          <fieldset class="seg seg--wide">
+            <legend class="ctrl__lab" style="margin-bottom:12px"><b>D</b>¿Cómo leemos el «desde $40M»?</legend>
+            <label><input type="radio" name="s-read" value="faq" checked><span>Incluye el derecho (FAQ)</span></label>
+            <label><input type="radio" name="s-read" value="blog"><span>Derecho aparte (blog)</span></label>
+          </fieldset>
+          <p class="ctrl__help">El sitio y el blog no dicen lo mismo: mostramos ambas lecturas.<sup class="fn"><a href="#n1" aria-label="Nota 1">1</a></sup></p>
+        </div>
+
+        <div class="ctrl">
+          <div class="ctrl__top">
+            <label class="ctrl__lab" for="s-ven"><b>E</b>Prueba una venta neta mensual</label>
+            <output class="ctrl__out" for="s-ven" id="o-ven">$1.000.000</output>
+          </div>
+          <input class="range" id="s-ven" type="range" min="1000000" max="40000000" step="500000" value="1000000" aria-describedby="h-ven">
+          <div class="ctrl__scale" aria-hidden="true"><span>$1M</span><span>$40M</span></div>
+          <p class="ctrl__help" id="h-ven">Tú eliges el número para ver cómo opera el 9&nbsp;%. <strong>No es un promedio de la red</strong>: no hay ventas por local publicadas.</p>
+        </div>
+      </form>
+
+      <div class="sim__out isl bw-island" aria-labelledby="t-esc">
+        <div class="sim__head">
+          <h3 id="t-esc">Tu escenario</h3>
+          <span class="stamp"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Simulación ilustrativa · datos a validar con el cliente</span>
+        </div>
+
+        <div class="blk">
+          <p class="blk__lab">Para entrar · piso publicado</p>
+          <div class="blk__row">
+            <p class="num blk__big"><mark class="bw-pending" id="r-piso">$40.000.000</mark></p>
+            <p class="blk__note" id="r-piso-note">Lectura FAQ: el piso de $40.000.000 ya considera el derecho de franquicia.</p>
+          </div>
+          <div class="stack" id="r-stack" aria-hidden="true"></div>
+          <ul class="keys" id="r-keys"></ul>
+        </div>
+
+        <details class="sim__more" open data-sim-more>
+          <summary>Tu capital frente al piso</summary>
+        <div class="blk">
+          <p class="blk__lab">Tu capital frente al piso</p>
+          <div class="gauge" id="r-gauge" aria-hidden="true"><span class="gauge__fill"></span><span class="gauge__mark" data-label="Piso"></span></div>
+          <p class="verdict" id="r-verdict" data-ok="true" aria-live="polite"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Tu capital cubre el piso publicado.</span></p>
+          <p class="blk__note"><mark class="bw-pending">Capital propio mínimo y opciones de financiamiento [a confirmar]</mark></p>
+        </div>
+
+        </details>
+
+        <div class="blk">
+          <p class="blk__lab">Cada mes, sobre tu venta neta de <span id="r-ven">$1.000.000</span></p>
+          <dl class="monthly">
+            <div><dt>Royalty 7&nbsp;%</dt><dd id="r-roy">$70.000</dd></div>
+            <div><dt>Marketing 2&nbsp;%</dt><dd id="r-mkt">$20.000</dd></div>
+            <div class="tot"><dt>Al sistema 9&nbsp;%</dt><dd id="r-tot">$90.000</dd></div>
+          </dl>
+          <div class="stack" aria-hidden="true">
+            <span class="stack__seg s-roy" style="flex-basis:7%"></span>
+            <span class="stack__seg s-mkt" style="flex-basis:2%"></span>
+            <span class="stack__seg s-op" style="flex-basis:91%">91&nbsp;% financia la operación del local</span>
+          </div>
+          <p class="blk__note">El 91&nbsp;% restante cubre arriendo, equipo, insumos e impuestos. Esos costos no se simulan aquí: se revisan con datos reales en la evaluación.<sup class="fn"><a href="#n2" aria-label="Nota 2">2</a></sup></p>
+        </div>
+
+        <details class="sim__more" open data-sim-more>
+          <summary>Calendario, región, formato y lo que no simulamos</summary>
+        <div class="blk">
+          <p class="blk__lab">Calendario, con el plazo publicado</p>
+          <div class="cal" aria-describedby="r-cal-note">
+            <div class="cal__pt"><span>Si firmas en</span><b id="r-firma">oct 2026</b></div>
+            <div class="cal__line" aria-hidden="true"></div>
+            <div class="cal__pt cal__pt--end"><span>Abrirías entre</span><b id="r-abre">dic 2026 – feb 2027</b></div>
+          </div>
+          <p class="blk__note" id="r-cal-note">Aplicamos los 2–4 meses desde la firma (FAQ 6). Depende del local y de la habilitación.</p>
+        </div>
+
+        <div class="duo">
+          <div class="card-s">
+            <p class="blk__lab">Tu región</p>
+            <h4 id="r-reg-t">Metropolitana</h4>
+            <p id="r-reg-p">Ya hay Buffalo Waffles en esta región, según el mapa publicado.</p>
+            <p><mark class="bw-pending">Zonas disponibles en tu comuna [a confirmar]</mark></p>
+          </div>
+          <div class="card-s">
+            <p class="blk__lab">Tu formato</p>
+            <h4 id="r-fmt-t">Isla o módulo</h4>
+            <p>Superficie: <mark class="bw-pending">[m² a confirmar]</mark></p>
+            <p>Rango de inversión: <mark class="bw-pending">[a confirmar]</mark></p>
+          </div>
+        </div>
+
+        <div class="blk">
+          <p class="blk__lab" style="margin-top:20px">Lo que no simulamos (y por qué)</p>
+          <div class="review">
+            <div class="review__item">
+              <span class="review__tag">En revisión</span>
+              <p class="cap">Margen EBITDA publicado</p>
+              <p class="num"><mark class="bw-pending">15&nbsp;%</mark><sup class="fn"><a href="#n5" aria-label="Nota 5">5</a></sup></p>
+              <p>Hoy se publica sin periodo, sin cantidad de locales y sin definición. No lo usamos para calcular nada hasta tener su base.</p>
+            </div>
+            <div class="review__item">
+              <span class="review__tag">En revisión</span>
+              <p class="cap">Recupero publicado</p>
+              <p class="num"><mark class="bw-pending">~2 años</mark><sup class="fn"><a href="#n5" aria-label="Nota 5">5</a></sup></p>
+              <p>Igual que el anterior: es una cifra informada por la marca que falta documentar y validar con legal.</p>
+            </div>
+          </div>
+        </div>
+
+        </details>
+
+        <div class="sim__ctas">
+          <a class="btn" href="#postula" data-sim-apply>Postula con este escenario <svg class="ico ico--go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn--ghost btn--sm" type="button" data-sim-copy><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg>Copia el resumen</button>
+          <span class="copied" role="status" data-sim-copied></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · PRESENCIA ============ -->
+<section class="slide" id="presencia" aria-labelledby="t-pres">
+  <div class="wrap">
+    <header class="slide-head">
+      <p class="slide-no"><b>03</b> / 08 · Presencia</p>
+      <h2 class="h2" id="t-pres">Chile, <span class="kin hl">en una línea.</span></h2>
+      <p class="lede">De Arica a Punta Arenas, 11 de las 16 regiones ya tienen Buffalo Waffles, según el mapa publicado.<sup class="fn"><a href="#n4" aria-label="Nota 4">4</a></sup> Elige una región para ver qué sabemos y qué falta confirmar.</p>
+    </header>
+
+    <div class="chile">
+      <div class="strip">
+        <div class="strip__ends" aria-hidden="true"><span class="cap">Norte · Arica</span><span class="cap">Punta Arenas · Sur</span></div>
+        <ol aria-label="Regiones de Chile de norte a sur" data-strip>
+          <li><button type="button" class="reg on" data-reg="XV" aria-pressed="false"><span class="reg__code">XV</span><span class="reg__name">Arica y Parinacota</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="I" aria-pressed="false"><span class="reg__code">I</span><span class="reg__name">Tarapacá</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="II" aria-pressed="false"><span class="reg__code">II</span><span class="reg__name">Antofagasta</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg" data-reg="III" aria-pressed="false"><span class="reg__code">III</span><span class="reg__name">Atacama</span><span class="reg__st">Sin presencia publicada</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg" data-reg="IV" aria-pressed="false"><span class="reg__code">IV</span><span class="reg__name">Coquimbo</span><span class="reg__st">Sin presencia publicada</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="V" aria-pressed="false"><span class="reg__code">V</span><span class="reg__name">Valparaíso</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="RM" aria-pressed="true"><span class="reg__code">RM</span><span class="reg__name">Metropolitana</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="VI" aria-pressed="false"><span class="reg__code">VI</span><span class="reg__name">O'Higgins</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="VII" aria-pressed="false"><span class="reg__code">VII</span><span class="reg__name">Maule</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg" data-reg="XVI" aria-pressed="false"><span class="reg__code">XVI</span><span class="reg__name">Ñuble</span><span class="reg__st">Sin presencia publicada</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="VIII" aria-pressed="false"><span class="reg__code">VIII</span><span class="reg__name">Biobío</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="IX" aria-pressed="false"><span class="reg__code">IX</span><span class="reg__name">La Araucanía</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="XIV" aria-pressed="false"><span class="reg__code">XIV</span><span class="reg__name">Los Ríos</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg" data-reg="X" aria-pressed="false"><span class="reg__code">X</span><span class="reg__name">Los Lagos</span><span class="reg__st">Sin presencia publicada</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg" data-reg="XI" aria-pressed="false"><span class="reg__code">XI</span><span class="reg__name">Aysén</span><span class="reg__st">Sin presencia publicada</span><span class="reg__bar"></span></button></li>
+          <li><button type="button" class="reg on" data-reg="XII" aria-pressed="false"><span class="reg__code">XII</span><span class="reg__name">Magallanes</span><span class="reg__st">Con presencia</span><span class="reg__bar"></span></button></li>
+        </ol>
+        <div class="strip__legend">
+          <span><i aria-hidden="true"></i>Con presencia (mapa publicado)</span>
+          <span><i class="off" aria-hidden="true"></i>Sin presencia publicada</span>
+          <span>Usa las flechas para recorrer las regiones.</span>
+        </div>
+      </div>
+
+      <aside class="regcard isl bw-island" aria-live="polite" aria-labelledby="rc-t" data-regcard>
+        <p class="cap">Región <span id="rc-code">RM</span></p>
+        <h3 id="rc-t">Metropolitana</h3>
+        <dl>
+          <div><dt>Presencia Buffalo</dt><dd id="rc-st"><span class="pill-st pill-st--on">Sí</span></dd></div>
+          <div><dt>Locales en la región</dt><dd><mark class="bw-pending">[a confirmar]</mark></dd></div>
+          <div><dt>Zonas disponibles</dt><dd><mark class="bw-pending">[a confirmar]</mark></dd></div>
+          <div><dt>Estado por comuna</dt><dd><mark class="bw-pending">disponible / pocas / tomada</mark></dd></div>
+        </dl>
+        <p class="blk__note" id="rc-note">Ya hay Buffalo Waffles en esta región. Cada nueva zona se evalúa según su potencial comercial y la cobertura actual (FAQ 7).</p>
+        <div class="regcard__ctas">
+          <a class="btn btn--sm" href="#postula" data-reg-apply>Postula en esta región</a>
+          <a class="btn btn--sm btn--ghost" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F" target="_blank" rel="noopener">¿Hay cupo en mi comuna?</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · LA RUTA (Gantt) ============ -->
+<section class="slide" id="ruta" aria-labelledby="t-ruta">
+  <div class="wrap">
+    <header class="slide-head">
+      <p class="slide-no"><b>04</b> / 08 · La ruta</p>
+      <h2 class="h2" id="t-ruta">De la firma a la apertura: <span class="kin hl">2 a 4 meses.</span></h2>
+      <p class="lede">Siete pasos con el plazo publicado como eje. Lo que pasa antes de firmar depende de ti y del local; por eso esos tramos todavía no tienen duración.</p>
+    </header>
+
+    <div class="gantt">
+      <div class="gantt__head" aria-hidden="true">
+        <div></div>
+        <div class="gantt__axis"><span class="pre">Antes de firmar<span class="m-hide"> · duración por confirmar</span></span><span>Mes 1</span><span>Mes 2</span><span>Mes 3</span><span>Mes 4</span></div>
+      </div>
+      <ol style="list-style:none;margin:0;padding:0">
+        <li class="gantt__row"><div class="gantt__step"><b>1</b><p>Completas el formulario de interés<span class="gantt__when">Antes de firmar · duración por confirmar</span></p></div><div class="gantt__lane" aria-hidden="true"><span class="bar bar--pre s1"></span></div></li>
+        <li class="gantt__row"><div class="gantt__step"><b>2</b><p>Reunión de presentación de la franquicia<span class="gantt__when">Antes de firmar · duración por confirmar</span></p></div><div class="gantt__lane" aria-hidden="true"><span class="bar bar--pre s2"></span></div></li>
+        <li class="gantt__row"><div class="gantt__step"><b>3</b><p>Evaluación de tu perfil y capacidad de inversión<span class="gantt__when">Antes de firmar · duración por confirmar</span></p></div><div class="gantt__lane" aria-hidden="true"><span class="bar bar--pre s3"></span></div></li>
+        <li class="gantt__row"><div class="gantt__step"><b>4</b><p>Búsqueda y aprobación del local<span class="gantt__when">Antes de firmar · duración por confirmar</span></p></div><div class="gantt__lane" aria-hidden="true"><span class="bar bar--pre s4"></span></div></li>
+        <li class="gantt__row firma"><div class="gantt__step"><b>5</b><p>Firma de contratos<span class="gantt__when">Día 0 · desde aquí corre el plazo</span></p></div><div class="gantt__lane" aria-hidden="true"><span class="milestone firma"></span></div></li>
+        <li class="gantt__row"><div class="gantt__step"><b>6</b><p>Capacitación y habilitación<span class="gantt__when">Mes 0 a 2, hasta el mes 4</span></p></div><div class="gantt__lane" aria-hidden="true"><span class="bar bar--sure">Mín. 2 meses</span><span class="bar bar--maybe">hasta 4</span></div></li>
+        <li class="gantt__row"><div class="gantt__step"><b>7</b><p>Apertura del local<span class="gantt__when">Entre el mes 2 y el 4 desde la firma</span></p></div><div class="gantt__lane" aria-hidden="true"><span class="open-range"></span></div></li>
+      </ol>
+      <div class="gantt__foot">
+        <span><i style="background:var(--gold)" aria-hidden="true"></i>Plazo publicado (FAQ 6)</span>
+        <span><i style="background:repeating-linear-gradient(-45deg,rgba(245,182,14,.55) 0 4px,rgba(245,182,14,.18) 4px 8px)" aria-hidden="true"></i>Depende del local y la habilitación</span>
+        <span><i style="background:repeating-linear-gradient(-45deg,rgba(238,123,174,.4) 0 4px,rgba(238,123,174,.12) 4px 8px);outline:1px dashed var(--bw-magenta-300)" aria-hidden="true"></i>Duración por confirmar</span>
+      </div>
+    </div>
+
+    <div class="ruta-cards">
+      <div class="card-s isl bw-island"><h4>Postular no te compromete</h4><p><mark class="bw-pending">Confirmar que postular y la reunión inicial no generan obligación [a confirmar]</mark></p></div>
+      <div class="card-s isl bw-island"><h4>Te respondemos en</h4><p><mark class="bw-pending">[X] horas hábiles [a confirmar]</mark></p></div>
+      <div class="card-s isl bw-island"><h4>Proceso publicado</h4><p>Los 7 pasos vienen de la pregunta frecuente 5 del sitio actual.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 · OPERACIÓN (bento) ============ -->
+<section class="slide" id="operacion" aria-labelledby="t-op">
+  <div class="wrap">
+    <header class="slide-head">
+      <p class="slide-no"><b>05</b> / 08 · Operación</p>
+      <h2 class="h2" id="t-op">Un local, <span class="kin hl">en una pantalla.</span></h2>
+      <p class="lede">El día a día de un Buffalo Waffles según lo que la marca ha publicado: un equipo chico, dos canales de venta y un consultor que te sigue de cerca.</p>
+    </header>
+
+    <div class="bento">
+      <article class="tile t-team isl bw-island">
+        <h3>El equipo tipo</h3>
+        <div class="bigline"><span class="num">2 + 2</span><span>personas para operar, en términos generales.</span></div>
+        <div class="week" role="img" aria-label="Semana tipo: dos personas full time de lunes a viernes y dos part time el sábado y domingo.">
+          <span class="who"></span><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span>
+          <span class="who">Full time</span><i class="ft"></i><i class="ft"></i><i class="ft"></i><i class="ft"></i><i class="ft"></i><i></i><i></i>
+          <span class="who">Full time</span><i class="ft"></i><i class="ft"></i><i class="ft"></i><i class="ft"></i><i class="ft"></i><i></i><i></i>
+          <span class="who">Part time</span><i></i><i></i><i></i><i></i><i></i><i class="pt"></i><i class="pt"></i>
+          <span class="who">Part time</span><i></i><i></i><i></i><i></i><i></i><i class="pt"></i><i class="pt"></i>
+        </div>
+        <div class="week-legend"><span><i style="background:var(--bw-ink)" aria-hidden="true"></i>Full time, lunes a viernes</span><span><i style="background:var(--bw-magenta)" aria-hidden="true"></i>Part time, fin de semana</span></div>
+        <p>Depende del formato y del volumen de ventas. Un equipo chico facilita la gestión y el control de costos.</p>
+        <span class="src src--blog">Blog · FAQ 10</span>
+      </article>
+
+      <article class="tile t-chan">
+        <h3>Dos canales de venta</h3>
+        <div class="chan" aria-label="Presencial más delivery">
+          <div><svg class="ico" aria-hidden="true"><use href="#i-store"/></svg><b>Presencial</b></div>
+          <span aria-hidden="true">+</span>
+          <div><svg class="ico" aria-hidden="true"><use href="#i-bike"/></svg><b>Delivery</b></div>
+        </div>
+        <p>Clientes en el local y en plataformas de delivery, para aprovechar distintos momentos de consumo.</p>
+        <span class="src src--sitio">FAQ 11</span>
+      </article>
+
+      <article class="tile t-kam">
+        <h3>Un KAM, diez franquiciados</h3>
+        <div class="kam">
+          <div class="orbit" aria-hidden="true">
+            <div class="orbit__ring"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i><i style="--k:5"></i><i style="--k:6"></i><i style="--k:7"></i><i style="--k:8"></i><i style="--k:9"></i></div>
+            <span class="orbit__core">KAM</span>
+          </div>
+          <div><p class="num">1 : 10</p><p>Cada KAM (consultor de franquicia) acompaña a un máximo de 10 franquiciados.</p></div>
+        </div>
+        <span class="src src--blog">Blog</span>
+      </article>
+
+      <article class="tile t-mode" data-mode-tile>
+        <h3>¿Operas o delegas?</h3>
+        <div class="switch" data-mode="yo" role="group" aria-label="Modalidad de operación">
+          <button type="button" aria-pressed="true" data-mode-btn="yo">Opero yo</button>
+          <button type="button" aria-pressed="false" data-mode-btn="admin">Con administrador</button>
+        </div>
+        <div class="mode-copy" aria-live="polite">
+          <p data-mode-copy="yo">Muchos franquiciados participan activamente en la operación del día a día. Estás en el local, con tu equipo y tu KAM.</p>
+          <p data-mode-copy="admin" hidden>También puedes tenerlo como inversión y delegar en un encargado. La marca recomienda que igual sigas de cerca los indicadores del local.</p>
+        </div>
+        <span class="src src--sitio">FAQ 4</span>
+      </article>
+
+      <article class="tile t-exp isl bw-island">
+        <h3>Experiencia en gastronomía</h3>
+        <p class="num" style="font-size:clamp(2rem,1.5rem + 1.6vw,2.8rem);color:var(--bw-ink)">No se pide</p>
+        <p>Muchos franquiciados vienen de otros rubros. Importan el compromiso, la gestión y las ganas de crecer.</p>
+        <span class="src src--sitio">FAQ 3</span>
+      </article>
+
+      <article class="tile t-multi">
+        <h3>Y después, otro local</h3>
+        <p>Varios franquiciados han sumado nuevos locales una vez consolidada su primera operación.</p>
+        <p><mark class="bw-pending">Cuántos franquiciados tienen más de un local [a confirmar]</mark></p>
+        <span class="src src--sitio">FAQ 15</span>
+      </article>
+
+      <article class="tile t-img">
+        <img src="img/mano-cheddar.webp" width="1000" height="1200" alt="Mano sosteniendo un waffle salado Cheddar envuelto con el sello Buffalo Waffles" loading="lazy" decoding="async">
+        <h3>Lo que se vende</h3>
+        <p>Waffles dulces y salados para llevar en la mano, galletas y shakes. Una carta que se reconoce de Arica a Punta Arenas.</p>
+        <ul class="menu-chips" aria-label="Algunos productos de la carta"><li>Cheddar</li><li>King Kong</li><li>Strawberry Fields</li><li>Frutella</li><li>Especial Palta</li><li>Limonada Carioca</li></ul>
+        <span class="src">Producto real · fotos de marca</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 · LA RED ============ -->
+<section class="slide" id="red" aria-labelledby="t-red">
+  <div class="wrap">
+    <header class="slide-head">
+      <p class="slide-no"><b>06</b> / 08 · La red</p>
+      <h2 class="h2" id="t-red">Los que <span class="kin hl">ya abrieron.</span></h2>
+      <p class="lede">Hoy hay dos testimonios publicados. Los mostramos como fichas, con los campos que un inversionista espera ver; lo que falta queda a la vista.</p>
+    </header>
+
+    <div class="cases">
+      <article class="case isl bw-island">
+        <div class="case__top">
+          <div class="avatar" aria-hidden="true">J</div>
+          <div><h3>Jonathan</h3><p>Franquiciado · Boulevard Marina</p></div>
+        </div>
+        <blockquote>«Ser parte de la red de franquicias de Buffalo Waffles ha significado trabajar junto a una marca que entrega confianza, cercanía y un verdadero acompañamiento en cada etapa. Más que una franquicia, hemos encontrado un espacio donde nuestros objetivos pueden crecer con respaldo, apoyo humano y una visión compartida de éxito.»</blockquote>
+        <button class="case__more" type="button" aria-expanded="false" data-case-more hidden>Leer la cita completa</button>
+        <dl>
+          <div><dt>Ciudad</dt><dd><mark class="bw-pending">[a confirmar]</mark></dd></div>
+          <div><dt>Años en la red</dt><dd><mark class="bw-pending">[a confirmar]</mark></dd></div>
+          <div><dt>Un dato de su negocio</dt><dd><mark class="bw-pending">[a confirmar]</mark></dd></div>
+          <div><dt>Foto con su local</dt><dd><mark class="bw-pending">[pendiente]</mark></dd></div>
+        </dl>
+        <span class="src src--sitio">Testimonio publicado en el sitio</span>
+      </article>
+      <article class="case isl bw-island">
+        <div class="case__top">
+          <div class="avatar" aria-hidden="true">E+A</div>
+          <div><h3>Eduardo y Alex</h3><p>Franquiciados · Mallplaza Iquique</p></div>
+        </div>
+        <blockquote>«Gracias a nuestra pasión, la dedicación de todo nuestro equipo y una marca excepcional como Buffalo Waffles hemos conseguido instalar un negocio exitoso que ha conectado con las personas de Iquique y esperamos dejar huellas en la región de Tarapacá.»</blockquote>
+        <button class="case__more" type="button" aria-expanded="false" data-case-more hidden>Leer la cita completa</button>
+        <dl>
+          <div><dt>Ciudad</dt><dd>Iquique, Tarapacá</dd></div>
+          <div><dt>Años en la red</dt><dd><mark class="bw-pending">[a confirmar]</mark></dd></div>
+          <div><dt>Un dato de su negocio</dt><dd><mark class="bw-pending">[a confirmar]</mark></dd></div>
+          <div><dt>Foto con su local</dt><dd><mark class="bw-pending">[pendiente]</mark></dd></div>
+        </dl>
+        <span class="src src--sitio">Testimonio publicado en el sitio</span>
+      </article>
+    </div>
+
+    <div class="vids" role="region" aria-label="Videos de franquiciados (placeholders)" tabindex="0">
+      <div class="vid"><div><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><b>Video 30–60 s</b><p><mark class="bw-pending">[Placeholder] Franquiciado/a por grabar: nombre, local, ciudad y años en la red</mark></p></div></div>
+      <div class="vid"><div><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><b>Video 30–60 s</b><p><mark class="bw-pending">[Placeholder] Un día en el local, con subtítulos</mark></p></div></div>
+      <div class="vid"><div><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg><b>Video 30–60 s</b><p><mark class="bw-pending">[Placeholder] «Por qué abrí mi segundo local»</mark></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 · POSTULACIÓN ("deal room") ============ -->
+<section class="slide" id="postula" aria-labelledby="t-post">
+  <div class="wrap">
+    <header class="slide-head">
+      <p class="slide-no"><b>07</b> / 08 · Postulación</p>
+      <h2 class="h2" id="t-post"><span class="kin">Levanta</span> <span class="hl">la mano.</span></h2>
+      <p class="lede">Tres pasos y tu ficha queda lista para la reunión inicial. Si vienes del simulador, ya llenamos lo que elegiste.</p>
+    </header>
+
+    <div class="deal">
+      <div class="form isl bw-island">
+        <form id="lead" novalidate aria-describedby="lead-note" data-lead>
+          <ol class="steps" aria-label="Progreso de la postulación">
+            <li aria-current="step">1 · Hablemos</li>
+            <li>2 · Tu perfil</li>
+            <li>3 · Dónde abrir</li>
+          </ol>
+
+          <p class="prefill" data-prefill role="status"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span></span></p>
+
+          <!-- Paso 1 -->
+          <fieldset class="fstep" data-step="1" style="border:0;margin:0;padding:0;min-width:0">
+            <legend class="bw-sr-only">Paso 1 de 3: tus datos de contacto</legend>
+            <h3 tabindex="-1">Hablemos</h3>
+            <p class="fstep__sub">Paso 1 de 3 · Solo para contactarte por tu postulación.</p>
+            <div class="row2">
+              <div class="field"><label for="f-nom">Nombre</label><input class="input" id="f-nom" name="firstname" autocomplete="given-name" required aria-describedby="e-nom"><p class="err" id="e-nom"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Escribe tu nombre.</p></div>
+              <div class="field"><label for="f-ape">Apellido <span class="opt">(opcional)</span></label><input class="input" id="f-ape" name="lastname" autocomplete="family-name"></div>
+            </div>
+            <div class="field"><label for="f-mail">Correo</label><input class="input" id="f-mail" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nombre@gmail.com" required aria-describedby="e-mail"><p class="err" id="e-mail"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Revisa el correo (ejemplo: nombre@gmail.com).</p></div>
+            <div class="field"><label for="f-tel">WhatsApp o teléfono</label><input class="input" id="f-tel" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" required aria-describedby="e-tel"><p class="err" id="e-tel"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Revisa el número: incluye el 9 y los 8 dígitos.</p></div>
+          </fieldset>
+
+          <!-- Paso 2 -->
+          <fieldset class="fstep" data-step="2" hidden style="border:0;margin:0;padding:0;min-width:0">
+            <legend class="bw-sr-only">Paso 2 de 3: tu perfil de inversión</legend>
+            <h3 tabindex="-1">Tu perfil de inversión</h3>
+            <p class="fstep__sub">Paso 2 de 3 · La inversión total parte en $40.000.000, según formato y ubicación.</p>
+            <fieldset class="chips field" data-req="capital" aria-describedby="e-cap">
+              <legend class="flab">¿Con cuánto capital cuentas para invertir? <mark class="bw-pending legal-tag">tramos a confirmar</mark></legend>
+              <label><input type="radio" name="capital" value="Menos de $40M"><span>Menos de $40M</span></label>
+              <label><input type="radio" name="capital" value="$40M a $60M"><span>$40M a $60M</span></label>
+              <label><input type="radio" name="capital" value="$60M a $100M"><span>$60M a $100M</span></label>
+              <label><input type="radio" name="capital" value="Más de $100M"><span>Más de $100M</span></label>
+              <label><input type="radio" name="capital" value="Prefiero conversarlo"><span>Prefiero conversarlo</span></label>
+              <p class="err" id="e-cap" style="flex-basis:100%"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Elige una opción (puede ser «Prefiero conversarlo»).</p>
+            </fieldset>
+            <fieldset class="chips field" data-req="plazo" aria-describedby="e-plazo">
+              <legend class="flab">¿Cuándo te gustaría partir?</legend>
+              <label><input type="radio" name="plazo" value="Menos de 6 meses"><span>Menos de 6 meses</span></label>
+              <label><input type="radio" name="plazo" value="6 meses a un año"><span>6 meses a un año</span></label>
+              <label><input type="radio" name="plazo" value="Más de un año"><span>Más de un año</span></label>
+              <label><input type="radio" name="plazo" value="Aún no lo sé"><span>Aún no lo sé</span></label>
+              <p class="err" id="e-plazo" style="flex-basis:100%"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Elige una opción.</p>
+            </fieldset>
+            <fieldset class="chips field">
+              <legend class="flab">¿Cómo te imaginas el negocio? <span class="opt">(opcional)</span></legend>
+              <label><input type="radio" name="modo" value="Opero yo"><span>Opero yo</span></label>
+              <label><input type="radio" name="modo" value="Con administrador"><span>Con administrador</span></label>
+              <label><input type="radio" name="modo" value="Aún no lo sé"><span>Aún no lo sé</span></label>
+            </fieldset>
+            <fieldset class="chips field">
+              <legend class="flab">¿Has tenido un negocio antes? <span class="opt">(opcional)</span></legend>
+              <label><input type="radio" name="exp" value="Sí"><span>Sí</span></label>
+              <label><input type="radio" name="exp" value="No, sería el primero"><span>No, sería el primero</span></label>
+            </fieldset>
+            <p class="help">No necesitas experiencia en gastronomía.</p>
+          </fieldset>
+
+          <!-- Paso 3 -->
+          <fieldset class="fstep" data-step="3" hidden style="border:0;margin:0;padding:0;min-width:0">
+            <legend class="bw-sr-only">Paso 3 de 3: dónde quieres abrir</legend>
+            <h3 tabindex="-1">¿Dónde quieres abrir?</h3>
+            <p class="fstep__sub">Paso 3 de 3 · Revisamos la disponibilidad de tu zona antes de la reunión.</p>
+            <div class="row2">
+              <div class="field"><label for="f-reg">Región</label>
+                <select id="f-reg" name="region" required aria-describedby="e-reg">
+                  <option value="">Elige una región</option>
+                  <option value="XV">Arica y Parinacota</option><option value="I">Tarapacá</option><option value="II">Antofagasta</option><option value="III">Atacama</option><option value="IV">Coquimbo</option><option value="V">Valparaíso</option><option value="RM">Metropolitana</option><option value="VI">O'Higgins</option><option value="VII">Maule</option><option value="XVI">Ñuble</option><option value="VIII">Biobío</option><option value="IX">La Araucanía</option><option value="XIV">Los Ríos</option><option value="X">Los Lagos</option><option value="XI">Aysén</option><option value="XII">Magallanes</option>
+                </select>
+                <p class="err" id="e-reg"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Elige una región.</p>
+              </div>
+              <div class="field"><label for="f-com">Comuna o ciudad</label><input class="input" id="f-com" name="city" autocomplete="address-level2" required aria-describedby="e-com"><p class="err" id="e-com"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Escribe tu comuna o ciudad.</p></div>
+            </div>
+            <fieldset class="chips field">
+              <legend class="flab">¿Tienes un local en vista? <span class="opt">(opcional)</span></legend>
+              <label><input type="radio" name="local" value="Sí"><span>Sí</span></label>
+              <label><input type="radio" name="local" value="No, necesito ayuda"><span>No, necesito ayuda</span></label>
+            </fieldset>
+            <div class="field"><label for="f-msg">¿Algo más que quieras contarnos? <span class="opt">(opcional)</span></label><textarea id="f-msg" name="mensaje_adicional"></textarea></div>
+            <div class="consent" data-consent>
+              <label class="check"><input type="checkbox" id="f-ok" name="consent" required aria-describedby="e-ok"><span>Acepto que Buffalo Waffles trate mis datos para evaluar mi postulación y contactarme, según la <a href="#n6">Política de Privacidad</a>.</span></label>
+              <label class="check"><input type="checkbox" name="news"><span>Quiero recibir novedades de la red de franquicias. <span class="opt">(opcional)</span></span></label>
+              <p class="help">Responsable de los datos: <mark class="bw-pending">[razón social y RUT]</mark>. Puedes ejercer tus derechos en <mark class="bw-pending">[canal]</mark>. <mark class="bw-pending">Texto a validar por legal · Ley 21.719</mark></p>
+              <p class="err" id="e-ok"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Necesitamos tu autorización para revisar tu postulación.</p>
+            </div>
+          </fieldset>
+
+          <div class="fnav">
+            <button class="btn btn--ghost btn--sm" type="button" data-prev hidden>← Volver</button>
+            <span class="fnav__hint" data-hint>Toma 1 minuto.</span>
+            <button class="btn" type="button" data-next>Continuar <svg class="ico ico--go" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <button class="btn" type="submit" data-submit hidden>Enviar postulación</button>
+          </div>
+          <p class="legal" id="lead-note" style="margin-top:14px">Maqueta: este formulario no envía datos a ningún sistema.</p>
+        </form>
+
+        <div class="thanks" data-thanks hidden>
+          <div class="thanks__top">
+            <img src="img/mascota-selfie.webp" width="965" height="1000" alt="La mascota de Buffalo Waffles, un búfalo con alas, se saca una selfie" loading="lazy" decoding="async">
+            <div>
+              <h3 tabindex="-1">¡Buena! Ya tenemos tu postulación.</h3>
+              <p class="blk__note" style="margin-top:10px">Un ejecutivo de franquicias revisará tu ficha y te contactará en <mark class="bw-pending">[X] horas hábiles</mark>. ¿Quieres adelantar? Elige tu reunión inicial.</p>
+            </div>
+          </div>
+          <div class="btns">
+            <a class="btn" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg>Elige tu reunión inicial</a>
+            <a class="btn btn--ghost" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Escríbenos por WhatsApp</a>
+          </div>
+          <p class="mock-note"><svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg>Maqueta: no se envió ningún dato.</p>
+        </div>
+      </div>
+
+      <aside class="ficha" aria-labelledby="t-ficha">
+        <div class="ficha__head"><h3 id="t-ficha">Tu ficha</h3><span class="cap" data-ficha-pct>0&nbsp;% lista</span><button class="ficha__toggle" type="button" aria-expanded="true" aria-controls="ficha-body" data-ficha-toggle hidden>Ver</button></div>
+        <div class="meter" aria-hidden="true"><i data-ficha-meter></i></div>
+        <div id="ficha-body"><dl data-ficha>
+          <div><dt>Nombre</dt><dd class="empty" data-f="nombre">—</dd></div>
+          <div><dt>Correo</dt><dd class="empty" data-f="email">—</dd></div>
+          <div><dt>WhatsApp</dt><dd class="empty" data-f="phone">—</dd></div>
+          <div><dt>Capital</dt><dd class="empty" data-f="capital">—</dd></div>
+          <div><dt>Cuándo</dt><dd class="empty" data-f="plazo">—</dd></div>
+          <div><dt>Modalidad</dt><dd class="empty" data-f="modo">—</dd></div>
+          <div><dt>Región</dt><dd class="empty" data-f="region">—</dd></div>
+          <div><dt>Comuna</dt><dd class="empty" data-f="city">—</dd></div>
+        </dl>
+        <p class="legal">Esta ficha es la que verá tu ejecutivo en la reunión inicial (Pipedrive). Puedes cambiar cualquier respuesta antes de enviar.</p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 08 · PREGUNTAS (buscador) ============ -->
+<section class="slide" id="preguntas" aria-labelledby="t-faq">
+  <div class="wrap">
+    <header class="slide-head">
+      <p class="slide-no"><b>08</b> / 08 · Preguntas</p>
+      <h2 class="h2" id="t-faq">Pregúntale <span class="kin hl">al tablero.</span></h2>
+      <p class="lede">Escribe lo que te inquieta o filtra por tema. Las respuestas salen de lo que Buffalo Waffles ya publicó.</p>
+    </header>
+
+    <div class="qbar">
+      <div class="qsearch">
+        <svg class="ico" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="bw-sr-only" for="q">Buscar en las preguntas</label>
+        <input id="q" type="search" placeholder="Ej.: royalty, local, administrador" autocomplete="off" data-q>
+      </div>
+      <fieldset class="seg" aria-label="Filtrar por tema" data-qcat>
+        <label><input type="radio" name="qcat" value="todas" checked><span>Todas</span></label>
+        <label><input type="radio" name="qcat" value="inversion"><span>Inversión</span></label>
+        <label><input type="radio" name="qcat" value="operacion"><span>Operación</span></label>
+        <label><input type="radio" name="qcat" value="proceso"><span>Proceso</span></label>
+        <label><input type="radio" name="qcat" value="contrato"><span>Contrato</span></label>
+      </fieldset>
+    </div>
+    <p class="qcount" role="status" data-qcount>14 de 14 preguntas</p>
+
+    <div class="qlist" data-qlist>
+      <details class="q" data-cat="inversion"><summary><span class="tag">Inversión</span><span class="qt">¿Cuánto cuesta abrir un Buffalo Waffles?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>La inversión total parte en $40.000.000 y depende del formato y la ubicación. Considera la habilitación del local, el equipamiento, la capacitación y lo necesario para partir. <mark class="bw-pending">¿Incluye el derecho de franquicia? [a confirmar]</mark></p><span class="src src--sitio">FAQ 1</span></div></details>
+      <details class="q" data-cat="inversion"><summary><span class="tag">Inversión</span><span class="qt">¿Qué le pago a la marca y cuándo?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Un derecho de franquicia de <mark class="bw-pending">$10.000.000 + IVA</mark> al firmar y, cada mes, un <mark class="bw-pending">7&nbsp;% de royalty y un 2&nbsp;% de fondo de marketing</mark> sobre las ventas netas: 9&nbsp;% en total.</p><span class="src src--blog">Blog · 12 ago 2026 · validar</span></div></details>
+      <details class="q" data-cat="inversion"><summary><span class="tag">Inversión</span><span class="qt">¿Puedo tenerla como inversión y contratar un administrador?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Sí. Hay franquiciados que operan el local y otros que lo administran a través de un encargado. En ambos casos, la marca recomienda seguir de cerca los indicadores.</p><span class="src src--sitio">FAQ 4</span></div></details>
+      <details class="q" data-cat="inversion"><summary><span class="tag">Inversión</span><span class="qt">¿Puedo abrir más de un local?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Sí. Varios franquiciados han sumado locales una vez consolidada su primera operación.</p><span class="src src--sitio">FAQ 15</span></div></details>
+      <details class="q" data-cat="inversion"><summary><span class="tag">Inversión</span><span class="qt">¿Qué incluye la inversión?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>El derecho de franquicia, la capacitación inicial, el apoyo en la apertura, los manuales operativos, el acompañamiento comercial y el acceso a proveedores homologados. El detalle se entrega durante la evaluación. <mark class="bw-pending">Desglose por formato [a confirmar]</mark></p><span class="src src--sitio">FAQ 2</span></div></details>
+      <details class="q" data-cat="operacion"><summary><span class="tag">Operación</span><span class="qt">¿Necesito experiencia en gastronomía?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>No. Muchos franquiciados vienen de rubros completamente distintos. Lo importante es el compromiso con la operación, la capacidad de gestión y las ganas de crecer.</p><span class="src src--sitio">FAQ 3</span></div></details>
+      <details class="q" data-cat="operacion"><summary><span class="tag">Operación</span><span class="qt">¿Cuántas personas necesito para operar?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>En términos generales, 2 personas full time de lunes a viernes y 2 part time el fin de semana. Depende del formato y del volumen de ventas.</p><span class="src src--blog">Blog · FAQ 10</span></div></details>
+      <details class="q" data-cat="operacion"><summary><span class="tag">Operación</span><span class="qt">¿Cómo se generan las ventas?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Con clientes presenciales y con plataformas de delivery, lo que diversifica los ingresos y aprovecha distintos momentos de consumo.</p><span class="src src--sitio">FAQ 11</span></div></details>
+      <details class="q" data-cat="operacion"><summary><span class="tag">Operación</span><span class="qt">¿Qué apoyo entrega Buffalo Waffles?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Antes, durante y después de la apertura: capacitación, soporte operacional, marketing, asesoría comercial, desarrollo de productos y seguimiento del negocio, con un KAM cada 10 franquiciados como máximo.</p><span class="src src--sitio">FAQ 9 · blog</span></div></details>
+      <details class="q" data-cat="operacion"><summary><span class="tag">Operación</span><span class="qt">¿La marca hace marketing?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Sí: campañas digitales, promociones y posicionamiento que benefician a toda la red, financiados con el fondo de marketing del <mark class="bw-pending">2&nbsp;%</mark> de las ventas netas.</p><span class="src src--sitio">FAQ 12 · blog</span></div></details>
+      <details class="q" data-cat="proceso"><summary><span class="tag">Proceso</span><span class="qt">¿Cuánto demora abrir?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Entre 2 y 4 meses desde la firma hasta la apertura, según la disponibilidad del local y los tiempos de habilitación.</p><span class="src src--sitio">FAQ 6</span></div></details>
+      <details class="q" data-cat="proceso"><summary><span class="tag">Proceso</span><span class="qt">¿Me ayudan a encontrar un local?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Sí. El equipo acompaña la búsqueda, la evaluación y la negociación de ubicaciones que cumplan con los estándares de la marca.</p><span class="src src--sitio">FAQ 8</span></div></details>
+      <details class="q" data-cat="proceso"><summary><span class="tag">Proceso</span><span class="qt">¿Puedo abrir en cualquier ciudad de Chile?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>Buffalo busca crecer en distintas regiones. Cada caso se evalúa según el potencial comercial de la zona, la cobertura actual y la disponibilidad territorial. <mark class="bw-pending">Zonas disponibles [a confirmar]</mark></p><span class="src src--sitio">FAQ 7</span></div></details>
+      <details class="q" data-cat="contrato"><summary><span class="tag">Contrato</span><span class="qt">¿Cuánto dura el contrato?</span><span class="pm" aria-hidden="true">+</span></summary><div class="q__a"><p>20 años de derecho a usar la marca y operar con el modelo Buffalo Waffles: estabilidad y una visión de largo plazo.</p><span class="src src--sitio">FAQ 14</span></div></details>
+    </div>
+    <button class="qmore btn btn--ghost btn--sm" type="button" data-qmore hidden>Ver las 14 preguntas</button>
+    <div class="qempty" data-qempty>No encontramos eso en lo publicado. Pregúntanos directo: <a class="tlink" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F" target="_blank" rel="noopener">escríbenos por WhatsApp</a>.</div>
+  </div>
+</section>
+
+<!-- ============ CIERRE ============ -->
+<section class="slide close bw-block-oro" aria-labelledby="t-close">
+  <div class="wrap close__grid">
+    <div>
+      <h2 class="h2" id="t-close">¿Te cuadra?</h2>
+      <p class="lede">Si los números te hacen sentido, el siguiente paso es una conversación con datos reales de tu zona y tu formato.</p>
+      <div class="close__ctas">
+        <a class="btn btn--lg" href="#postula">Quiero ser franquiciado <svg class="ico ico--go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn--lg btn--ghost" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles" target="_blank" rel="noopener">Agenda una reunión</a>
+      </div>
+    </div>
+    <img class="close__mascot" src="img/mascota-streetwear.webp" width="799" height="1000" alt="La mascota de Buffalo Waffles con lentes de sol, sombrero, un shake y un waffle" loading="lazy" decoding="async">
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER: notas y fuentes ============ -->
+<footer class="foot">
+  <div class="foot__grid">
+    <div>
+      <details class="notes-wrap" open data-notes>
+      <summary><h2>Notas y fuentes del tablero</h2></summary>
+      <ol class="notes">
+        <li id="n1">Inversión total «desde $40.000.000», según formato y ubicación (sitio actual, pregunta frecuente 1). No está claro si incluye el derecho de franquicia: la FAQ 2 dice que sí; el blog lo presenta aparte. <mark class="bw-pending">Pendiente con el cliente (#5)</mark>.</li>
+        <li id="n2">Derecho de franquicia ($10.000.000 + IVA, pago único al firmar), royalty (7&nbsp;% mensual de las ventas netas) y fondo de marketing (2&nbsp;% mensual): blog «Cómo funciona una franquicia de comida…», 12 ago 2026. <mark class="bw-pending">Pendiente de validar con el cliente</mark>. El simulador solo multiplica esos porcentajes por una venta que elige el usuario: no es una proyección.</li>
+        <li id="n3">Locales: «+50» en el sitio y «más de 55» en el blog (5 jun 2026). <mark class="bw-pending">Falta cifra única con fecha de corte (#2)</mark>.</li>
+        <li id="n4">11 regiones contadas en la imagen del mapa del sitio actual: Arica y Parinacota, Tarapacá, Antofagasta, Valparaíso, Metropolitana, O'Higgins, Maule, Biobío, La Araucanía, Los Ríos y Magallanes.</li>
+        <li id="n5">15&nbsp;% de EBITDA y recupero en ~2 años: publicados hoy sin base. Antes de usarlos, falta: periodo, n.º de locales considerados y sus meses de operación, definición de EBITDA, cuántos locales alcanzan la cifra y advertencia aprobada por legal. Plantilla: «Promedio de <mark class="bw-pending">[N]</mark> locales con más de <mark class="bw-pending">[12]</mark> meses de operación entre <mark class="bw-pending">[mes/año]</mark> y <mark class="bw-pending">[mes/año]</mark>. Resultados individuales pueden variar. No constituye garantía de rentabilidad.»</li>
+        <li id="n6">Política de privacidad y consentimiento: <mark class="bw-pending">texto a validar por legal · Ley 21.719</mark>. Falta razón social, RUT, finalidades, plazo de conservación y si los datos se comparten con Pipedrive, HubSpot o el bot de WhatsApp.</li>
+      </ol>
+      </details>
+    </div>
+    <div class="contact">
+      <h2>Contacto directo</h2>
+      <a href="mailto:franquicias@buffalowaffles.com">franquicias@buffalowaffles.com</a>
+      <a href="tel:+56933758164">+56 9 3375 8164 · número oficial</a>
+      <a href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles" target="_blank" rel="noopener">Agenda tu reunión inicial</a>
+      <a href="https://buffalofranquicias.com/blog" target="_blank" rel="noopener">El blog de los que van en serio</a>
+      <div class="social">
+        <a href="https://www.instagram.com/buffalowaffles/" target="_blank" rel="noopener" aria-label="Instagram de Buffalo Waffles"><svg class="ico" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+        <a href="https://www.facebook.com/buffalowaffles" target="_blank" rel="noopener" aria-label="Facebook de Buffalo Waffles"><svg class="ico" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+        <a href="https://www.linkedin.com/company/buffalo-waffles/" target="_blank" rel="noopener" aria-label="LinkedIn de Buffalo Waffles"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+        <a href="https://x.com/BuffaloWaffles" target="_blank" rel="noopener" aria-label="X de Buffalo Waffles"><svg class="ico" aria-hidden="true"><use href="#i-xsocial"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="foot__base">
+    <img src="img/logo-wordmark-negativo.webp" width="189" height="33" alt="Buffalo Waffles" loading="lazy">
+    <p>Prototipo A5-1 «El negocio en vivo» · octubre 2026 · No publicar: contiene datos por validar con Buffalo Waffles.</p>
+  </div>
+</footer>
+
+<!-- Barra fija móvil: Postula (principal) + WhatsApp (secundario) -->
+<nav class="mbar" aria-label="Acciones rápidas">
+  <a class="btn" href="#postula">Postula <svg class="ico ico--go" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="btn btn--ghost" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>WhatsApp</a>
+</nav>
+
+<!-- Índice móvil -->
+<dialog class="sheet" id="indice" aria-labelledby="t-indice">
+  <div class="sheet__in">
+    <div class="sheet__head"><h2 id="t-indice">Índice</h2><button class="sheet__x" type="button" aria-label="Cerrar índice" data-close-index><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <ol data-index>
+      <li><a href="#portada"><span>00</span>Portada</a></li>
+      <li><a href="#trato"><span>01</span>El trato</a></li>
+      <li><a href="#simulador"><span>02</span>Simulador</a></li>
+      <li><a href="#presencia"><span>03</span>Presencia</a></li>
+      <li><a href="#ruta"><span>04</span>La ruta</a></li>
+      <li><a href="#operacion"><span>05</span>Operación</a></li>
+      <li><a href="#red"><span>06</span>La red</a></li>
+      <li><a href="#postula"><span>07</span>Postulación</a></li>
+      <li><a href="#preguntas"><span>08</span>Preguntas</a></li>
+    </ol>
+  </div>
+</dialog>
+
+<script src="js/a5-1.js" defer></script>
+</body>
+</html>

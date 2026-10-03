@@ -1,0 +1,70 @@
+/* Buffalo Waffles DS web v2 — espacio, layout y breakpoints
+   Base heredada: grilla de 4 px (--space-*). Nuevo en v2: contenedores, gutters, grilla de
+   columnas y espaciado vertical de secciones, todo fluido. */
+
+:root{
+  /* ---------- Escala base 4 px (heredada + 2 pasos nuevos) ---------- */
+  --space-0:0;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+  --space-8:32px;
+  --space-10:40px;
+  --space-12:48px;
+  --space-16:64px;
+  --space-20:80px;
+  --space-24:96px;
+  --space-32:128px;   /* nuevo */
+  --space-40:160px;   /* nuevo */
+
+  /* ---------- Espacio fluido (entre bloques dentro de una sección) ---------- */
+  --stack-xs:clamp(0.5rem, 0.45rem + 0.25vw, 0.75rem);   /*  8 → 11 */
+  --stack-sm:clamp(0.75rem, 0.65rem + 0.45vw, 1.125rem); /* 12 → 17 */
+  --stack-md:clamp(1rem, 0.8rem + 0.9vw, 1.75rem);       /* 16 → 26 */
+  --stack-lg:clamp(1.5rem, 1.1rem + 1.8vw, 3rem);        /* 24 → 44 */
+  --stack-xl:clamp(2rem, 1.3rem + 3.1vw, 4.5rem);        /* 32 → 65 */
+
+  /* ---------- Espaciado vertical de secciones ---------- */
+  --section-y-sm:clamp(3rem, 2.25rem + 3.3vw, 5rem);     /*  48 →  80  bandas, franjas de confianza */
+  --section-y:clamp(4rem, 2.6rem + 6.2vw, 8rem);         /*  64 → 128  sección estándar */
+  --section-y-lg:clamp(5rem, 3rem + 8.9vw, 11rem);       /*  80 → 176  hero, cierre */
+
+  /* ---------- Contenedores ---------- */
+  --container-max:80rem;      /* 1280  contenido general */
+  --container-wide:90rem;     /* 1440  hero y bloques a sangre con contenido */
+  --container-narrow:56rem;   /*  896  formulario, FAQ */
+  --container-text:42rem;     /*  672  ≈ 68 caracteres de Montserrat 16 px */
+  --gutter:clamp(1rem, 0.5rem + 2.5vw, 2.5rem);          /* 16 → 40  margen lateral. Mínimo 16 px en móvil */
+
+  /* ---------- Grilla ---------- */
+  --grid-cols:4;              /* < 768 px   (se redefine en base/layout.css con @media) */
+  --grid-gap:clamp(1rem, 0.6rem + 1.6vw, 2rem);          /* 16 → 32 */
+  --grid-gap-sm:clamp(0.75rem, 0.6rem + 0.6vw, 1.25rem); /* 12 → 20 */
+
+  /* ---------- Breakpoints (referencia: las custom properties NO funcionan dentro de @media,
+     usar estos valores literales) ----------
+     xs  360 px  mínimo soportado (probar siempre a 360 y 375)
+     sm  480 px  móvil grande
+     md  768 px  tablet: 8 columnas, nav colapsa por debajo
+     lg 1024 px  escritorio: 12 columnas
+     xl 1280 px  contenedor máximo
+     2xl 1440 px referencia de diseño escritorio */
+  --bp-sm:480px;   /* @kind other */
+  --bp-md:768px;   /* @kind other */
+  --bp-lg:1024px;  /* @kind other */
+  --bp-xl:1280px;  /* @kind other */
+  --bp-2xl:1440px; /* @kind other */
+
+  /* ---------- Alturas de controles y barras ---------- */
+  --control-h-sm:40px;
+  --control-h:48px;           /* objetivo táctil ≥ 44 px (WCAG 2.5.8 pide 24; usamos 44+) */
+  --control-h-lg:56px;
+  --header-h:64px;            /* móvil; 76px desde 1024 */
+  --sticky-cta-h:76px;        /* barra inferior móvil (sin contar safe-area) */
+}
+
+@media (min-width:768px){ :root{ --grid-cols:8; } }
+@media (min-width:1024px){ :root{ --grid-cols:12; --header-h:76px; } }

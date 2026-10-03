@@ -1,0 +1,35 @@
+/* Testimonial — franquiciados reales: cita + foto + nombre + local + ciudad (+ años en la red).
+   Sin carrusel automático (WCAG 2.2.2 y baja visibilidad): grilla de tarjetas. Variante --video
+   con póster, botón de play y subtítulos obligatorios. Nunca testimonios de clientes o empleados
+   en esta página (anti-patrón A1 §5.2). */
+
+.bw-testimonials{ display:grid; gap:var(--grid-gap); grid-template-columns:repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); }
+.bw-testimonial{
+  display:grid; grid-template-rows:auto 1fr auto; gap:var(--stack-sm);
+  margin:0; background:var(--surface-raised); color:var(--text);
+  border:var(--border-bold) solid var(--border); border-radius:var(--radius-lg);
+  padding:clamp(1.25rem, 1rem + 1vw, 2rem);
+}
+.bw-testimonial__mark{ font-family:var(--font-display); font-weight:900; font-size:4rem; line-height:.6; color:var(--accent-text); height:.5em; }
+.bw-testimonial__quote{ font-size:var(--fs-lead); line-height:1.5; font-weight:500; color:var(--text); }
+.bw-testimonial__quote p + p{ margin-top:.8em; }
+.bw-testimonial__person{ display:flex; align-items:center; gap:14px; padding-top:var(--stack-sm); border-top:1px solid var(--border-soft); }
+.bw-testimonial__photo{ width:64px; height:64px; flex:none; border-radius:50%; object-fit:cover; border:var(--border-bold) solid var(--border); background:var(--surface-sunken); }
+.bw-testimonial__photo--placeholder{ display:grid; place-items:center; font-family:var(--font-display); font-weight:900; font-size:1.25rem; color:var(--text); }
+.bw-testimonial__name{ font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:var(--ls-caps); font-size:1rem; color:var(--heading); }
+.bw-testimonial__meta{ font-size:var(--fs-sm); color:var(--text-muted); line-height:1.4; }
+
+/* Variante video */
+.bw-testimonial--video{ grid-template-rows:auto auto 1fr auto; }
+.bw-video{ position:relative; aspect-ratio:9 / 16; max-height:480px; width:100%; border-radius:var(--radius-md); overflow:hidden; background:var(--bw-ink); border:var(--border-bold) solid var(--border); }
+@media (min-width:768px){ .bw-video--landscape{ aspect-ratio:16 / 9; } }
+.bw-video img{ width:100%; height:100%; object-fit:cover; opacity:.85; }
+.bw-video__play{
+  position:absolute; inset:0; margin:auto; width:76px; height:76px; border-radius:50%;
+  display:grid; place-items:center; background:var(--bw-gold); color:var(--bw-ink);
+  border:var(--border-sticker) solid var(--bw-ink); box-shadow:0 4px 0 var(--bw-ink);
+  transition:transform var(--dur-fast) var(--ease-sticker);
+}
+.bw-video__play:hover{ transform:scale(1.06); }
+.bw-video__play svg{ width:30px; height:30px; margin-left:4px; }
+.bw-video__duration{ position:absolute; left:12px; bottom:12px; }

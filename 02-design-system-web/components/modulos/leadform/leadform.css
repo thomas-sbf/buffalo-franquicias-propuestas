@@ -1,0 +1,65 @@
+/* LeadForm multipaso — 3 pasos con progreso visible (NN/g wizards; A1 §4.4):
+   1 Contacto · 2 Perfil de inversión · 3 Zona y consentimiento → pantalla de gracias con
+   agendador Pipedrive + WhatsApp. Mejora progresiva: sin JS se ven los 3 pasos apilados
+   y el formulario sigue funcionando. Siempre sobre superficie clara (.bw-island si la sección es oscura). */
+
+.bw-leadform{
+  position:relative;
+  background:var(--surface-raised); color:var(--text);
+  border:var(--border-sticker) solid var(--border); border-radius:var(--radius-xl);
+  padding:clamp(1.25rem, .9rem + 1.6vw, 2.5rem);
+  box-shadow:var(--shadow-pop-lg);
+}
+.bw-leadform__head{ display:flex; flex-direction:column; gap:6px; margin-bottom:var(--stack-md); }
+.bw-leadform__title{ font-family:var(--font-display); font-weight:900; font-size:var(--fs-h3); line-height:1.05; text-transform:uppercase; color:var(--heading); }
+.bw-leadform__meta{ font-size:var(--fs-sm); color:var(--text-muted); }
+
+/* Progreso */
+.bw-progress{ display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; margin-bottom:var(--stack-md); counter-reset:bw-p; }
+.bw-progress__step{
+  counter-increment:bw-p;
+  display:flex; flex-direction:column; gap:6px;
+  font-family:var(--font-display); font-weight:700; font-size:var(--fs-micro); letter-spacing:var(--ls-caps); text-transform:uppercase;
+  color:var(--text-muted);
+}
+.bw-progress__step::before{ content:""; height:8px; border-radius:99px; background:var(--surface-sunken); border:1.5px solid var(--border-control); }
+.bw-progress__step.is-done::before,.bw-progress__step[aria-current="step"]::before{ background:var(--bw-gold); border-color:var(--bw-ink); }
+.bw-progress__step[aria-current="step"]{ color:var(--text); }
+.bw-progress__count{ font-family:var(--font-body); font-weight:600; font-size:var(--fs-xs); color:var(--text-muted); margin-top:-6px; margin-bottom:var(--stack-sm); }
+
+/* Pasos */
+.bw-leadform__step{ border:0; padding:0; margin:0; min-width:0; display:grid; gap:var(--stack-sm); }
+.bw-leadform__step + .bw-leadform__step{ margin-top:var(--stack-lg); padding-top:var(--stack-lg); border-top:1px dashed var(--border-soft); }
+.bw-leadform__legend{ font-family:var(--font-display); font-weight:900; font-size:var(--fs-h4); text-transform:uppercase; color:var(--heading); padding:0; margin-bottom:4px; }
+.bw-leadform__row{ display:grid; gap:var(--stack-sm); }
+@media (min-width:600px){ .bw-leadform__row--2{ grid-template-columns:1fr 1fr; } }
+.bw-leadform__nav{ display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center; margin-top:var(--stack-md); }
+.bw-leadform__nav .bw-btn--ghost{ order:-1; }
+.bw-leadform__reassure{ display:flex; flex-wrap:wrap; gap:6px 16px; font-size:var(--fs-xs); color:var(--text-muted); }
+.bw-leadform__reassure span{ display:inline-flex; align-items:center; gap:6px; }
+.bw-leadform__reassure svg{ width:16px; height:16px; color:var(--success); }
+.bw-leadform__legal{ font-size:var(--fs-xs); line-height:1.5; color:var(--text-muted); }
+
+/* Con JS: un paso a la vez */
+.bw-leadform.is-enhanced .bw-leadform__step{ display:none; }
+.bw-leadform.is-enhanced .bw-leadform__step.is-active{ display:grid; animation:bw-step-in var(--dur-slow) var(--ease-out); }
+.bw-leadform.is-enhanced .bw-leadform__step + .bw-leadform__step{ margin-top:0; padding-top:0; border-top:0; }
+.bw-leadform:not(.is-enhanced) .bw-leadform__nav [data-bw-prev],
+.bw-leadform:not(.is-enhanced) .bw-leadform__nav [data-bw-next],
+.bw-leadform:not(.is-enhanced) .bw-progress,
+.bw-leadform:not(.is-enhanced) .bw-progress__count{ display:none; }
+@keyframes bw-step-in{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
+
+/* Pantalla de gracias */
+.bw-leadform__done{ display:none; text-align:center; gap:var(--stack-md); justify-items:center; }
+.bw-leadform.is-done .bw-leadform__done{ display:grid; }
+.bw-leadform.is-done form{ display:none; }
+.bw-leadform__done img{ width:min(180px, 50%); }
+.bw-leadform__done .bw-btn-group{ justify-content:center; }
+
+/* Etiqueta "A VALIDAR POR LEGAL" (solo prototipo) */
+.bw-legal-flag{
+  display:inline-flex; align-items:center; gap:6px; padding:2px 8px; border-radius:6px;
+  font-family:var(--font-display); font-weight:700; font-size:0.6875rem; letter-spacing:var(--ls-caps); text-transform:uppercase;
+  color:var(--bw-ink); background:var(--bw-magenta-100); border:1.5px dashed var(--bw-magenta-700);
+}

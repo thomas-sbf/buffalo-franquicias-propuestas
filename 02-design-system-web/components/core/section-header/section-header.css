@@ -1,0 +1,19 @@
+/* SectionHeader — adaptado de components/core/SectionHeader.jsx.
+   Firma de marca: kicker script rotado + titular Mostin UC + bajada sobria (Montserrat).
+   Cambios v2: tamaño fluido, bajada opcional, colores por tema, kicker ≥ 24 px. */
+
+.bw-section-header{ display:flex; flex-direction:column; gap:var(--stack-sm); max-width:48rem; }
+.bw-section-header--center{ align-items:center; text-align:center; margin-inline:auto; }
+.bw-section-header--center .bw-kicker{ transform-origin:center; }
+.bw-section-header__eyebrow{ /* alternativa sobria al kicker script */ }
+.bw-section-header__title{
+  font-family:var(--font-display); font-weight:var(--fw-black);
+  font-size:var(--fs-h2); line-height:var(--lh-heading); letter-spacing:var(--ls-heading);
+  text-transform:uppercase; color:var(--heading); text-wrap:balance;
+}
+.bw-section-header__lead{
+  font-family:var(--font-body); font-weight:var(--fw-medium);
+  font-size:var(--fs-lead); line-height:1.5; color:var(--text-soft);
+  max-width:var(--measure-lead); text-wrap:pretty;
+}
+.bw-section-header--lg .bw-section-header__title{ font-size:var(--fs-h1); }

@@ -1,0 +1,20 @@
+/* Logo — adaptado de components/core/Logo.jsx. Arte maestro PNG, nunca recoloreado ni deformado.
+   Brandbook 2026 p.12: en web (header, footer) se usa el LOGOTIPO horizontal; el isologotipo
+   (badge) es el uso principal en redes y offline. Rotación permitida: hasta 45° antihorario.
+   Tamaño mínimo (p.11): isologo 3 cm / logotipo 5 cm ≈ 113 px / 189 px a 96 dpi. */
+
+.bw-logo{ display:inline-block; line-height:0; flex:none; }
+.bw-logo img{ display:block; height:auto; max-width:100%; }
+
+/* Logotipo horizontal: ancho fluido, nunca menos de 189 px (mín. brandbook) ni más del 60 % del viewport móvil */
+.bw-logo--wordmark img{ width:clamp(189px, 14vw + 120px, 300px); max-width:60vw; min-width:min(189px, 60vw); }
+.bw-logo--wordmark.bw-logo--sm img{ width:189px; }
+
+/* Isologotipo (badge circular) */
+.bw-logo--badge img{ width:var(--bw-logo-size, 120px); min-width:113px; }
+.bw-logo--rotate{ transform:rotate(-12deg); }   /* dentro del rango permitido (≤ 45° antihorario) */
+
+/* El PNG del logotipo NEGATIVO trae fondo negro sólido (no transparente).
+   Sobre ink/charcoal se integra con mix-blend-mode:screen (el negro desaparece y el blanco queda
+   blanco: no altera el arte). Usar SOLO sobre fondos oscuros. */
+.bw-logo--negativo img{ mix-blend-mode:screen; }

@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Eres Buffalo? · Saca tu carnet · La Crew (prototipo A4-2)</title>
+<meta name="description" content="Prototipo A4-2. Test ¿Eres Buffalo?: 6 preguntas y tus datos para postular a una franquicia Buffalo Waffles.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/marca.css?v=12">
+<link rel="stylesheet" href="css/zine.css?v=12">
+<link rel="icon" href="assets/logos/badge-positivo.png">
+<script>document.documentElement.classList.add('js');</script>
+<script src="js/carnet.js?v=12" defer></script>
+</head>
+<body>
+<a class="skip" href="#test-t">Saltar al test</a>
+<header class="z-hdr">
+  <div class="z-hdr__in">
+    <a class="z-marca" href="index.html" aria-label="La Crew: volver al fanzine">
+      <img src="assets/logos/badge-positivo.webp" width="480" height="474" alt="">
+      <b>La Crew</b>
+      <span>Postulación · Carnet de la crew</span>
+    </a>
+    <a class="q-volver" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Volver al fanzine</a>
+  </div>
+</header>
+
+<main class="q-main" id="contenido">
+  <div class="z-wrap">
+    <div class="q-intro">
+      <p class="dymo">Test · Postulación · 2 minutos</p>
+      <h1 class="z-h1">¿Eres Buffalo?</h1>
+      <p class="z-lead">Seis preguntas y tus datos. Con cada respuesta se arma tu carnet de postulación. No hay respuestas malas: nos sirve para saber cómo partir la conversación.</p>
+    </div>
+
+    <div class="q-grid">
+      <section class="q-panel" aria-labelledby="test-t">
+        <h2 class="bw-sr-only" id="test-t">Test ¿Eres Buffalo?</h2>
+        <div class="q-prog"><p id="q-cont">Pregunta 1 de 7</p><ol aria-hidden="true"><li class="is-actual"></li><li></li><li></li><li></li><li></li><li></li><li></li></ol></div>
+
+        <form id="test" novalidate data-maqueta>
+          <fieldset class="q-paso" data-q="1">
+            <legend tabindex="-1">¿Cómo te ves en tu Buffalo?<small>Las dos formas existen en la red.</small></legend>
+            <div class="q-opc q-opc--3">
+              <label class="q-op"><input type="radio" name="rol" value="En el mesón" data-stk="mano-rock" data-perfil="Operador/a de mesón"><img src="assets/stickers/mano-rock.webp" width="278" height="440" alt="" loading="lazy"><b>En el mesón</b><span>Lo opero yo, en el día a día.</span></label>
+              <label class="q-op"><input type="radio" name="rol" value="Detrás de los números" data-stk="ojo" data-perfil="Socio/a inversionista"><img src="assets/stickers/ojo.webp" width="440" height="320" alt="" loading="lazy"><b>Detrás de los números</b><span>Invierto y lo llevo con un administrador.</span></label>
+              <label class="q-op"><input type="radio" name="rol" value="Aún no lo sé" data-stk="exclamacion" data-perfil="Explorador/a"><img src="assets/stickers/exclamacion.webp" width="235" height="368" alt="" loading="lazy"><b>Aún no lo sé</b><span>Lo conversamos en la primera reunión.</span></label>
+            </div>
+            <p class="q-dato" data-dato hidden>En los dos casos, recomendamos seguir de cerca los indicadores del local.</p>
+          </fieldset>
+
+          <fieldset class="q-paso" data-q="2" hidden>
+            <legend tabindex="-1">¿Has tenido un negocio antes?</legend>
+            <div class="q-opc q-opc--3">
+              <label class="q-op"><input type="radio" name="experiencia" value="Sí, en gastronomía" data-stk="waffle-linea"><img src="assets/stickers/waffle-linea.webp" width="440" height="440" alt="" loading="lazy"><b>Sí, en gastronomía</b><span>Ya sé lo que es un mesón un sábado.</span></label>
+              <label class="q-op"><input type="radio" name="experiencia" value="Sí, en otro rubro" data-stk="mano-like"><img src="assets/stickers/mano-like.webp" width="387" height="353" alt="" loading="lazy"><b>Sí, en otro rubro</b><span>He gestionado un negocio o equipo.</span></label>
+              <label class="q-op"><input type="radio" name="experiencia" value="No, sería el primero" data-stk="estrella"><img src="assets/stickers/estrella.webp" width="263" height="251" alt="" loading="lazy"><b>No, sería el primero</b><span>Parto con esto.</span></label>
+            </div>
+            <p class="q-dato" data-dato hidden>No necesitas experiencia en gastronomía. Muchos franquiciados vienen de rubros completamente distintos.</p>
+          </fieldset>
+
+          <fieldset class="q-paso" data-q="3" hidden>
+            <legend tabindex="-1">Si la marca te pide seguir el estándar al pie de la letra…</legend>
+            <div class="q-opc q-opc--3">
+              <label class="q-op"><input type="radio" name="estandar" value="Lo sigo y mido todo" data-stk="bw-amarillo"><img src="assets/stickers/bw-amarillo.webp" width="440" height="333" alt="" loading="lazy"><b>Lo sigo y mido todo</b><span>Sistema es sistema.</span></label>
+              <label class="q-op"><input type="radio" name="estandar" value="Lo sigo y propongo mejoras" data-stk="mano-paz"><img src="assets/stickers/mano-paz.webp" width="263" height="440" alt="" loading="lazy"><b>Lo sigo y propongo</b><span>Cumplo, y si veo una mejora, la comparto.</span></label>
+              <label class="q-op"><input type="radio" name="estandar" value="Prefiero hacerlo a mi manera" data-stk="cuernos-amarillo" data-ojo><img src="assets/stickers/cuernos-amarillo.webp" width="440" height="430" alt="" loading="lazy"><b>A mi manera</b><span>Me gusta inventar mi propia receta.</span></label>
+            </div>
+            <p class="q-dato" data-dato hidden>Buscamos disposición para seguir los estándares operativos de la marca.</p>
+            <p class="q-dato q-dato--ojo" data-dato-ojo hidden>Ojo: en una franquicia se siguen los estándares operativos de la marca. Es parte del trato, y es lo que hace que un Buffalo se sienta igual en todo Chile. Igual puedes postular: lo conversamos.</p>
+          </fieldset>
+
+          <fieldset class="q-paso" data-q="4" hidden>
+            <legend tabindex="-1">¿Con cuánto capital cuentas para invertir?<small>La inversión total parte en $40.000.000, según formato y ubicación. <mark class="bw-pending">[Tramos propuestos, a confirmar]</mark></small></legend>
+            <div class="q-opc q-opc--2">
+              <label class="q-op"><input type="radio" name="capital" value="Menos de $40M" data-ojo><b>Menos de $40M</b><span>Postula igual y lo conversamos.</span></label>
+              <label class="q-op"><input type="radio" name="capital" value="$40M a $60M"><b>$40M a $60M</b></label>
+              <label class="q-op"><input type="radio" name="capital" value="$60M a $100M"><b>$60M a $100M</b></label>
+              <label class="q-op"><input type="radio" name="capital" value="Más de $100M"><b>Más de $100M</b></label>
+              <label class="q-op"><input type="radio" name="capital" value="Prefiero conversarlo"><b>Prefiero conversarlo</b></label>
+            </div>
+            <p class="q-dato" data-dato hidden>El detalle de la inversión por formato se entrega durante la evaluación.</p>
+            <p class="q-dato q-dato--ojo" data-dato-ojo hidden>La inversión total parte en $40.000.000. Postula igual: lo revisamos contigo. ¿Hay financiamiento? <mark class="bw-pending">[A confirmar con Buffalo]</mark></p>
+          </fieldset>
+
+          <fieldset class="q-paso" data-q="5" hidden>
+            <legend tabindex="-1">¿Cuándo te gustaría partir?</legend>
+            <div class="q-opc q-opc--2">
+              <label class="q-op"><input type="radio" name="plazo" value="Menos de 6 meses" data-stk="zapatilla"><img src="assets/stickers/zapatilla.webp" width="440" height="298" alt="" loading="lazy"><b>Menos de 6 meses</b><span>Con las zapatillas puestas.</span></label>
+              <label class="q-op"><input type="radio" name="plazo" value="6 meses a un año" data-stk="skate"><img src="assets/stickers/skate.webp" width="352" height="440" alt="" loading="lazy"><b>6 meses a un año</b><span>Rodando, sin apuro.</span></label>
+              <label class="q-op"><input type="radio" name="plazo" value="Más de un año" data-stk="banca"><img src="assets/stickers/banca.webp" width="440" height="427" alt="" loading="lazy"><b>Más de un año</b><span>Estoy mirando con calma.</span></label>
+              <label class="q-op"><input type="radio" name="plazo" value="No lo sé" data-stk="semaforo"><img src="assets/stickers/semaforo.webp" width="331" height="440" alt="" loading="lazy"><b>No lo sé</b><span>Esperando la luz verde.</span></label>
+            </div>
+            <p class="q-dato" data-dato hidden>Desde la firma hasta la apertura suelen pasar entre 2 y 4 meses.</p>
+          </fieldset>
+
+          <fieldset class="q-paso" data-q="6" hidden>
+            <legend tabindex="-1">¿Dónde te gustaría abrir?</legend>
+            <div class="fila fila--2">
+              <div class="campo"><label for="t-region">Región</label>
+                <select class="control" id="t-region" name="region" required aria-describedby="e-region">
+                  <option value="">Elige una región</option>
+                  <option value="XV">Arica y Parinacota</option><option value="I">Tarapacá</option><option value="II">Antofagasta</option>
+                  <option value="III">Atacama</option><option value="IV">Coquimbo</option><option value="V">Valparaíso</option>
+                  <option value="RM">Metropolitana de Santiago</option><option value="VI">O'Higgins</option><option value="VII">Maule</option>
+                  <option value="XVI">Ñuble</option><option value="VIII">Biobío</option><option value="IX">La Araucanía</option>
+                  <option value="XIV">Los Ríos</option><option value="X">Los Lagos</option><option value="XI">Aysén</option><option value="XII">Magallanes</option>
+                </select><p class="error" id="e-region">Elige una región.</p></div>
+              <div class="campo"><label for="t-comuna">Comuna o ciudad</label><input class="control" id="t-comuna" name="comuna" autocomplete="address-level2" required aria-describedby="e-comuna"><p class="error" id="e-comuna">Escribe la comuna o ciudad.</p></div>
+            </div>
+            <p class="q-dato" id="t-region-dato" hidden></p>
+          </fieldset>
+
+          <fieldset class="q-paso" data-q="7" hidden>
+            <legend tabindex="-1">Los datos de tu carnet<small>Solo para contactarte por tu postulación.</small></legend>
+            <div class="fila fila--2">
+              <div class="campo"><label for="t-nombre">Nombre</label><input class="control" id="t-nombre" name="firstname" autocomplete="given-name" required aria-describedby="e-nombre"><p class="error" id="e-nombre">Escribe tu nombre.</p></div>
+              <div class="campo"><label for="t-apellido">Apellido <span class="opt">(opcional)</span></label><input class="control" id="t-apellido" name="lastname" autocomplete="family-name"></div>
+            </div>
+            <div class="campo"><label for="t-correo">Correo</label><input class="control" id="t-correo" name="email" type="email" inputmode="email" autocomplete="email" required aria-describedby="e-correo"><p class="error" id="e-correo">Revisa el correo (ejemplo: nombre@gmail.com).</p></div>
+            <div class="campo"><label for="t-fono">WhatsApp o teléfono</label><input class="control" id="t-fono" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+56 9 1234 5678" required aria-describedby="e-fono"><p class="error" id="e-fono">Revisa el número: incluye el 9 y los 8 dígitos.</p></div>
+            <div class="legal">
+              <span class="legal__tag">Texto a validar por legal · Ley 21.719</span>
+              <div class="campo" id="c-consent">
+                <label class="check"><input type="checkbox" id="t-consent" name="consentimiento" required aria-describedby="e-consent"><span>Acepto que Buffalo Waffles trate mis datos para evaluar mi postulación y contactarme, según la Política de Privacidad <mark class="bw-pending">[pendiente de publicar]</mark>.</span></label>
+                <p class="error" id="e-consent">Necesitamos tu autorización para revisar tu postulación.</p>
+              </div>
+              <label class="check"><input type="checkbox" name="novedades"><span>Quiero recibir novedades de la red de franquicias (opcional).</span></label>
+              <p class="z-note">Responsable de los datos: <mark class="bw-pending">[razón social y RUT]</mark>. Para ejercer tus derechos: <mark class="bw-pending">[canal a definir]</mark>. Los datos se comparten con <mark class="bw-pending">[HubSpot / Pipedrive / WhatsApp: confirmar]</mark>.</p>
+            </div>
+          </fieldset>
+
+          <div class="q-nav">
+            <button class="q-atras" type="button" id="q-atras" hidden>Atrás</button>
+            <span></span>
+            <button class="zbtn" type="button" id="q-sig" disabled>Siguiente</button>
+            <button class="zbtn" type="submit" id="q-emitir" hidden>Emitir mi carnet</button>
+          </div>
+          <p class="z-note" style="margin-top:12px">Maqueta: este formulario no envía datos.</p>
+        </form>
+
+        <div class="q-gracias" id="gracias" hidden tabindex="-1">
+          <p class="q-perfil" id="g-perfil">Perfil</p>
+          <h2 id="g-titulo">¡Buena! Tu carnet quedó en revisión.</h2>
+          <p>Esto no es una aprobación: es tu postulación. Un ejecutivo de franquicias revisará tu perfil y te contactará en <mark class="bw-pending">[X horas hábiles]</mark>. ¿Quieres adelantar? Elige tu reunión inicial.</p>
+          <ul id="g-conversar" class="z-note" style="display:grid;gap:4px"></ul>
+          <div class="q-gracias__acc">
+            <a class="zbtn" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles" target="_blank" rel="noopener">Elige tu reunión inicial<span class="bw-sr-only"> (se abre en una pestaña nueva)</span></a>
+            <a class="zbtn zbtn--papel" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F" target="_blank" rel="noopener">Escríbenos por WhatsApp<span class="bw-sr-only"> (se abre en una pestaña nueva)</span></a>
+          </div>
+          <button class="zbtn zbtn--sm zbtn--papel" type="button" id="g-voltear" aria-pressed="false">Dar vuelta tu carnet</button>
+          <a class="zlink" href="index.html#carnet">Ver los 7 timbres del proceso en el fanzine</a>
+        </div>
+      </section>
+
+      <aside class="q-carnet" aria-labelledby="vivo-t">
+        <h2 class="bw-sr-only" id="vivo-t">Tu carnet</h2>
+        <div class="vivo" id="vivo">
+          <div class="vivo__in">
+            <div class="carnet carnet--frente" id="carnet-frente">
+              <div class="carnet__band"><span>Crew Buffalo · Carnet de postulación</span><img src="assets/logos/badge-negativo.webp" width="480" height="480" alt="" loading="lazy"></div>
+              <div class="carnet__cuerpo">
+                <div class="carnet__foto">Tu foto</div>
+                <dl>
+                  <div><dt>Nombre</dt><dd class="vacio" data-c="nombre">—</dd></div>
+                  <div><dt>Perfil</dt><dd class="vacio" data-c="rol">—</dd></div>
+                  <div><dt>Negocio</dt><dd class="vacio" data-c="experiencia">—</dd></div>
+                  <div><dt>Estándar</dt><dd class="vacio" data-c="estandar">—</dd></div>
+                  <div><dt>Capital</dt><dd class="vacio" data-c="capital">—</dd></div>
+                  <div><dt>Partida</dt><dd class="vacio" data-c="plazo">—</dd></div>
+                  <div><dt>Región</dt><dd class="vacio" data-c="region">—</dd></div>
+                </dl>
+              </div>
+              <div class="zona-stickers" id="zona" aria-hidden="true"><small>Tus stickers se pegan aquí</small></div>
+            </div>
+            <div class="carnet carnet--dorso" aria-hidden="true">
+              <div class="carnet__band"><span>Dorso · 7 timbres</span><img src="assets/logos/badge-negativo.webp" width="480" height="480" alt="" loading="lazy"></div>
+              <div class="dorso-carnet">
+                <h3>Tu camino en la crew</h3>
+                <ol>
+                  <li class="ok"><span>1</span>Postulaste</li><li><span>2</span>Reunión de presentación</li><li><span>3</span>Evaluación</li>
+                  <li><span>4</span>Búsqueda y aprobación del local</li><li><span>5</span>Firma de contratos</li><li><span>6</span>Capacitación y habilitación</li><li><span>7</span>Apertura</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="z-foot on-dark">
+  <div class="z-wrap">
+    <div class="z-foot__grid">
+      <div><img class="z-foot__logo" src="assets/logos/wordmark-negativo.png" width="1000" height="176" alt="Buffalo Waffles" loading="lazy"><p>La Crew · Fanzine de franquicias de Buffalo Waffles.</p></div>
+      <div><h2>Contacto</h2><ul><li><a href="mailto:franquicias@buffalowaffles.com">franquicias@<wbr>buffalowaffles.com</a></li><li><a href="tel:+56933758164">+56 9 3375 8164</a> (número oficial)</li></ul></div>
+      <div><h2>¿Prefieres hablar antes?</h2><ul><li><a href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles" target="_blank" rel="noopener">Agenda una reunión inicial</a></li><li><a href="index.html">Vuelve al fanzine</a></li></ul></div>
+    </div>
+    <p class="z-foot__legal">© Buffalo Waffles. <mark class="bw-pending">[Razón social, RUT y política de privacidad]</mark> · Prototipo A4-2: el formulario no envía datos.</p>
+  </div>
+</footer>
+
+<div class="z-barra" role="region" aria-label="Acciones rápidas">
+  <a class="zbtn" href="#test-t">Postula</a>
+  <a class="zbtn zbtn--papel" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/></svg>WhatsApp<span class="bw-sr-only"> (se abre en una pestaña nueva)</span></a>
+</div>
+</body>
+</html>

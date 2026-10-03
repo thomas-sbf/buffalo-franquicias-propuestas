@@ -1,0 +1,27 @@
+/* SupportGrid — soporte y capacitación por etapa (antes · apertura · después), con roles reales
+   (KAM: 1 consultor por máximo 10 franquiciados). Responde "¿voy a estar solo?".
+   Tema sugerido: .bw-block-teal ("soporte / respaldo", tendencias-web.md §5). */
+
+.bw-support{ display:grid; gap:var(--grid-gap); grid-template-columns:repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.bw-support__stage{
+  display:flex; flex-direction:column; gap:14px;
+  background:var(--surface-raised); color:var(--bw-ink);
+  border:var(--border-bold) solid var(--bw-ink); border-radius:var(--radius-lg);
+  padding:clamp(1.25rem, 1rem + 1vw, 2rem);
+  --text:var(--bw-ink); --text-soft:var(--bw-ink-soft); --text-muted:var(--bw-muted); --heading:var(--bw-ink); --border-soft:rgba(25,20,16,.14);
+}
+.bw-support__when{ align-self:flex-start; }
+.bw-support__title{ font-family:var(--font-display); font-weight:900; font-size:var(--fs-h3); line-height:1; text-transform:uppercase; color:var(--heading); }
+.bw-support__list{ display:grid; gap:10px; }
+.bw-support__list li{ display:grid; grid-template-columns:22px 1fr; gap:10px; font-size:var(--fs-sm); line-height:1.5; color:var(--text-soft); }
+.bw-support__list svg{ width:20px; height:20px; color:var(--bw-teal-700); margin-top:1px; }
+
+/* Destacado del KAM */
+.bw-support__kam{
+  display:grid; gap:var(--stack-md); align-items:center;
+  border:var(--border-bold) dashed var(--border); border-radius:var(--radius-lg);
+  padding:clamp(1.25rem, 1rem + 1vw, 2rem);
+}
+@media (min-width:768px){ .bw-support__kam{ grid-template-columns:auto 1fr; } }
+.bw-support__kam-figure{ font-family:var(--font-display); font-weight:900; font-size:var(--fs-stat); line-height:.9; color:var(--stat); white-space:nowrap; }
+.bw-support__kam-text{ font-size:var(--fs-lead); line-height:1.45; color:var(--text); max-width:52ch; }

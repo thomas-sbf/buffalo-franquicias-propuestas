@@ -1,0 +1,32 @@
+/* Requisitos — "Esto no es para todos". Mantiene el tono actual (A1: "ya tiene el tono justo")
+   y agrega lo que falta: requisitos MEDIBLES (capa de datos), "lo que buscamos / lo que no"
+   y la tabla de costos publicada. Autoselección = menos leads basura. */
+
+.bw-reqs{ display:grid; gap:var(--stack-xl); }
+.bw-reqs__top{ display:grid; gap:var(--stack-lg); align-items:start; }
+@media (min-width:1024px){ .bw-reqs__top{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:var(--grid-gap); } }
+.bw-reqs__manifesto{ display:flex; flex-direction:column; gap:var(--stack-sm); }
+.bw-reqs__manifesto p{ font-size:var(--fs-lead); line-height:1.5; font-weight:500; color:var(--text-soft); max-width:46ch; }
+.bw-reqs__manifesto .bw-reqs__punch{ font-family:var(--font-display); font-weight:900; text-transform:uppercase; font-size:var(--fs-h4); line-height:1.15; color:var(--heading); }
+
+/* Tarjetas de requisito con cifra grande (patrón Grido: 3 requisitos visibles) */
+.bw-req-cards{ display:grid; gap:var(--grid-gap-sm); grid-template-columns:repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+.bw-req{
+  display:flex; flex-direction:column; gap:6px;
+  background:var(--surface-raised); border:var(--border-bold) solid var(--border); border-radius:var(--radius-lg);
+  padding:20px;
+}
+.bw-req__value{ font-family:var(--font-display); font-weight:900; font-size:var(--fs-h3); line-height:1; color:var(--text); font-variant-numeric:tabular-nums; }
+.bw-req__label{ font-size:var(--fs-sm); font-weight:600; color:var(--text); }
+.bw-req__note{ font-size:var(--fs-xs); color:var(--text-muted); line-height:1.45; }
+
+/* Buscamos / No buscamos */
+.bw-fit{ display:grid; gap:var(--grid-gap-sm); }
+@media (min-width:768px){ .bw-fit{ grid-template-columns:1fr 1fr; } }
+.bw-fit__col{ border-radius:var(--radius-lg); padding:clamp(1.25rem, 1rem + 1vw, 2rem); border:var(--border-bold) solid var(--border); background:var(--surface-raised); }
+.bw-fit__col--yes{ background:var(--bw-teal-100); --text:var(--bw-ink); }
+.bw-fit__col--no{ background:var(--bw-magenta-100); --text:var(--bw-ink); }
+.bw-fit__title{ font-family:var(--font-display); font-weight:900; text-transform:uppercase; font-size:var(--fs-h4); color:var(--bw-ink); margin-bottom:12px; }
+.bw-fit__list{ display:grid; gap:10px; }
+.bw-fit__list li{ display:grid; grid-template-columns:24px 1fr; gap:10px; font-size:var(--fs-body); line-height:1.45; color:var(--bw-ink); }
+.bw-fit__list svg{ width:22px; height:22px; margin-top:1px; }

@@ -1,0 +1,22 @@
+/* Sticky CTA móvil — barra inferior fija (< 768 px) con 2 acciones: WhatsApp + Agendar.
+   Zona del pulgar (Sweet Paris, Sunbeam). Opaca, con safe-area de iOS. Se oculta en escritorio
+   (ahí el CTA vive en el header sticky). Mejora opcional con JS: aparece al pasar el hero.
+   Para que no tape el footer, agrega .bw-has-sticky-cta al <body>. */
+
+.bw-sticky-cta{
+  position:fixed; left:0; right:0; bottom:0; z-index:90;
+  display:grid; grid-template-columns:1fr 1fr; gap:10px;
+  padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));
+  background:var(--surface); color:var(--text);
+  border-top:var(--border-bold) solid var(--border);
+  box-shadow:0 -6px 18px rgba(var(--shadow-rgb, 61,32,18),.16);
+  transition:transform var(--dur-slow) var(--ease-out);
+}
+.bw-sticky-cta .bw-btn{ min-height:52px; padding-inline:12px; font-size:var(--fs-btn-sm); }
+.bw-sticky-cta.is-hidden{ transform:translateY(110%); }
+.bw-sticky-cta--3{ grid-template-columns:1fr 1fr 1fr; }   /* variante: Postula + WhatsApp + Agendar (solo ≥ 400 px) */
+@media (min-width:768px){ .bw-sticky-cta{ display:none; } }
+@media (max-width:767px){ .bw-has-sticky-cta{ padding-bottom:calc(var(--sticky-cta-h) + env(safe-area-inset-bottom, 0px)); } }
+
+/* Demo dentro de una card: la barra se muestra en flujo, no fija */
+.bw-sticky-cta--static{ position:static; display:grid; border:var(--border-bold) solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); }

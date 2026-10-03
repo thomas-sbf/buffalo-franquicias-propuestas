@@ -1,0 +1,291 @@
+/* Buffalo Waffles DS web v2 — tokens semánticos y temas de sección
+   Capa 2 de 2. Los componentes SOLO usan estas variables. Cambiar de tema = poner una clase
+   en la <section>; todo lo de adentro (texto, links, botones, foco, bordes) se ajusta solo.
+
+   Temas (de 01-research/tendencias-web.md §4.3):
+   - .bw-theme-crema   "Crema & Kraft" (Propuesta 1). Tema por defecto (:root).
+   - .bw-theme-papel   Variante clara para lectura larga (FAQ, blog) y alternar secciones.
+   - .bw-theme-blanco  Capa de datos: tablas, formulario, requisitos (máxima legibilidad).
+   - .bw-theme-noche   "Noche streetwear" (Propuesta 3). 1–2 secciones de alto impacto, no todo el sitio.
+   Bloques de color (Propuesta 2, "Bloques de sabor") — color como navegación por capítulo:
+   - .bw-block-oro · .bw-block-magenta · .bw-block-teal
+   Isla clara dentro de una sección oscura (para cifras con nota, tablas o formularios):
+   - .bw-island
+
+   Cada par texto/fondo está calculado (WCAG 2.x, luminancia relativa). Ratios en comentario.
+   AA = 4,5:1 texto normal · 3:1 texto grande (≥ 24 px o ≥ 18,66 px bold) y componentes UI. */
+
+:root,
+.bw-theme-crema{
+  color-scheme:light;
+  --surface:var(--bw-cream);            /* fondo de sección */
+  --surface-alt:var(--bw-paper);        /* sección alterna */
+  --surface-raised:var(--bw-white);     /* tarjetas de datos, formulario */
+  --surface-sunken:var(--bw-cream-deep);/* chips, pozos, filas alternas */
+
+  --text:var(--bw-ink);                 /* ink/crema 14,94 · ink/blanco 18,28 · ink/crema-deep 13,20 */
+  --text-soft:var(--bw-ink-soft);       /* 10,62 crema · 13,00 blanco · 9,39 crema-deep */
+  --text-muted:var(--bw-muted);         /* 5,84 crema · 7,15 blanco · 5,16 crema-deep */
+  --heading:var(--bw-ink);
+  --kicker:var(--bw-magenta-700);       /* script/kicker · 5,17 crema · 4,57 crema-deep */
+
+  --accent:var(--bw-gold);              /* RELLENO decorativo (highlight, sticker, barra). Nunca texto */
+  --accent-contrast:var(--bw-ink);      /* texto sobre --accent · 10,08 */
+  --accent-2:var(--bw-magenta);         /* relleno secundario (badges, subrayados) */
+  --accent-2-contrast:var(--bw-ink);    /* texto sobre --accent-2 · 4,95 */
+  --accent-text:var(--bw-magenta-700);  /* cuando el acento ES texto · 5,17 crema */
+
+  --stat:var(--bw-ink);                 /* cifras KPI */
+  --stat-mark:var(--bw-magenta-700);    /* superíndice de nota ¹ */
+
+  --link:var(--bw-magenta-700);         /* 5,17 crema · 6,32 blanco · 4,57 crema-deep */
+  --link-hover:var(--bw-ink);
+
+  --border:var(--bw-ink);               /* contorno sticker (2–3 px) */
+  --border-soft:rgba(25,20,16,.14);     /* separadores decorativos (no portan información) */
+  --border-control:var(--bw-control-line);/* inputs · 4,68 blanco · 3,83 crema */
+
+  --cta-bg:var(--bw-gold);              /* CTA principal: oro + texto ink (10,08) + borde ink (14,94 vs crema) */
+  --cta-fg:var(--bw-ink);
+  --cta-border:var(--bw-ink);
+  --cta-bg-hover:var(--bw-gold-soft);   /* ink/gold-soft 11,71 */
+  --cta2-bg:var(--bw-ink);              /* CTA secundario: ink + texto crema (14,94) */
+  --cta2-fg:var(--bw-cream);
+  --cta2-border:var(--bw-ink);
+  --cta2-bg-hover:var(--bw-ink-soft);   /* crema/ink-soft 10,62 */
+  --ghost-fg:var(--bw-ink);
+  --ghost-border:var(--bw-ink);
+  --ghost-bg-hover:rgba(25,20,16,.06);
+
+  --pop:var(--bw-ink);                  /* color de la sombra dura "sticker" */
+  --focus-ring:var(--bw-ink);           /* anillo de foco · 14,94 vs crema */
+
+  --success:var(--bw-teal-700);
+  --danger:var(--bw-strawberry-700);
+  --warning:var(--bw-gold-700);
+
+  --selection-bg:var(--bw-gold);
+  --selection-fg:var(--bw-ink);
+  --scrim:rgba(25,20,16,.62);
+  --shadow-rgb:61,32,18;                /* sombras cálidas, nunca gris neutro */
+}
+
+.bw-theme-papel{
+  --surface:var(--bw-paper);            /* ink/papel 16,70 */
+  --surface-alt:var(--bw-cream);
+  --link:var(--bw-magenta-700);         /* 5,78 papel */
+}
+
+.bw-theme-blanco{
+  --surface:var(--bw-white);
+  --surface-alt:var(--bw-paper);
+  --surface-raised:var(--bw-paper);
+  --surface-sunken:var(--bw-cream);
+}
+
+.bw-theme-noche{
+  color-scheme:dark;
+  --surface:var(--bw-ink);
+  --surface-alt:var(--bw-charcoal);
+  --surface-raised:var(--bw-charcoal);
+  --surface-sunken:#110d0a;
+
+  --text:var(--bw-cream);               /* crema/ink 14,94 · crema/charcoal 13,58 */
+  --text-soft:var(--bw-cream);
+  --text-muted:var(--bw-cream-muted);   /* 7,78 ink · 7,07 charcoal */
+  --heading:var(--bw-cream);
+  --kicker:var(--bw-gold);              /* 10,08 ink · 9,16 charcoal */
+
+  --accent:var(--bw-gold);
+  --accent-contrast:var(--bw-ink);
+  --accent-2:var(--bw-magenta);
+  --accent-2-contrast:var(--bw-ink);
+  --accent-text:var(--bw-gold);
+
+  --stat:var(--bw-gold);                /* cifras gigantes en oro · 10,08 */
+  --stat-mark:var(--bw-magenta-300);    /* 7,03 ink */
+
+  --link:var(--bw-gold);
+  --link-hover:var(--bw-cream);
+
+  --border:var(--bw-cream);
+  --border-soft:rgba(246,231,198,.18);
+  --border-control:var(--bw-cream-muted);
+
+  --cta-bg:var(--bw-gold);
+  --cta-fg:var(--bw-ink);
+  --cta-border:var(--bw-gold);          /* el borde ink desaparecería sobre ink: el límite lo da el oro (10,08) */
+  --cta-bg-hover:var(--bw-gold-soft);
+  --cta2-bg:var(--bw-cream);            /* ink/crema 14,94 */
+  --cta2-fg:var(--bw-ink);
+  --cta2-border:var(--bw-cream);
+  --cta2-bg-hover:var(--bw-white);
+  --ghost-fg:var(--bw-cream);
+  --ghost-border:var(--bw-cream);
+  --ghost-bg-hover:rgba(246,231,198,.10);
+
+  --pop:var(--bw-cream);                /* borde blanco de sticker troquelado */
+  --focus-ring:var(--bw-gold);          /* 10,08 vs ink */
+
+  --success:var(--bw-teal-soft);        /* 5,24 ink */
+  --danger:var(--bw-strawberry-300);    /* 8,28 ink */
+  --warning:var(--bw-gold);
+
+  --scrim:rgba(0,0,0,.6);
+  --shadow-rgb:0,0,0;
+}
+
+/* ---------- Bloques de color (capítulos) ---------- */
+
+.bw-block-oro{
+  color-scheme:light;
+  --surface:var(--bw-gold);
+  --surface-alt:var(--bw-gold-soft);
+  --surface-raised:var(--bw-white);
+  --surface-sunken:var(--bw-gold-100);
+  --text:var(--bw-ink);                 /* 10,08 */
+  --text-soft:var(--bw-ink);
+  --text-muted:var(--bw-ink-soft);      /* 7,17 */
+  --heading:var(--bw-ink);
+  --kicker:var(--bw-ink);
+  --accent:var(--bw-ink);
+  --accent-contrast:var(--bw-gold);
+  --accent-text:var(--bw-ink);
+  --stat:var(--bw-ink);
+  --stat-mark:var(--bw-ink);
+  --link:var(--bw-ink);
+  --link-hover:var(--bw-ink-soft);
+  --border:var(--bw-ink);
+  --border-soft:rgba(25,20,16,.22);
+  --cta-bg:var(--bw-ink);               /* sobre oro el CTA se invierte: ink + crema (14,94) */
+  --cta-fg:var(--bw-cream);
+  --cta-border:var(--bw-ink);
+  --cta-bg-hover:var(--bw-ink-soft);
+  --cta2-bg:var(--bw-cream);
+  --cta2-fg:var(--bw-ink);
+  --cta2-border:var(--bw-ink);
+  --cta2-bg-hover:var(--bw-white);
+  --ghost-fg:var(--bw-ink);
+  --ghost-border:var(--bw-ink);
+  --pop:var(--bw-ink);
+  --focus-ring:var(--bw-ink);           /* 10,08 */
+}
+
+.bw-block-magenta{
+  color-scheme:light;
+  --surface:var(--bw-magenta);
+  --surface-alt:var(--bw-magenta-soft);
+  --surface-raised:var(--bw-white);
+  --surface-sunken:var(--bw-magenta-100);
+  --text:var(--bw-ink);                 /* 4,95 — AA. Texto blanco SOLO en titulares ≥ 24 px (3,70) */
+  --text-soft:var(--bw-ink);
+  --text-muted:var(--bw-ink);           /* sin gris: cualquier atenuación cae bajo 4,5 */
+  --heading:var(--bw-ink);
+  --kicker:var(--bw-ink);
+  --accent:var(--bw-ink);
+  --accent-contrast:var(--bw-magenta);
+  --accent-text:var(--bw-ink);
+  --stat:var(--bw-ink);
+  --stat-mark:var(--bw-ink);
+  --link:var(--bw-ink);
+  --link-hover:var(--bw-ink);
+  --border:var(--bw-ink);
+  --border-soft:rgba(25,20,16,.28);
+  --cta-bg:var(--bw-ink);               /* nunca oro sobre magenta (2,04:1) */
+  --cta-fg:var(--bw-cream);
+  --cta-border:var(--bw-ink);
+  --cta-bg-hover:var(--bw-ink-soft);
+  --cta2-bg:var(--bw-cream);
+  --cta2-fg:var(--bw-ink);
+  --cta2-border:var(--bw-ink);
+  --cta2-bg-hover:var(--bw-white);
+  --ghost-fg:var(--bw-ink);
+  --ghost-border:var(--bw-ink);
+  --pop:var(--bw-ink);
+  --focus-ring:var(--bw-ink);           /* 4,95 */
+}
+
+.bw-block-teal{
+  color-scheme:dark;
+  --surface:var(--bw-teal);
+  --surface-alt:#1a5f5b;
+  --surface-raised:var(--bw-white);
+  --surface-sunken:#1a5f5b;
+  --text:var(--bw-cream);               /* 4,91 */
+  --text-soft:var(--bw-cream);
+  --text-muted:var(--bw-cream);         /* sin atenuación: 4,91 ya está cerca del mínimo */
+  --heading:var(--bw-white);            /* 6,01 */
+  --kicker:var(--bw-cream);             /* el oro sobre teal da 3,31: solo texto grande */
+  --accent:var(--bw-gold);
+  --accent-contrast:var(--bw-ink);
+  --accent-text:var(--bw-white);
+  --stat:var(--bw-white);
+  --stat-mark:var(--bw-cream);
+  --link:var(--bw-white);
+  --link-hover:var(--bw-cream);
+  --border:var(--bw-cream);
+  --border-soft:rgba(246,231,198,.28);
+  --cta-bg:var(--bw-gold);              /* oro/teal 3,31 (límite UI ≥ 3) + borde ink + texto ink 10,08 */
+  --cta-fg:var(--bw-ink);
+  --cta-border:var(--bw-ink);
+  --cta-bg-hover:var(--bw-gold-soft);
+  --cta2-bg:var(--bw-cream);
+  --cta2-fg:var(--bw-ink);
+  --cta2-border:var(--bw-cream);
+  --cta2-bg-hover:var(--bw-white);
+  --ghost-fg:var(--bw-cream);
+  --ghost-border:var(--bw-cream);
+  --ghost-bg-hover:rgba(246,231,198,.12);
+  --pop:var(--bw-ink);
+  --focus-ring:var(--bw-cream);         /* 4,91 */
+}
+
+/* Isla clara: devuelve los tokens del tema crema dentro de una sección oscura o de color.
+   Úsala para tablas, cifras con nota al pie extensa, requisitos y formularios. */
+.bw-island{
+  color-scheme:light;
+  --surface:var(--bw-white);
+  --surface-alt:var(--bw-paper);
+  --surface-raised:var(--bw-paper);
+  --surface-sunken:var(--bw-cream);
+  --text:var(--bw-ink);
+  --text-soft:var(--bw-ink-soft);
+  --text-muted:var(--bw-muted);
+  --heading:var(--bw-ink);
+  --kicker:var(--bw-magenta-700);
+  --accent:var(--bw-gold);
+  --accent-contrast:var(--bw-ink);
+  --accent-2:var(--bw-magenta);
+  --accent-2-contrast:var(--bw-ink);
+  --accent-text:var(--bw-magenta-700);
+  --stat:var(--bw-ink);
+  --stat-mark:var(--bw-magenta-700);
+  --link:var(--bw-magenta-700);
+  --link-hover:var(--bw-ink);
+  --border:var(--bw-ink);
+  --border-soft:rgba(25,20,16,.14);
+  --border-control:var(--bw-control-line);
+  --cta-bg:var(--bw-gold);
+  --cta-fg:var(--bw-ink);
+  --cta-border:var(--bw-ink);
+  --cta-bg-hover:var(--bw-gold-soft);
+  --cta2-bg:var(--bw-ink);
+  --cta2-fg:var(--bw-cream);
+  --cta2-border:var(--bw-ink);
+  --cta2-bg-hover:var(--bw-ink-soft);
+  --ghost-fg:var(--bw-ink);
+  --ghost-border:var(--bw-ink);
+  --ghost-bg-hover:rgba(25,20,16,.06);
+  --pop:var(--bw-ink);
+  --focus-ring:var(--bw-ink);
+  --success:var(--bw-teal-700);
+  --danger:var(--bw-strawberry-700);
+  --warning:var(--bw-gold-700);
+  --shadow-rgb:61,32,18;
+}
+
+/* Aplicar el tema: cualquier elemento con clase de tema pinta su fondo y su texto. */
+:is(.bw-theme-crema,.bw-theme-papel,.bw-theme-blanco,.bw-theme-noche,.bw-block-oro,.bw-block-magenta,.bw-block-teal,.bw-island){
+  background-color:var(--surface);
+  color:var(--text);
+}

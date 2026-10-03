@@ -1,0 +1,84 @@
+/* Buffalo Waffles DS web v2 — base: reset mínimo, elementos y foco accesible */
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  scroll-padding-top:calc(var(--header-h) + 16px);  /* anclas no quedan bajo el header sticky */
+}
+@media (prefers-reduced-motion:no-preference){
+  html:focus-within{ scroll-behavior:smooth; }
+}
+
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-size:var(--fs-body);
+  line-height:var(--lh-body);
+  color:var(--text);
+  background-color:var(--surface);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  min-height:100vh;
+}
+
+h1,h2,h3,h4,h5,h6,p,figure,blockquote,dl,dd,ol,ul{ margin:0; }
+ol[class],ul[class]{ padding:0; list-style:none; }
+img,picture,svg,video,canvas{ display:block; max-width:100%; }
+[hidden]{ display:none !important; }   /* que ningún display de componente reviva un elemento oculto */
+img,video{ height:auto; }
+input,button,textarea,select{ font:inherit; color:inherit; }
+button{ cursor:pointer; }
+table{ border-collapse:collapse; }
+p,li,dd,figcaption,blockquote{ overflow-wrap:break-word; }
+
+a{
+  color:var(--link);
+  text-decoration-line:underline;
+  text-decoration-thickness:0.08em;
+  text-underline-offset:0.18em;
+  transition:color var(--dur-fast) var(--ease-standard);
+}
+a:hover{ color:var(--link-hover); }
+
+::selection{ background:var(--selection-bg, #f5b60e); color:var(--selection-fg, #191410); }
+
+/* ---------- Foco visible: OBLIGATORIO en todo elemento interactivo ---------- */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus{ outline:none; }
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:var(--focus-ring-width) solid var(--focus-ring);
+  outline-offset:var(--focus-ring-offset);
+}
+/* Contenedores que reciben foco por script (títulos de paso, pantalla de gracias): sin anillo */
+[tabindex="-1"]:focus-visible{ outline:none; }
+/* Inputs: el foco va pegado al control (offset 1px) para no chocar con el label */
+:where(input,select,textarea):focus-visible{ outline-offset:1px; }
+
+/* ---------- Accesibilidad ---------- */
+.bw-sr-only{
+  position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+.bw-skip-link{
+  position:absolute; left:var(--gutter); top:-100px; z-index:1000;
+  padding:12px 18px; border-radius:var(--radius-pill);
+  background:var(--bw-gold); color:var(--bw-ink); border:var(--border-bold) solid var(--bw-ink);
+  font-family:var(--font-display); font-weight:700; text-transform:uppercase; letter-spacing:var(--ls-caps);
+  text-decoration:none;
+}
+.bw-skip-link:focus{ top:12px; }
+
+/* ---------- Marca de contenido pendiente (solo prototipos) ----------
+   Envuelve con <mark class="bw-pending">…</mark> todo dato que falta validar con el cliente.
+   Debe desaparecer antes de publicar. */
+.bw-pending{
+  background:repeating-linear-gradient(-45deg, rgba(231,70,145,.16) 0 6px, rgba(231,70,145,.06) 6px 12px);
+  color:inherit;
+  outline:1.5px dashed var(--bw-magenta-700);
+  outline-offset:1px;
+  border-radius:3px;
+  padding:0 .2em;
+}
+.bw-theme-noche .bw-pending,.bw-block-teal .bw-pending{ outline-color:var(--bw-magenta-300); }

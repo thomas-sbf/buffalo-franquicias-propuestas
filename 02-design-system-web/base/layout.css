@@ -1,0 +1,121 @@
+/* Buffalo Waffles DS web v2 — layout: contenedores, secciones, grillas y capa de datos */
+
+/* ---------- Contenedores ---------- */
+.bw-container{
+  width:min(var(--container-max), 100% - 2 * var(--gutter));
+  margin-inline:auto;
+}
+.bw-container--wide{ width:min(var(--container-wide), 100% - 2 * var(--gutter)); }
+.bw-container--narrow{ width:min(var(--container-narrow), 100% - 2 * var(--gutter)); }
+.bw-container--text{ width:min(var(--container-text), 100% - 2 * var(--gutter)); }
+
+/* ---------- Secciones ----------
+   Una <section class="bw-section bw-theme-…"> por capítulo de la landing. */
+.bw-section{ position:relative; padding-block:var(--section-y); }
+.bw-section--sm{ padding-block:var(--section-y-sm); }
+.bw-section--lg{ padding-block:var(--section-y-lg); }
+.bw-section--flush-top{ padding-top:0; }
+.bw-section--flush-bottom{ padding-bottom:0; }
+.bw-section > .bw-container > * + *{ margin-top:var(--stack-lg); }
+
+/* ---------- Grillas ---------- */
+.bw-grid{
+  display:grid;
+  grid-template-columns:repeat(var(--grid-cols), minmax(0,1fr));
+  gap:var(--grid-gap);
+}
+/* Auto-grid: tarjetas que se reacomodan solas. Ajusta --bw-min por instancia. */
+.bw-auto-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, var(--bw-min, 16rem)), 1fr));
+  gap:var(--grid-gap);
+}
+.bw-stack{ display:flex; flex-direction:column; gap:var(--bw-gap, var(--stack-md)); }
+.bw-cluster{ display:flex; flex-wrap:wrap; align-items:center; gap:var(--bw-gap, var(--stack-sm)); }
+
+/* Split 50/50 desde 1024 px (texto + media). En móvil apila; el media va después del texto. */
+.bw-split{ display:grid; gap:var(--stack-xl); align-items:center; }
+@media (min-width:1024px){
+  .bw-split{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .bw-split--60-40{ grid-template-columns:minmax(0,3fr) minmax(0,2fr); }
+  .bw-split--40-60{ grid-template-columns:minmax(0,2fr) minmax(0,3fr); }
+}
+
+/* ---------- Tarjeta genérica ---------- */
+.bw-card{
+  background:var(--surface-raised);
+  color:var(--text);
+  border:var(--border-bold) solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:clamp(1.25rem, 1rem + 1vw, 2rem);
+}
+.bw-card--soft{ border-color:var(--border-soft); box-shadow:var(--shadow-md); }
+.bw-card--pop{ box-shadow:var(--shadow-pop); }
+
+/* ---------- Divisor de papel rasgado (textura de marca, 0 KB de JS) ----------
+   Usa los PNG de assets/texturas como MÁSCARA (solo importa su alfa).
+   .bw-torn        → al FINAL de la sección A, pintado con el color de la sección B (B "muerde" a A).
+   .bw-torn--top   → al INICIO de la sección B, pintado con el color de la sección A (A "gotea" en B).
+   Color: --bw-torn-color (por defecto, el --surface del contenedor). */
+.bw-torn{
+  display:block; width:100%; height:clamp(28px, 4vw, 56px);
+  background:var(--bw-torn-color, var(--surface));
+  -webkit-mask:url('../assets/texturas/torn-edge-bottom.png') center bottom / 100% 100% no-repeat;
+          mask:url('../assets/texturas/torn-edge-bottom.png') center bottom / 100% 100% no-repeat;
+  margin-top:-1px;
+}
+.bw-torn--top{
+  -webkit-mask-image:url('../assets/texturas/torn-edge-top.png');
+          mask-image:url('../assets/texturas/torn-edge-top.png');
+}
+
+/* =========================================================================
+   CAPA DE DATOS — cifras, tablas, requisitos, notas. Sobria: Montserrat, fondos planos,
+   sin stickers ni mascota encima. Siempre sobre superficie clara o .bw-island.
+   ========================================================================= */
+.bw-data-table{
+  width:100%;
+  font-family:var(--font-body);
+  font-size:var(--fs-sm);
+  line-height:var(--lh-normal);
+  color:var(--text);
+  font-variant-numeric:tabular-nums lining-nums;
+}
+.bw-data-table caption{
+  text-align:left; padding-bottom:var(--space-3);
+  font-family:var(--font-display); font-weight:700; text-transform:uppercase; letter-spacing:var(--ls-caps);
+  font-size:var(--fs-sm); color:var(--text);
+}
+.bw-data-table th,.bw-data-table td{ text-align:left; padding:14px 12px; border-bottom:1px solid var(--border-soft); vertical-align:top; }
+.bw-data-table thead th{
+  font-family:var(--font-display); font-weight:700; font-size:var(--fs-micro);
+  letter-spacing:var(--ls-caps-wide); text-transform:uppercase; color:var(--text-muted);
+  border-bottom:var(--border-bold) solid var(--border);
+}
+.bw-data-table tbody th{ font-weight:600; }
+.bw-data-table td.bw-data-table__value{ font-weight:700; white-space:nowrap; }
+.bw-data-table tbody tr:nth-child(even){ background:var(--surface-sunken); }
+/* En móvil la tabla de 3 columnas se apila: cada fila es una tarjeta (sin scroll horizontal) */
+@media (max-width:599px){
+  .bw-data-table--stack thead{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+  .bw-data-table--stack tr{ display:grid; grid-template-columns:1fr auto; gap:2px 12px; padding:12px; border-bottom:1px solid var(--border-soft); }
+  .bw-data-table--stack th,.bw-data-table--stack td{ display:block; padding:0; border:0; }
+  .bw-data-table--stack td[data-label]::before{ content:attr(data-label) ": "; color:var(--text-muted); font-weight:500; }
+  .bw-data-table--stack td:last-child{ grid-column:1 / -1; }
+}
+
+/* Lista clave–valor (requisitos, ficha) */
+.bw-kv{ display:grid; gap:0; }
+.bw-kv > div{ display:flex; justify-content:space-between; gap:var(--space-4); padding:12px 0; border-bottom:1px solid var(--border-soft); }
+.bw-kv dt{ color:var(--text-soft); }
+.bw-kv dd{ font-weight:700; text-align:right; font-variant-numeric:tabular-nums; }
+
+/* Notas al pie de cifras (OBLIGATORIAS junto a cualquier KPI de desempeño) */
+.bw-footnotes{ font-size:var(--fs-xs); line-height:1.5; color:var(--text-muted); max-width:var(--measure-body); }
+.bw-footnotes ol{ padding-left:1.4em; display:grid; gap:6px; }
+.bw-footnotes li::marker{ font-weight:700; color:var(--text); }
+.bw-note-ref{
+  font-family:var(--font-body); font-weight:700; font-size:clamp(0.75rem, .38em, 1.375rem); vertical-align:super; line-height:0;
+  color:var(--stat-mark); text-decoration:none; margin-left:.08em;
+}
+.bw-note-ref:hover{ text-decoration:underline; }

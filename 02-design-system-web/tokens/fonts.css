@@ -1,0 +1,24 @@
+/* Buffalo Waffles DS web v2 — fuentes
+   Heredado del DS original (tokens/fonts.css) con 3 cambios para web:
+   1. Solo se declaran los pesos de Mostin que usa la web (400, 500, 700, 900 + Outline).
+      Thin/ExtraLight/Light quedan fuera: no aportan a un sitio de conversión y suman peso.
+   2. Montserrat (secundaria, Brandbook p.16) se pide solo en 400/500/600/700/800.
+   3. Teenage Dreams (terciaria, Brandbook p.17) es una build DEMO: licencia web PENDIENTE
+      (ver PENDIENTES-CLIENTE.md). Todo componente debe verse bien con el fallback.
+
+   font-display: swap en todas para no bloquear el render (LCP). */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Regular.woff2') format('woff2'),url('../assets/fonts/Mostin-Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Medium.woff2') format('woff2'),url('../assets/fonts/Mostin-Medium.woff') format('woff');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Bold.woff2') format('woff2'),url('../assets/fonts/Mostin-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Black.woff2') format('woff2'),url('../assets/fonts/Mostin-Black.woff') format('woff');font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin Outline';src:url('../assets/fonts/Mostin-Outline.woff2') format('woff2'),url('../assets/fonts/Mostin-Outline.woff') format('woff');font-weight:900;font-style:normal;font-display:swap}
+
+/* DEMO — licencia web pendiente. OTF sin convertir a WOFF2 (~145 KB c/u):
+   usar solo el peso Bold en web para no descargar ambos.
+   La build DEMO NO incluye vocales con tilde ni ñ (las dibuja sin diacrítico): solo usarla en
+   palabras sin tildes/ñ o reemplazar por .bw-kicker--mostin. Ver PENDIENTES-CLIENTE.md. */
+@font-face{font-family:'Teenage Dreams';src:url('../assets/fonts/TeenageDreams-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Teenage Dreams';src:url('../assets/fonts/TeenageDreams-Regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}

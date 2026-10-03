@@ -1,0 +1,103 @@
+/* =====================================================================
+   BASE DE MARCA — copiada del DS web v2 (02-design-system-web/tokens)
+   Solo lo que es MARCA: paleta oficial y derivados AA, fuentes, motion y
+   la regla de reduced-motion. Los componentes de este prototipo son propios
+   (ver css/ruta.css) y NO reutilizan las cards del DS.
+   ===================================================================== */
+
+/* ---------- Fuentes (archivos locales de esta carpeta) ---------- */
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Black.woff2') format('woff2');font-weight:900;font-style:normal;font-display:swap}
+/* DEMO: sin tildes ni ñ. Solo en palabras sin diacríticos (PENDIENTES-CLIENTE #8). */
+@font-face{font-family:'Teenage Dreams';src:url('../assets/fonts/TeenageDreams-Bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  /* Oficiales (Brandbook 2026 p.19) */
+  --bw-white:#ffffff;
+  --bw-black:#000000;
+  --bw-gold:#f5b60e;      /* FONDO con texto ink (10,08). Nunca texto ni borde fino sobre claro */
+  --bw-magenta:#e74691;   /* fondo con texto ink (4,95) */
+  /* Neutros cálidos y kraft (DS) */
+  --bw-ink:#191410;
+  --bw-ink-soft:#3a2f27;
+  --bw-charcoal:#241d18;
+  --bw-paper:#fbf4e6;
+  --bw-cream:#f6e7c6;
+  --bw-cream-deep:#efd9a9;
+  --bw-kraft:#c89a5e;     /* texto sobre kraft: SOLO ink (7,17) o ink-soft (5,10) */
+  --bw-kraft-deep:#a97d43;
+  --bw-teal:#1f6e6a;      /* fondo con texto blanco (6,01) */
+  --bw-strawberry:#e23a2b;/* solo decorativo */
+  /* Derivados AA del DS v2 */
+  --bw-magenta-700:#b71862;  /* texto magenta en claro (crema 5,17 · blanco 6,32) */
+  --bw-kraft-700:#7c592a;    /* texto kraft en claro (crema 5,17) */
+  --bw-teal-700:#1e6a66;     /* éxito (papel 5,80) */
+  --bw-strawberry-700:#b92619;/* error (blanco 6,26) */
+  --bw-muted:#665540;        /* texto apagado en claro (crema 5,84) */
+  --bw-cream-muted:#b4a88f;  /* texto apagado sobre ink (7,78) */
+  --bw-magenta-300:#ee7bae;  /* magenta sobre ink (7,03) */
+  --bw-gold-100:#fde9b3;
+  --bw-control-line:#7c7362; /* borde de inputs (blanco 4,68) */
+
+  --font-display:'Mostin',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-script:'Teenage Dreams','Mostin',cursive;
+
+  /* Motion (DS) */
+  --dur-fast:120ms;
+  --dur-base:180ms;
+  --dur-slow:280ms;
+  --dur-slower:480ms;
+  --ease-standard:cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-sticker:cubic-bezier(.34,1.56,.64,1);
+
+  --focus-ring:var(--bw-ink);
+  --gutter:clamp(1rem, 0.5rem + 2.5vw, 2.5rem); /* 16 → 40 */
+}
+
+/* REGLA OBLIGATORIA DEL DS: con reduced-motion todo movimiento se corta */
+@media (prefers-reduced-motion:reduce){
+  :root{ --dur-fast:0ms; --dur-base:0ms; --dur-slow:0ms; --dur-slower:0ms; }
+  html{ scroll-behavior:auto !important; }
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ---------- Reset mínimo ---------- */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ margin:0; font-family:var(--font-body); font-size:clamp(1rem, .975rem + .12vw, 1.0625rem); line-height:1.6; color:var(--bw-ink); background:var(--bw-cream); -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,p,figure,blockquote,dl,dd,ol,ul{ margin:0; }
+:where(ol[class],ul[class]){ padding:0; list-style:none; } /* especificidad 0: no pisa a los componentes */
+img,svg,picture{ display:block; max-width:100%; }
+img{ height:auto; }
+input,button,select,textarea{ font:inherit; color:inherit; }
+button{ cursor:pointer; }
+[hidden]{ display:none !important; }
+
+/* ---------- Foco visible (WCAG 2.4.7) ---------- */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus{ outline:none; }
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{
+  outline:3px solid var(--focus-ring); outline-offset:3px;
+}
+[tabindex="-1"]:focus-visible{ outline:none; }
+
+.bw-sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+/* ---------- Marca de dato pendiente (DS) ---------- */
+.bw-pending{
+  background:repeating-linear-gradient(-45deg, rgba(231,70,145,.18) 0 6px, rgba(231,70,145,.07) 6px 12px);
+  color:inherit;
+  outline:1.5px dashed var(--bw-magenta-700);
+  outline-offset:1px;
+  border-radius:3px;
+  padding:0 .2em;
+  font-style:normal;
+}
+.on-dark .bw-pending{ outline-color:var(--bw-magenta-300); background:repeating-linear-gradient(-45deg, rgba(238,123,174,.22) 0 6px, rgba(238,123,174,.08) 6px 12px); }

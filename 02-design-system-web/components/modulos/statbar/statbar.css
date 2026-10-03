@@ -1,0 +1,46 @@
+/* StatBar / KPI — cifras del modelo con superíndice de nota y disclaimer OBLIGATORIO.
+   Reglas: las cifras van en el HTML (nada de contadores animados que valgan 0 sin JS, A1 §4.10),
+   cada cifra de desempeño enlaza a su nota (periodo, muestra, advertencia), y la mascota no
+   aparece junto a rentabilidad. Variantes: --bar (franja bajo el hero), --bento (tarjetas). */
+
+.bw-statbar{ display:grid; gap:var(--stack-md); }
+.bw-statbar__list{
+  display:grid; gap:var(--grid-gap-sm);
+  grid-template-columns:repeat(2, minmax(0,1fr));
+}
+@media (min-width:1024px){ .bw-statbar__list{ grid-template-columns:repeat(var(--bw-stat-cols, 4), minmax(0,1fr)); } }
+
+.bw-stat{ display:flex; flex-direction:column; gap:6px; min-width:0; }
+.bw-stat__value{
+  font-family:var(--font-display); font-weight:var(--fw-black);
+  font-size:var(--fs-stat); line-height:.95; letter-spacing:0;
+  color:var(--stat); font-variant-numeric:tabular-nums lining-nums;
+  white-space:nowrap;
+}
+.bw-stat__value small{ font-size:.45em; font-weight:700; margin-left:.06em; }
+.bw-stat__label{
+  font-family:var(--font-display); font-weight:var(--fw-bold); font-size:var(--fs-sm);
+  letter-spacing:var(--ls-caps); text-transform:uppercase; color:var(--text);
+}
+.bw-stat__desc{ font-size:var(--fs-sm); line-height:1.45; color:var(--text-muted); }
+
+/* --bar: franja compacta (debajo del hero o dentro de él) */
+.bw-statbar--bar .bw-statbar__list{ border-top:var(--border-bold) solid var(--border); border-bottom:var(--border-bold) solid var(--border); }
+.bw-statbar--bar .bw-stat{ padding:18px 4px; }
+@media (min-width:1024px){
+  .bw-statbar--bar .bw-stat + .bw-stat{ border-left:1px solid var(--border-soft); padding-left:24px; }
+}
+@media (max-width:1023px){
+  .bw-statbar--bar .bw-stat:nth-child(odd){ border-right:1px solid var(--border-soft); }
+  .bw-statbar--bar .bw-stat:nth-child(n+3){ border-top:1px solid var(--border-soft); }
+}
+
+/* --bento: tarjetas con borde sticker */
+.bw-statbar--bento .bw-stat{
+  background:var(--surface-raised); border:var(--border-bold) solid var(--border);
+  border-radius:var(--radius-lg); padding:clamp(1rem, .8rem + 1vw, 1.75rem);
+}
+.bw-statbar--bento .bw-stat--accent{ background:var(--bw-gold); color:var(--bw-ink); --stat:var(--bw-ink); --text:var(--bw-ink); --text-muted:var(--bw-ink-soft); --stat-mark:var(--bw-ink); --link:var(--bw-ink); }
+
+.bw-statbar__notes{ border-top:1px solid var(--border-soft); padding-top:var(--stack-sm); }
+.bw-statbar__source{ font-size:var(--fs-xs); color:var(--text-muted); margin-top:6px; }

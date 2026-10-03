@@ -1,0 +1,80 @@
+/* Buffalo Waffles DS web v2 — paleta base (primitivos)
+   Capa 1 de 2. Aquí solo hay COLORES CRUDOS. Los componentes NO deben usarlos
+   directamente: usan los tokens semánticos de tokens/semantic.css (--text, --surface,
+   --cta-bg…), que cambian según el tema de sección.
+
+   Fuentes:
+   - Brandbook 2026, p.19 (verificado en el PDF el 2-oct-2026): WHITE #FFFFFF, BLACK #000000,
+     FIRE YELLOW #F5B60E, MAGENTA #E74691.
+   - Neutros cálidos, kraft, teal y strawberry: muestreados en el DS original (no están en el brandbook).
+   - Derivados "-700" (texto) y "-100" (tintes): NUEVOS en v2, calculados para AA.
+     Se obtienen bajando la luminosidad del color de marca sin cambiar tono ni saturación (HSL).
+     Ver el cálculo de cada par en CHANGELOG.md y en index.html. */
+
+:root{
+  /* ---------- Oficiales (Brandbook 2026, p.19) ---------- */
+  --bw-white:#ffffff;
+  --bw-true-black:#000000;   /* negro oficial: logo, contornos de sticker, bloque literal "brand black" */
+  --bw-gold:#f5b60e;         /* FIRE YELLOW. En web es FONDO (con texto ink), nunca texto ni borde fino sobre claro (1,81:1 sobre blanco) */
+  --bw-magenta:#e74691;      /* MAGENTA. Fondo con texto ink (4,95:1) o texto grande sobre ink */
+
+  /* PENDIENTES DE CONFIRMACIÓN (NO USAR hasta que el cliente los confirme).
+     El render de la p.19 muestra dos colores más en "Paleta secundaria", pero la capa de
+     texto del PDF los trae incompletos y el verde es inconsistente (hex vs RGB):
+       PERSIAN PLUM  #661a2b  · R102 G26 B43   (hex y RGB coinciden)
+       LAIRD GREEN   #7e823d  · R126 G103 B130 (el hex da R126 G130 B61: NO coincide)
+     Se dejan comentados a propósito. Ver PENDIENTES-CLIENTE.md §1.
+  --bw-persian-plum:#661a2b;
+  --bw-laird-green:#7e823d;
+  */
+
+  /* ---------- Neutros cálidos (heredados) ---------- */
+  --bw-ink:#191410;          /* casi-negro cálido: texto y fondos oscuros en web (en vez de #000) */
+  --bw-ink-soft:#3a2f27;     /* texto secundario sobre claro */
+  --bw-charcoal:#241d18;     /* superficie elevada en tema oscuro (cards) */
+  --bw-paper:#fbf4e6;        /* fondo de lectura larga */
+  --bw-cream:#f6e7c6;        /* crema de marca: fondo base del tema claro */
+  --bw-cream-deep:#efd9a9;   /* crema profundo: tarjetas sobre crema */
+
+  /* ---------- Kraft / caramelo (heredados) ---------- */
+  --bw-kraft:#c89a5e;        /* textura, separadores, íconos grandes. NO texto sobre claro */
+  --bw-kraft-deep:#a97d43;
+  --bw-caramel:#b06a2c;
+
+  /* ---------- Acentos de comida (heredados, uso puntual) ---------- */
+  --bw-gold-deep:#d99900;    /* hover-dark de superficies oro */
+  --bw-gold-soft:#f9c85e;    /* hover-light de botones oro */
+  --bw-honey:#e0c060;
+  --bw-brown:#7a3e1e;
+  --bw-brown-deep:#3d2012;
+  --bw-choco:#4a2c1a;
+  --bw-strawberry:#e23a2b;   /* solo decorativo/ilustración: con texto blanco da 4,31:1 (no AA) */
+  --bw-strawberry-deep:#b8281d;
+  --bw-cherry-pink:#ef6f8e;
+  --bw-teal:#1f6e6a;         /* "soporte / respaldo". Fondo con texto blanco (6,01) o crema (4,91) */
+  --bw-teal-soft:#3a9791;    /* teal para texto sobre ink (5,24:1) */
+  --bw-magenta-deep:#c22c73;
+  --bw-magenta-soft:#ee7bae;
+
+  /* ---------- NUEVOS v2: variantes "para texto" (AA ≥ 4,5:1 en blanco, papel, crema Y crema profundo) ---------- */
+  --bw-magenta-700:#b71862;  /* links/texto magenta en claro · crema-deep 4,57 · crema 5,17 · papel 5,78 · blanco 6,32 */
+  --bw-gold-700:#7c5b05;     /* "oro" para texto en claro · 4,52 · 5,12 · 5,72 · 6,26 */
+  --bw-kraft-700:#7c592a;    /* kraft para texto en claro · 4,57 · 5,17 · 5,78 · 6,33 */
+  --bw-strawberry-700:#b92619;/* error/alerta en claro · 4,52 · 5,12 · 5,72 · 6,26 · blanco sobre él 6,26 */
+  --bw-teal-700:#1e6a66;     /* éxito/soporte en claro · 4,58 · 5,19 · 5,80 · 6,35 */
+  --bw-muted:#665540;        /* texto apagado en claro · crema-deep 5,16 · crema 5,84 · papel 6,53 · blanco 7,15
+                                (reemplaza --text-muted #8a7a63 del DS original, que daba 3,40 sobre crema) */
+
+  /* ---------- NUEVOS v2: variantes "para texto" sobre oscuro (ink #191410 / charcoal #241d18) ---------- */
+  --bw-cream-muted:#b4a88f;  /* crema al 70 % sobre ink · ink 7,78 · charcoal 7,07 */
+  --bw-magenta-300:#ee7bae;  /* = magenta-soft · ink 7,03 · charcoal 6,39 (el magenta base da 4,50 sobre charcoal: al límite) */
+  --bw-strawberry-300:#ff8f83;/* error sobre oscuro · ink 8,28 */
+
+  /* ---------- NUEVOS v2: tintes para chips y tarjetas (patrón "par tinte/tono") ---------- */
+  --bw-gold-100:#fde9b3;     /* ink 15,22 */
+  --bw-magenta-100:#f9d9e8;  /* ink 14,03 */
+  --bw-teal-100:#d5e8e6;     /* ink 14,37 */
+
+  /* ---------- NUEVOS v2: bordes de control (WCAG 1.4.11, ≥ 3:1) ---------- */
+  --bw-control-line:#7c7362; /* borde de inputs en reposo · blanco 4,68 · papel 4,28 · crema 3,83 */
+}

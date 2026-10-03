@@ -1,0 +1,1054 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DS web v2 · Buffalo Waffles Franquicias</title>
+<meta name="description" content="Índice del design system web v2 de Buffalo Waffles para el sitio de franquicias: tokens, temas y componentes.">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="base/demo.css">
+<style>
+.ds-top{background:var(--bw-ink);color:var(--bw-cream);border-bottom:var(--border-sticker) solid var(--bw-gold)}
+.ds-top__inner{width:min(var(--container-wide),100% - 2*var(--gutter));margin-inline:auto;padding:28px 0 22px;display:grid;gap:14px}
+.ds-top__title{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:var(--fs-h2);line-height:1}
+.ds-top__title span{color:var(--bw-gold)}
+.ds-top p{color:var(--bw-cream-muted);font-size:var(--fs-sm);max-width:80ch}
+.ds-toc{display:flex;flex-wrap:wrap;gap:6px 8px}
+.ds-toc a{font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--bw-cream);text-decoration:none;border:1.5px solid rgba(246,231,198,.35);border-radius:999px;padding:5px 10px}
+.ds-toc a:hover{background:var(--bw-gold);color:var(--bw-ink);border-color:var(--bw-gold)}
+.ds-sec{width:min(var(--container-wide),100% - 2*var(--gutter));margin:48px auto}
+.ds-h2{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:var(--fs-h3);line-height:1.05;border-bottom:3px solid var(--bw-ink);padding-bottom:8px;margin-bottom:12px}
+.ds-h3{font-family:var(--font-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:14px;margin:22px 0 10px}
+.ds-p{font-size:var(--fs-sm);color:var(--bw-ink-soft);max-width:90ch;margin:8px 0}
+.ds-swatches{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr))}
+.ds-swatch{display:flex;flex-direction:column;border:2px solid var(--bw-ink);border-radius:var(--radius-md);overflow:hidden;background:var(--bw-white)}
+.ds-swatch__chip{height:64px;border-bottom:2px solid var(--bw-ink)}
+.ds-swatch__meta{display:grid;gap:2px;padding:10px 12px;font-size:12px;line-height:1.35}
+.ds-swatch__meta strong{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.04em;font-size:13px}
+.ds-swatch__meta code{font-size:11.5px}
+.ds-swatch__meta em{font-style:normal;color:var(--bw-muted)}
+.ds-swatch--pending{border-style:dashed;border-color:var(--bw-magenta-700)}
+.ds-themes{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr))}
+.ds-theme{border:2px solid var(--bw-ink);border-radius:var(--radius-lg);overflow:hidden;background:var(--bw-white)}
+.ds-theme__demo{padding:20px;display:grid;gap:8px}
+.ds-theme__cls{padding:8px 14px 0;font-size:12px}
+.ds-table{width:100%;font-size:12.5px;line-height:1.35;border-collapse:collapse;table-layout:fixed}
+.ds-table td{overflow-wrap:anywhere}
+.ds-table td{padding:7px 14px;border-top:1px solid rgba(25,20,16,.12);vertical-align:top}
+.ds-table--wide{max-width:820px;background:var(--bw-white);border:2px solid var(--bw-ink);border-radius:12px}
+.ds-dot{display:inline-block;width:11px;height:11px;border-radius:50%;border:1px solid rgba(25,20,16,.4);vertical-align:-1px;margin-right:4px}
+.ds-ratio{display:inline-block;font-weight:700;white-space:normal;padding:1px 7px;border-radius:999px}
+.ds-ratio--ok{background:var(--bw-teal-100);color:var(--bw-ink)}
+.ds-ratio--no{background:var(--bw-magenta-100);color:var(--bw-strawberry-700)}
+.ds-type{display:grid;border-top:2px solid var(--bw-ink)}
+.ds-type__row{display:grid;gap:8px 24px;padding:14px 0;border-bottom:1px solid rgba(25,20,16,.15);align-items:center}
+@media(min-width:768px){.ds-type__row{grid-template-columns:230px 1fr}}
+.ds-type__meta{display:grid;font-size:12px;gap:2px}
+.ds-type__meta strong{font-family:var(--font-display);text-transform:uppercase;font-size:14px}
+.ds-type__sample{min-width:0;overflow-wrap:anywhere}
+.ds-cols{display:grid;gap:24px}
+@media(min-width:1024px){.ds-cols{grid-template-columns:1fr 1fr}}
+.ds-space{display:grid;grid-template-columns:110px auto 50px;gap:10px;align-items:center;font-size:12px;margin-bottom:6px}
+.ds-space__bar{height:16px;background:var(--bw-gold);border:1.5px solid var(--bw-ink);border-radius:4px}
+.ds-gridshow{min-height:64px}
+.ds-gridshow span{background:var(--bw-magenta-100);border:1.5px dashed var(--bw-magenta-700);border-radius:6px;min-height:64px}
+@media(max-width:1023px){.ds-gridshow span:nth-child(n+9){display:none}}
+@media(max-width:767px){.ds-gridshow span:nth-child(n+5){display:none}}
+.ds-effects{gap:18px}
+.ds-box{width:132px;height:84px;display:flex;align-items:flex-end;padding:8px;font-size:11px;background:var(--bw-white);border:2px solid var(--bw-ink)}
+.ds-focus-demo{display:inline-block;padding:8px 14px;border-radius:999px;border:2px solid currentColor;font-weight:700;font-size:13px;outline:var(--focus-ring-width) solid var(--focus-ring);outline-offset:var(--focus-ring-offset)}
+.ds-motion{display:inline-block;padding:18px 20px;background:var(--bw-white);border:2px solid var(--bw-ink);border-radius:var(--radius-lg);transition:transform var(--dur-base) var(--ease-standard),box-shadow var(--dur-base) var(--ease-standard);font-size:13px;font-weight:600}
+.ds-motion:hover,.ds-motion:focus-visible{transform:translateY(-3px);box-shadow:var(--shadow-pop)}
+.ds-radius{border-radius:var(--radius-md)}
+.ds-comp{margin-top:56px}
+.ds-comp__head{width:min(var(--container-wide),100% - 2*var(--gutter));margin:0 auto 10px;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between;border-bottom:3px solid var(--bw-ink);padding-bottom:8px}
+.ds-comp__head h2{font-family:var(--font-display);font-weight:900;text-transform:uppercase;font-size:var(--fs-h3);line-height:1.05}
+.ds-comp__head p{font-size:12.5px;color:var(--bw-ink-soft)}
+.ds-comp__head a{color:var(--bw-magenta-700)}
+.ds-static{position:relative !important;z-index:1 !important}
+</style>
+</head>
+<body class="ds-page">
+<a class="bw-skip-link" href="#contenido">Saltar al contenido</a>
+<header class="ds-top"><div class="ds-top__inner">
+  <p class="ds-top__title">Buffalo Waffles · <span>DS web v2</span></p>
+  <p>Design system para el sitio de captación de franquiciados (buffalofranquicias.com). Tokens heredados del DS de consumidor + capa web: tipografía fluida, grilla, temas de sección con contraste AA verificado, motion con reduced-motion y 20 componentes HTML/CSS listos para mapear a módulos de HubSpot. Compilado el 2-oct-2026 a partir de las cards de components/. Lee primero <a href="GUIA-DISENADORES.md" style="color:var(--bw-gold)">GUIA-DISENADORES.md</a>.</p>
+  <nav class="ds-toc" aria-label="Índice"><a href="#t-color">Color</a><a href="#t-temas">Temas</a><a href="#t-tipo">Tipografía</a><a href="#t-layout">Espacio y grilla</a><a href="#t-efectos">Radios y sombras</a><a href="#t-motion">Motion y foco</a><a href="#c-button">Button</a><a href="#c-badge">Badge</a><a href="#c-section-header">SectionHeader</a><a href="#c-logo">Logo</a><a href="#c-field">Field (inputs)</a><a href="#c-header">Header / Nav</a><a href="#c-hero">Hero</a><a href="#c-statbar">StatBar / KPI</a><a href="#c-features">Por qué Buffalo (features)</a><a href="#c-process">ProcessSteps</a><a href="#c-requisitos">Requisitos — «Esto no es para todos»</a><a href="#c-support">SupportGrid</a><a href="#c-testimonial">Testimonial</a><a href="#c-locations">LocationsMap</a><a href="#c-leadform">LeadForm multipaso</a><a href="#c-faq">FAQ</a><a href="#c-blog-teaser">BlogTeaser</a><a href="#c-cta-band">CTA band</a><a href="#c-footer">Footer</a><a href="#c-sticky-cta">Sticky CTA móvil</a></nav>
+</div></header>
+<main id="contenido">
+<section class="ds-sec" id="t-color"><h2 class="ds-h2">Color · primitivos</h2><p class="ds-p">Los componentes NO usan estos colores directo: usan los tokens semánticos del tema (abajo). Ratios WCAG 2.x calculados.</p>
+<h3 class="ds-h3">Oficiales · Brandbook 2026 p.19</h3><div class="ds-swatches"><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-white)"></span><div class="ds-swatch__meta"><strong>White (oficial)</strong><code>--bw-white</code><code>#ffffff</code><span>vs blanco 1.00 · vs ink 18.28</span><em>Tarjetas de datos, formulario</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-true-black)"></span><div class="ds-swatch__meta"><strong>Black (oficial)</strong><code>--bw-true-black</code><code>#000000</code><span>vs blanco 21.00 · vs ink 1.15</span><em>Logo, contorno sticker</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-gold)"></span><div class="ds-swatch__meta"><strong>Fire Yellow (oficial)</strong><code>--bw-gold</code><code>#f5b60e</code><span>vs blanco 1.81 · vs ink 10.08</span><em>FONDO con texto ink. Nunca texto sobre claro</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-magenta)"></span><div class="ds-swatch__meta"><strong>Magenta (oficial)</strong><code>--bw-magenta</code><code>#e74691</code><span>vs blanco 3.70 · vs ink 4.95</span><em>Fondo con texto ink · badges</em></div></div></div>
+<h3 class="ds-h3">Neutros cálidos (heredados)</h3><div class="ds-swatches"><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-ink)"></span><div class="ds-swatch__meta"><strong>Ink</strong><code>--bw-ink</code><code>#191410</code><span>vs blanco 18.28 · vs ink 1.00</span><em>Texto y fondo oscuro web</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-ink-soft)"></span><div class="ds-swatch__meta"><strong>Ink soft</strong><code>--bw-ink-soft</code><code>#3a2f27</code><span>vs blanco 13.00 · vs ink 1.41</span><em>Texto secundario</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-charcoal)"></span><div class="ds-swatch__meta"><strong>Charcoal</strong><code>--bw-charcoal</code><code>#241d18</code><span>vs blanco 16.61 · vs ink 1.10</span><em>Tarjetas en noche</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-paper)"></span><div class="ds-swatch__meta"><strong>Paper</strong><code>--bw-paper</code><code>#fbf4e6</code><span>vs blanco 1.09 · vs ink 16.70</span><em>Lectura larga</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-cream)"></span><div class="ds-swatch__meta"><strong>Cream</strong><code>--bw-cream</code><code>#f6e7c6</code><span>vs blanco 1.22 · vs ink 14.94</span><em>Fondo base tema claro</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-cream-deep)"></span><div class="ds-swatch__meta"><strong>Cream deep</strong><code>--bw-cream-deep</code><code>#efd9a9</code><span>vs blanco 1.38 · vs ink 13.20</span><em>Chips, filas alternas</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-kraft)"></span><div class="ds-swatch__meta"><strong>Kraft</strong><code>--bw-kraft</code><code>#c89a5e</code><span>vs blanco 2.55 · vs ink 7.17</span><em>Textura, separadores</em></div></div></div>
+<h3 class="ds-h3">Acentos de apoyo (heredados)</h3><div class="ds-swatches"><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-teal)"></span><div class="ds-swatch__meta"><strong>Teal</strong><code>--bw-teal</code><code>#1f6e6a</code><span>vs blanco 6.01 · vs ink 3.04</span><em>Bloque "soporte" (texto crema/blanco)</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-teal-soft)"></span><div class="ds-swatch__meta"><strong>Teal soft</strong><code>--bw-teal-soft</code><code>#3a9791</code><span>vs blanco 3.49 · vs ink 5.24</span><em>Éxito sobre oscuro</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-strawberry)"></span><div class="ds-swatch__meta"><strong>Strawberry</strong><code>--bw-strawberry</code><code>#e23a2b</code><span>vs blanco 4.31 · vs ink 4.24</span><em>Solo decorativo</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-gold-soft)"></span><div class="ds-swatch__meta"><strong>Gold soft</strong><code>--bw-gold-soft</code><code>#f9c85e</code><span>vs blanco 1.56 · vs ink 11.71</span><em>Hover de CTA oro</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-magenta-soft)"></span><div class="ds-swatch__meta"><strong>Magenta soft</strong><code>--bw-magenta-soft</code><code>#ee7bae</code><span>vs blanco 2.60 · vs ink 7.03</span><em>Texto magenta sobre oscuro</em></div></div></div>
+<h3 class="ds-h3">NUEVO v2 · variantes "para texto" (AA en blanco, papel, crema y crema-deep)</h3><div class="ds-swatches"><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-magenta-700)"></span><div class="ds-swatch__meta"><strong>Magenta 700</strong><code>--bw-magenta-700</code><code>#b71862</code><span>vs blanco 6.32 · vs ink 2.89</span><em>Links y acento-texto en claro</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-gold-700)"></span><div class="ds-swatch__meta"><strong>Gold 700</strong><code>--bw-gold-700</code><code>#7c5b05</code><span>vs blanco 6.26 · vs ink 2.92</span><em>"Oro" como texto en claro</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-kraft-700)"></span><div class="ds-swatch__meta"><strong>Kraft 700</strong><code>--bw-kraft-700</code><code>#7c592a</code><span>vs blanco 6.33 · vs ink 2.89</span><em>Kraft como texto</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-strawberry-700)"></span><div class="ds-swatch__meta"><strong>Strawberry 700</strong><code>--bw-strawberry-700</code><code>#b92619</code><span>vs blanco 6.26 · vs ink 2.92</span><em>Error / alerta</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-teal-700)"></span><div class="ds-swatch__meta"><strong>Teal 700</strong><code>--bw-teal-700</code><code>#1e6a66</code><span>vs blanco 6.35 · vs ink 2.88</span><em>Éxito / soporte</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-muted)"></span><div class="ds-swatch__meta"><strong>Muted</strong><code>--bw-muted</code><code>#665540</code><span>vs blanco 7.15 · vs ink 2.56</span><em>Texto apagado en claro</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-cream-muted)"></span><div class="ds-swatch__meta"><strong>Cream muted</strong><code>--bw-cream-muted</code><code>#b4a88f</code><span>vs blanco 2.35 · vs ink 7.78</span><em>Texto apagado en oscuro</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-control-line)"></span><div class="ds-swatch__meta"><strong>Control line</strong><code>--bw-control-line</code><code>#7c7362</code><span>vs blanco 4.68 · vs ink 3.90</span><em>Borde de inputs (≥ 3:1)</em></div></div></div>
+<h3 class="ds-h3">NUEVO v2 · tintes (fondo de chips/tarjetas, texto ink)</h3><div class="ds-swatches"><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-gold-100)"></span><div class="ds-swatch__meta"><strong>Gold 100</strong><code>--bw-gold-100</code><code>#fde9b3</code><span>vs blanco 1.20 · vs ink 15.22</span><em>Opción elegida, chips</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-magenta-100)"></span><div class="ds-swatch__meta"><strong>Magenta 100</strong><code>--bw-magenta-100</code><code>#f9d9e8</code><span>vs blanco 1.30 · vs ink 14.03</span><em>"Lo que no", flags</em></div></div><div class="ds-swatch"><span class="ds-swatch__chip" style="background:var(--bw-teal-100)"></span><div class="ds-swatch__meta"><strong>Teal 100</strong><code>--bw-teal-100</code><code>#d5e8e6</code><span>vs blanco 1.27 · vs ink 14.37</span><em>"Lo que buscamos"</em></div></div></div>
+<h3 class="ds-h3">PENDIENTES — no usar (Brandbook p.19, datos incompletos/inconsistentes en el PDF)</h3><div class="ds-swatches">
+<div class="ds-swatch ds-swatch--pending"><span class="ds-swatch__chip" style="background:#661a2b"></span><div class="ds-swatch__meta"><strong>PERSIAN PLUM</strong><code>#661a2b</code><span>R102 G26 B43 (coincide)</span><em>Confirmar con el cliente antes de usar</em></div></div>
+<div class="ds-swatch ds-swatch--pending"><span class="ds-swatch__chip" style="background:#7e823d"></span><div class="ds-swatch__meta"><strong>LAIRD GREEN</strong><code>#7e823d</code><span>R126 G103 B130 (NO coincide con el hex)</span><em>Confirmar con el cliente antes de usar</em></div></div>
+</div></section>
+<section class="ds-sec" id="t-temas"><h2 class="ds-h2">Temas de sección y bloques de color</h2><p class="ds-p">Una clase en la &lt;section&gt; cambia texto, links, CTAs, bordes y foco. Pares verificados:</p><div class="ds-themes">
+<article class="ds-theme">
+  <div class="bw-theme-crema ds-theme__demo">
+    <span class="bw-kicker">Kicker</span>
+    <p class="bw-h3">Crema & Kraft (por defecto)</p>
+    <p>Texto de párrafo. <span style="color:var(--text-muted)">Texto apagado.</span> <a href="#t-temas">Un link</a>.</p>
+    <div class="ds-row"><a class="bw-btn bw-btn--primary bw-btn--sm" href="#t-temas">Postula</a><a class="bw-btn bw-btn--secondary bw-btn--sm" href="#t-temas">Secundario</a><a class="bw-btn bw-btn--ghost bw-btn--sm" href="#t-temas">Ghost</a></div>
+    <div class="ds-row" style="margin-top:12px"><span class="ds-focus-demo">Foco</span><span class="bw-badge bw-badge--outline">Badge</span></div>
+  </div>
+  <p class="ds-theme__cls"><code>.bw-theme-crema</code></p>
+  <table class="ds-table"><tbody><tr><td>Texto</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6</td><td><span class="ds-ratio ds-ratio--ok">14.94:1 · AA</span></td></tr><tr><td>Texto apagado</td><td><span class="ds-dot" style="background:#665540"></span>#665540 / <span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6</td><td><span class="ds-ratio ds-ratio--ok">5.84:1 · AA</span></td></tr><tr><td>Link / kicker</td><td><span class="ds-dot" style="background:#b71862"></span>#b71862 / <span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6</td><td><span class="ds-ratio ds-ratio--ok">5.17:1 · AA</span></td></tr><tr><td>CTA: texto ink / oro</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#f5b60e"></span>#f5b60e</td><td><span class="ds-ratio ds-ratio--ok">10.08:1 · AA</span></td></tr><tr><td>CTA: borde ink vs fondo</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6</td><td><span class="ds-ratio ds-ratio--ok">14.94:1 · AA grande/UI</span></td></tr><tr><td>Foco ink vs fondo</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6</td><td><span class="ds-ratio ds-ratio--ok">14.94:1 · AA grande/UI</span></td></tr><tr><td>Borde input vs blanco</td><td><span class="ds-dot" style="background:#7c7362"></span>#7c7362 / <span class="ds-dot" style="background:#ffffff"></span>#ffffff</td><td><span class="ds-ratio ds-ratio--ok">4.68:1 · AA grande/UI</span></td></tr></tbody></table>
+</article>
+<article class="ds-theme">
+  <div class="bw-theme-papel ds-theme__demo">
+    <span class="bw-kicker">Kicker</span>
+    <p class="bw-h3">Papel</p>
+    <p>Texto de párrafo. <span style="color:var(--text-muted)">Texto apagado.</span> <a href="#t-temas">Un link</a>.</p>
+    <div class="ds-row"><a class="bw-btn bw-btn--primary bw-btn--sm" href="#t-temas">Postula</a><a class="bw-btn bw-btn--secondary bw-btn--sm" href="#t-temas">Secundario</a><a class="bw-btn bw-btn--ghost bw-btn--sm" href="#t-temas">Ghost</a></div>
+    <div class="ds-row" style="margin-top:12px"><span class="ds-focus-demo">Foco</span><span class="bw-badge bw-badge--outline">Badge</span></div>
+  </div>
+  <p class="ds-theme__cls"><code>.bw-theme-papel</code></p>
+  <table class="ds-table"><tbody><tr><td>Texto</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#fbf4e6"></span>#fbf4e6</td><td><span class="ds-ratio ds-ratio--ok">16.70:1 · AA</span></td></tr><tr><td>Texto apagado</td><td><span class="ds-dot" style="background:#665540"></span>#665540 / <span class="ds-dot" style="background:#fbf4e6"></span>#fbf4e6</td><td><span class="ds-ratio ds-ratio--ok">6.53:1 · AA</span></td></tr><tr><td>Link</td><td><span class="ds-dot" style="background:#b71862"></span>#b71862 / <span class="ds-dot" style="background:#fbf4e6"></span>#fbf4e6</td><td><span class="ds-ratio ds-ratio--ok">5.78:1 · AA</span></td></tr><tr><td>Foco ink</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#fbf4e6"></span>#fbf4e6</td><td><span class="ds-ratio ds-ratio--ok">16.70:1 · AA grande/UI</span></td></tr></tbody></table>
+</article>
+<article class="ds-theme">
+  <div class="bw-theme-blanco ds-theme__demo">
+    <span class="bw-kicker">Kicker</span>
+    <p class="bw-h3">Blanco (capa de datos)</p>
+    <p>Texto de párrafo. <span style="color:var(--text-muted)">Texto apagado.</span> <a href="#t-temas">Un link</a>.</p>
+    <div class="ds-row"><a class="bw-btn bw-btn--primary bw-btn--sm" href="#t-temas">Postula</a><a class="bw-btn bw-btn--secondary bw-btn--sm" href="#t-temas">Secundario</a><a class="bw-btn bw-btn--ghost bw-btn--sm" href="#t-temas">Ghost</a></div>
+    <div class="ds-row" style="margin-top:12px"><span class="ds-focus-demo">Foco</span><span class="bw-badge bw-badge--outline">Badge</span></div>
+  </div>
+  <p class="ds-theme__cls"><code>.bw-theme-blanco</code></p>
+  <table class="ds-table"><tbody><tr><td>Texto</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#ffffff"></span>#ffffff</td><td><span class="ds-ratio ds-ratio--ok">18.28:1 · AA</span></td></tr><tr><td>Texto apagado</td><td><span class="ds-dot" style="background:#665540"></span>#665540 / <span class="ds-dot" style="background:#ffffff"></span>#ffffff</td><td><span class="ds-ratio ds-ratio--ok">7.15:1 · AA</span></td></tr><tr><td>Link</td><td><span class="ds-dot" style="background:#b71862"></span>#b71862 / <span class="ds-dot" style="background:#ffffff"></span>#ffffff</td><td><span class="ds-ratio ds-ratio--ok">6.32:1 · AA</span></td></tr><tr><td>Borde input</td><td><span class="ds-dot" style="background:#7c7362"></span>#7c7362 / <span class="ds-dot" style="background:#ffffff"></span>#ffffff</td><td><span class="ds-ratio ds-ratio--ok">4.68:1 · AA grande/UI</span></td></tr></tbody></table>
+</article>
+<article class="ds-theme">
+  <div class="bw-theme-noche ds-theme__demo">
+    <span class="bw-kicker">Kicker</span>
+    <p class="bw-h3">Noche streetwear</p>
+    <p>Texto de párrafo. <span style="color:var(--text-muted)">Texto apagado.</span> <a href="#t-temas">Un link</a>.</p>
+    <div class="ds-row"><a class="bw-btn bw-btn--primary bw-btn--sm" href="#t-temas">Postula</a><a class="bw-btn bw-btn--secondary bw-btn--sm" href="#t-temas">Secundario</a><a class="bw-btn bw-btn--ghost bw-btn--sm" href="#t-temas">Ghost</a></div>
+    <div class="ds-row" style="margin-top:12px"><span class="ds-focus-demo">Foco</span><span class="bw-badge bw-badge--outline">Badge</span></div>
+  </div>
+  <p class="ds-theme__cls"><code>.bw-theme-noche</code></p>
+  <table class="ds-table"><tbody><tr><td>Texto crema</td><td><span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6 / <span class="ds-dot" style="background:#191410"></span>#191410</td><td><span class="ds-ratio ds-ratio--ok">14.94:1 · AA</span></td></tr><tr><td>Texto apagado</td><td><span class="ds-dot" style="background:#b4a88f"></span>#b4a88f / <span class="ds-dot" style="background:#191410"></span>#191410</td><td><span class="ds-ratio ds-ratio--ok">7.78:1 · AA</span></td></tr><tr><td>Link / kicker / cifras oro</td><td><span class="ds-dot" style="background:#f5b60e"></span>#f5b60e / <span class="ds-dot" style="background:#191410"></span>#191410</td><td><span class="ds-ratio ds-ratio--ok">10.08:1 · AA</span></td></tr><tr><td>Texto en tarjeta charcoal</td><td><span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6 / <span class="ds-dot" style="background:#241d18"></span>#241d18</td><td><span class="ds-ratio ds-ratio--ok">13.58:1 · AA</span></td></tr><tr><td>Apagado en charcoal</td><td><span class="ds-dot" style="background:#b4a88f"></span>#b4a88f / <span class="ds-dot" style="background:#241d18"></span>#241d18</td><td><span class="ds-ratio ds-ratio--ok">7.07:1 · AA</span></td></tr><tr><td>Magenta texto (300)</td><td><span class="ds-dot" style="background:#ee7bae"></span>#ee7bae / <span class="ds-dot" style="background:#191410"></span>#191410</td><td><span class="ds-ratio ds-ratio--ok">7.03:1 · AA</span></td></tr><tr><td>Foco oro vs ink</td><td><span class="ds-dot" style="background:#f5b60e"></span>#f5b60e / <span class="ds-dot" style="background:#191410"></span>#191410</td><td><span class="ds-ratio ds-ratio--ok">10.08:1 · AA grande/UI</span></td></tr></tbody></table>
+</article>
+<article class="ds-theme">
+  <div class="bw-block-oro ds-theme__demo">
+    <span class="bw-kicker">Kicker</span>
+    <p class="bw-h3">Bloque oro</p>
+    <p>Texto de párrafo. <span style="color:var(--text-muted)">Texto apagado.</span> <a href="#t-temas">Un link</a>.</p>
+    <div class="ds-row"><a class="bw-btn bw-btn--primary bw-btn--sm" href="#t-temas">Postula</a><a class="bw-btn bw-btn--secondary bw-btn--sm" href="#t-temas">Secundario</a><a class="bw-btn bw-btn--ghost bw-btn--sm" href="#t-temas">Ghost</a></div>
+    <div class="ds-row" style="margin-top:12px"><span class="ds-focus-demo">Foco</span><span class="bw-badge bw-badge--outline">Badge</span></div>
+  </div>
+  <p class="ds-theme__cls"><code>.bw-block-oro</code></p>
+  <table class="ds-table"><tbody><tr><td>Texto ink</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#f5b60e"></span>#f5b60e</td><td><span class="ds-ratio ds-ratio--ok">10.08:1 · AA</span></td></tr><tr><td>Texto apagado ink-soft</td><td><span class="ds-dot" style="background:#3a2f27"></span>#3a2f27 / <span class="ds-dot" style="background:#f5b60e"></span>#f5b60e</td><td><span class="ds-ratio ds-ratio--ok">7.17:1 · AA</span></td></tr><tr><td>CTA crema / ink</td><td><span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6 / <span class="ds-dot" style="background:#191410"></span>#191410</td><td><span class="ds-ratio ds-ratio--ok">14.94:1 · AA</span></td></tr><tr><td>CTA ink vs oro</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#f5b60e"></span>#f5b60e</td><td><span class="ds-ratio ds-ratio--ok">10.08:1 · AA grande/UI</span></td></tr><tr><td>Foco ink</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#f5b60e"></span>#f5b60e</td><td><span class="ds-ratio ds-ratio--ok">10.08:1 · AA grande/UI</span></td></tr></tbody></table>
+</article>
+<article class="ds-theme">
+  <div class="bw-block-magenta ds-theme__demo">
+    <span class="bw-kicker">Kicker</span>
+    <p class="bw-h3">Bloque magenta</p>
+    <p>Texto de párrafo. <span style="color:var(--text-muted)">Texto apagado.</span> <a href="#t-temas">Un link</a>.</p>
+    <div class="ds-row"><a class="bw-btn bw-btn--primary bw-btn--sm" href="#t-temas">Postula</a><a class="bw-btn bw-btn--secondary bw-btn--sm" href="#t-temas">Secundario</a><a class="bw-btn bw-btn--ghost bw-btn--sm" href="#t-temas">Ghost</a></div>
+    <div class="ds-row" style="margin-top:12px"><span class="ds-focus-demo">Foco</span><span class="bw-badge bw-badge--outline">Badge</span></div>
+  </div>
+  <p class="ds-theme__cls"><code>.bw-block-magenta</code></p>
+  <table class="ds-table"><tbody><tr><td>Texto ink</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#e74691"></span>#e74691</td><td><span class="ds-ratio ds-ratio--ok">4.95:1 · AA</span></td></tr><tr><td>Blanco: SOLO titular ≥ 24 px</td><td><span class="ds-dot" style="background:#ffffff"></span>#ffffff / <span class="ds-dot" style="background:#e74691"></span>#e74691</td><td><span class="ds-ratio ds-ratio--ok">3.70:1 · AA grande/UI</span></td></tr><tr><td>CTA crema / ink</td><td><span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6 / <span class="ds-dot" style="background:#191410"></span>#191410</td><td><span class="ds-ratio ds-ratio--ok">14.94:1 · AA</span></td></tr><tr><td>Foco ink</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#e74691"></span>#e74691</td><td><span class="ds-ratio ds-ratio--ok">4.95:1 · AA grande/UI</span></td></tr></tbody></table>
+</article>
+<article class="ds-theme">
+  <div class="bw-block-teal ds-theme__demo">
+    <span class="bw-kicker">Kicker</span>
+    <p class="bw-h3">Bloque teal</p>
+    <p>Texto de párrafo. <span style="color:var(--text-muted)">Texto apagado.</span> <a href="#t-temas">Un link</a>.</p>
+    <div class="ds-row"><a class="bw-btn bw-btn--primary bw-btn--sm" href="#t-temas">Postula</a><a class="bw-btn bw-btn--secondary bw-btn--sm" href="#t-temas">Secundario</a><a class="bw-btn bw-btn--ghost bw-btn--sm" href="#t-temas">Ghost</a></div>
+    <div class="ds-row" style="margin-top:12px"><span class="ds-focus-demo">Foco</span><span class="bw-badge bw-badge--outline">Badge</span></div>
+  </div>
+  <p class="ds-theme__cls"><code>.bw-block-teal</code></p>
+  <table class="ds-table"><tbody><tr><td>Texto crema</td><td><span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6 / <span class="ds-dot" style="background:#1f6e6a"></span>#1f6e6a</td><td><span class="ds-ratio ds-ratio--ok">4.91:1 · AA</span></td></tr><tr><td>Titular blanco</td><td><span class="ds-dot" style="background:#ffffff"></span>#ffffff / <span class="ds-dot" style="background:#1f6e6a"></span>#1f6e6a</td><td><span class="ds-ratio ds-ratio--ok">6.01:1 · AA</span></td></tr><tr><td>CTA ink / oro</td><td><span class="ds-dot" style="background:#191410"></span>#191410 / <span class="ds-dot" style="background:#f5b60e"></span>#f5b60e</td><td><span class="ds-ratio ds-ratio--ok">10.08:1 · AA</span></td></tr><tr><td>CTA oro vs teal</td><td><span class="ds-dot" style="background:#f5b60e"></span>#f5b60e / <span class="ds-dot" style="background:#1f6e6a"></span>#1f6e6a</td><td><span class="ds-ratio ds-ratio--ok">3.31:1 · AA grande/UI</span></td></tr><tr><td>Foco crema</td><td><span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6 / <span class="ds-dot" style="background:#1f6e6a"></span>#1f6e6a</td><td><span class="ds-ratio ds-ratio--ok">4.91:1 · AA grande/UI</span></td></tr></tbody></table>
+</article>
+<article class="ds-theme">
+  <div class="bw-theme-noche ds-theme__demo"><p class="bw-label">Isla clara dentro de noche</p>
+    <div class="bw-island bw-card" style="margin-top:10px"><p class="bw-h4">.bw-island</p><p class="bw-small">Para tablas, notas extensas y formularios en secciones oscuras.</p><a class="bw-btn bw-btn--primary bw-btn--sm" href="#t-temas">Postula</a></div>
+  </div><p class="ds-theme__cls"><code>.bw-island</code></p></article>
+</div><h3 class="ds-h3">Combinaciones prohibidas (calculadas)</h3><table class="ds-table ds-table--wide"><tbody>
+<tr><td>Oro sobre blanco</td><td><span class="ds-dot" style="background:#f5b60e"></span>#f5b60e / <span class="ds-dot" style="background:#ffffff"></span>#ffffff</td><td><span class="ds-ratio ds-ratio--no">1.81:1 · NO</span></td></tr>
+<tr><td>Oro sobre crema</td><td><span class="ds-dot" style="background:#f5b60e"></span>#f5b60e / <span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6</td><td><span class="ds-ratio ds-ratio--no">1.48:1 · NO</span></td></tr>
+<tr><td>Oro / magenta</td><td><span class="ds-dot" style="background:#f5b60e"></span>#f5b60e / <span class="ds-dot" style="background:#e74691"></span>#e74691</td><td><span class="ds-ratio ds-ratio--no">2.04:1 · NO</span></td></tr>
+<tr><td>Blanco / magenta (16 px)</td><td><span class="ds-dot" style="background:#ffffff"></span>#ffffff / <span class="ds-dot" style="background:#e74691"></span>#e74691</td><td><span class="ds-ratio ds-ratio--no">3.70:1 · NO</span></td></tr>
+<tr><td>Blanco / strawberry</td><td><span class="ds-dot" style="background:#ffffff"></span>#ffffff / <span class="ds-dot" style="background:#e23a2b"></span>#e23a2b</td><td><span class="ds-ratio ds-ratio--no">4.31:1 · NO</span></td></tr>
+<tr><td>Teal / ink</td><td><span class="ds-dot" style="background:#1f6e6a"></span>#1f6e6a / <span class="ds-dot" style="background:#191410"></span>#191410</td><td><span class="ds-ratio ds-ratio--no">3.04:1 · NO</span></td></tr>
+<tr><td>Muted original #8a7a63 / crema</td><td><span class="ds-dot" style="background:#8a7a63"></span>#8a7a63 / <span class="ds-dot" style="background:#f6e7c6"></span>#f6e7c6</td><td><span class="ds-ratio ds-ratio--no">3.40:1 · NO</span></td></tr>
+<tr><td>Magenta 700 A2 #c71a6a / crema-deep</td><td><span class="ds-dot" style="background:#c71a6a"></span>#c71a6a / <span class="ds-dot" style="background:#efd9a9"></span>#efd9a9</td><td><span class="ds-ratio ds-ratio--no">4.01:1 · NO</span></td></tr>
+</tbody></table></section>
+<section class="ds-sec" id="t-tipo"><h2 class="ds-h2">Tipografía fluida</h2><p class="ds-p">clamp(rem, rem + vw, rem): escala de 360 px a 1440 px y respeta el zoom. Mostin (titulares, botones, cifras) · Montserrat (texto, datos) · Teenage Dreams (1–3 palabras, DEMO).</p><div class="ds-type">
+<div class="ds-type__row"><div class="ds-type__meta"><strong>Display XL</strong><code>--fs-display-xl</code><span>56 → 140 px · Hero XXL (B)</span></div><div class="ds-type__sample"><span style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1;font-size:var(--fs-display-xl)">Sé dueño</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>Display</strong><code>--fs-display</code><span>48 → 106 px · Hero</span></div><div class="ds-type__sample"><span style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1;font-size:var(--fs-display)">Sé dueño</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>H1</strong><code>--fs-h1</code><span>40 → 77 px · Cierre, CTA band</span></div><div class="ds-type__sample"><span style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1;font-size:var(--fs-h1)">Sé dueño</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>H2</strong><code>--fs-h2</code><span>32 → 56 px · Título de sección</span></div><div class="ds-type__sample"><span style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1;font-size:var(--fs-h2)">Sé dueño</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>H3</strong><code>--fs-h3</code><span>24 → 36 px · Subsección</span></div><div class="ds-type__sample"><span style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1;font-size:var(--fs-h3)">Sé dueño</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>H4</strong><code>--fs-h4</code><span>20 → 26 px · Tarjetas</span></div><div class="ds-type__sample"><span style="font-family:var(--font-display);font-weight:900;text-transform:uppercase;line-height:1;font-size:var(--fs-h4)">Sé dueño</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>Stat</strong><code>--fs-stat</code><span>44 → 85 px · Cifras KPI</span></div><div class="ds-type__sample"><span class="bw-num" style="font-family:var(--font-display);font-weight:900;line-height:1;font-size:var(--fs-stat)">+50</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>Kicker</strong><code>--fs-kicker</code><span>24 → 36 px · Script (≥ 24 px)</span></div><div class="ds-type__sample"><span class="bw-kicker" style="font-size:var(--fs-kicker)">¡Buena!</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>Lead</strong><code>--fs-lead</code><span>18 → 21 px · Bajadas</span></div><div class="ds-type__sample"><span style="font-size:var(--fs-lead)">Un modelo probado, con soporte continuo.</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>Body</strong><code>--fs-body</code><span>16 → 17 px · Texto corrido</span></div><div class="ds-type__sample"><span style="font-size:var(--fs-body)">Un modelo probado, con soporte continuo.</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>Small</strong><code>--fs-sm</code><span>14 px · UI secundaria</span></div><div class="ds-type__sample"><span style="font-size:var(--fs-sm)">Un modelo probado, con soporte continuo.</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>XS</strong><code>--fs-xs</code><span>13 px · Mínimo notas legales</span></div><div class="ds-type__sample"><span style="font-size:var(--fs-xs)">Un modelo probado, con soporte continuo.</span></div></div>
+<div class="ds-type__row"><div class="ds-type__meta"><strong>Micro</strong><code>--fs-micro</code><span>12 px · Solo etiquetas UC</span></div><div class="ds-type__sample"><span class="bw-label" style="font-size:var(--fs-micro)">Etiqueta en mayúsculas</span></div></div>
+</div><p class="ds-p">Alturas de línea: <code>--lh-display 1</code> · <code>--lh-heading 1.05</code> · <code>--lh-snug 1.15</code> · <code>--lh-normal 1.45</code> · <code>--lh-body 1.6</code>. Tracking: <code>--ls-caps .06em</code> (botones, badges) · <code>--ls-caps-wide .12em</code> (micro-etiquetas). Medidas: <code>--measure-body 68ch</code>.</p></section>
+<section class="ds-sec" id="t-layout"><h2 class="ds-h2">Espacio, grilla y breakpoints</h2>
+<div class="ds-cols"><div><h3 class="ds-h3">Escala base 4 px</h3><div class="ds-space"><code>--space-1</code><span class="ds-space__bar" style="width:var(--space-1)"></span><span>4px</span></div><div class="ds-space"><code>--space-2</code><span class="ds-space__bar" style="width:var(--space-2)"></span><span>8px</span></div><div class="ds-space"><code>--space-3</code><span class="ds-space__bar" style="width:var(--space-3)"></span><span>12px</span></div><div class="ds-space"><code>--space-4</code><span class="ds-space__bar" style="width:var(--space-4)"></span><span>16px</span></div><div class="ds-space"><code>--space-6</code><span class="ds-space__bar" style="width:var(--space-6)"></span><span>24px</span></div><div class="ds-space"><code>--space-8</code><span class="ds-space__bar" style="width:var(--space-8)"></span><span>32px</span></div><div class="ds-space"><code>--space-12</code><span class="ds-space__bar" style="width:var(--space-12)"></span><span>48px</span></div><div class="ds-space"><code>--space-16</code><span class="ds-space__bar" style="width:var(--space-16)"></span><span>64px</span></div><div class="ds-space"><code>--space-24</code><span class="ds-space__bar" style="width:var(--space-24)"></span><span>96px</span></div><div class="ds-space"><code>--space-32</code><span class="ds-space__bar" style="width:var(--space-32)"></span><span>128px</span></div></div>
+<div><h3 class="ds-h3">Fluidos</h3><table class="ds-table"><tbody>
+<tr><td><code>--gutter</code></td><td>16 → 40 px (mín. 16 en móvil)</td></tr>
+<tr><td><code>--grid-gap</code></td><td>16 → 32 px</td></tr>
+<tr><td><code>--section-y-sm</code></td><td>48 → 80 px</td></tr>
+<tr><td><code>--section-y</code></td><td>64 → 128 px</td></tr>
+<tr><td><code>--section-y-lg</code></td><td>80 → 176 px</td></tr>
+<tr><td><code>--stack-sm/md/lg/xl</code></td><td>12→17 · 16→26 · 24→44 · 32→65 px</td></tr>
+<tr><td><code>--container-max</code></td><td>1280 px (wide 1440 · narrow 896 · text 672)</td></tr>
+</tbody></table>
+<h3 class="ds-h3">Breakpoints</h3><table class="ds-table"><tbody>
+<tr><td>xs 360</td><td>mínimo soportado: probar 360 y 375</td></tr><tr><td>sm 480</td><td>CTA entra al header</td></tr><tr><td>md 768</td><td>8 columnas · sale la barra sticky</td></tr><tr><td>lg 1024</td><td>12 columnas · nav completa</td></tr><tr><td>xl 1280 / 2xl 1440</td><td>contenedor máx. · referencia de diseño</td></tr>
+</tbody></table></div></div>
+<h3 class="ds-h3">Grilla (4 · 8 · 12 columnas)</h3><div class="bw-grid ds-gridshow"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</section>
+<section class="ds-sec" id="t-efectos"><h2 class="ds-h2">Radios, bordes y sombras</h2><div class="ds-row ds-effects">
+<div class="ds-box" style="border-radius:var(--radius-sm)">radius-sm 10</div><div class="ds-box" style="border-radius:var(--radius-md)">radius-md 16</div><div class="ds-box" style="border-radius:var(--radius-lg)">radius-lg 24</div><div class="ds-box" style="border-radius:var(--radius-xl)">radius-xl 32</div><div class="ds-box" style="border-radius:var(--radius-pill)">pill</div>
+<div class="ds-box" style="box-shadow:var(--shadow-md);border-color:transparent">shadow-md</div><div class="ds-box" style="box-shadow:var(--shadow-lg);border-color:transparent">shadow-lg</div><div class="ds-box" style="box-shadow:var(--shadow-pop)">shadow-pop</div><div class="ds-box" style="border-width:var(--border-sticker)">border-sticker 3</div>
+</div></section>
+<section class="ds-sec" id="t-motion"><h2 class="ds-h2">Motion y foco</h2><div class="ds-cols"><div>
+<table class="ds-table"><tbody>
+<tr><td><code>--dur-instant</code></td><td>80 ms · press</td></tr><tr><td><code>--dur-fast</code></td><td>120 ms · hover, color</td></tr><tr><td><code>--dur-base</code></td><td>180 ms · elevación, foco</td></tr><tr><td><code>--dur-slow</code></td><td>280 ms · acordeón, menú, paso de formulario</td></tr><tr><td><code>--dur-slower</code></td><td>480 ms · entrada de mascota/stickers</td></tr>
+<tr><td><code>--ease-standard</code></td><td>cubic-bezier(.4,0,.2,1)</td></tr><tr><td><code>--ease-out</code></td><td>cubic-bezier(.16,1,.3,1) · entradas</td></tr><tr><td><code>--ease-sticker</code></td><td>cubic-bezier(.34,1.56,.64,1) · solo énfasis</td></tr>
+</tbody></table>
+<p class="ds-p"><strong>Obligatorio:</strong> con <code>prefers-reduced-motion: reduce</code> todas las duraciones pasan a 0 (tokens/motion.css). Nunca animar cifras, requisitos, formularios ni texto al hacer scroll.</p>
+<div class="ds-row"><span class="ds-motion" tabindex="0">Pasa el mouse (lift + pop)</span><a class="bw-btn bw-btn--primary bw-btn--sticker" href="#t-motion">Botón sticker</a></div>
+</div><div>
+<p class="ds-p">Foco: anillo sólido de 3 px a 3 px del elemento, color del tema. Navega con Tab por esta página para verlo.</p>
+<div class="bw-theme-crema ds-pad ds-radius"><span class="ds-focus-demo">Foco en claro (ink 14,94:1)</span></div>
+<div class="bw-theme-noche ds-pad ds-radius" style="margin-top:10px"><span class="ds-focus-demo">Foco en noche (oro 10,08:1)</span></div>
+<div class="bw-block-teal ds-pad ds-radius" style="margin-top:10px"><span class="ds-focus-demo">Foco en teal (crema 4,91:1)</span></div>
+</div></div></section>
+<h2 class="bw-sr-only">Componentes</h2>
+<section class="ds-comp" id="c-button"><div class="ds-comp__head"><h2>Button</h2><p>CTA chunky en Mostin UC con borde sticker. Hereda Button.jsx. · <a href="components/core/button/button.card.html">Card</a> · <a href="components/core/button/button.md">Notas</a></p></div>
+<p class="ds-variant">Tema crema (por defecto)</p>
+
+<div class="bw-theme-crema ds-pad">
+  <div class="ds-row">
+    <a class="bw-btn bw-btn--primary bw-btn--lg bw-btn--sticker" href="#postula">Postula a tu franquicia <svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <a class="bw-btn bw-btn--secondary" href="#numeros">Ver los números</a>
+    <a class="bw-btn bw-btn--ghost" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agenda una reunión</a>
+    <a class="bw-btn bw-btn--magenta bw-btn--sm" href="#faq">Preguntas frecuentes</a>
+    <a class="bw-btn bw-btn--link" href="#requisitos">Revisa los requisitos</a>
+  </div>
+  <div class="ds-row" style="margin-top:16px">
+    <button class="bw-btn bw-btn--primary bw-btn--sm" type="button">Siguiente paso</button>
+    <button class="bw-btn bw-btn--primary" type="button">Enviar postulación</button>
+    <button class="bw-btn bw-btn--primary bw-btn--lg" type="button" disabled>Enviando…</button>
+  </div>
+</div>
+<p class="ds-variant">Tema noche</p>
+
+<div class="bw-theme-noche ds-pad">
+  <div class="ds-row">
+    <a class="bw-btn bw-btn--primary bw-btn--lg bw-btn--sticker" href="#postula">Postula a tu franquicia <svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+    <a class="bw-btn bw-btn--secondary" href="#numeros">Ver los números</a>
+    <a class="bw-btn bw-btn--ghost" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 11.5h.01"/><path d="M12 11.5h.01"/><path d="M15 11.5h.01"/></svg> WhatsApp</a>
+    <a class="bw-btn bw-btn--link" href="#requisitos">Revisa los requisitos</a>
+  </div>
+</div>
+<p class="ds-variant">Bloques oro · magenta · teal (el CTA se invierte solo)</p>
+
+<div class="bw-block-oro ds-pad"><div class="ds-row">
+  <a class="bw-btn bw-btn--primary bw-btn--sticker" href="#postula">Quiero ser franquiciado</a>
+  <a class="bw-btn bw-btn--ghost" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles">Agendar</a></div></div>
+<div class="bw-block-magenta ds-pad"><div class="ds-row">
+  <a class="bw-btn bw-btn--primary" href="#postula">Quiero ser franquiciado</a>
+  <a class="bw-btn bw-btn--secondary" href="#faq">Preguntas</a></div></div>
+<div class="bw-block-teal ds-pad"><div class="ds-row">
+  <a class="bw-btn bw-btn--primary" href="#postula">Quiero ser franquiciado</a>
+  <a class="bw-btn bw-btn--ghost" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles">Agendar</a></div></div>
+</section>
+<section class="ds-comp" id="c-badge"><div class="ds-comp__head"><h2>Badge</h2><p>Píldora UC para categorías, estados y stickers. Hereda Badge.jsx. · <a href="components/core/badge/badge.card.html">Card</a> · <a href="components/core/badge/badge.md">Notas</a></p></div>
+<p class="ds-variant">Tonos (todos AA)</p>
+
+<div class="bw-theme-crema ds-pad"><div class="ds-row">
+  <span class="bw-badge bw-badge--oro">Franquicias en Chile</span>
+  <span class="bw-badge bw-badge--tinta">Desde $40M</span>
+  <span class="bw-badge bw-badge--magenta">Nuevo</span>
+  <span class="bw-badge bw-badge--teal">Soporte</span>
+  <span class="bw-badge bw-badge--kraft">Hecho a mano</span>
+  <span class="bw-badge bw-badge--crema">Contrato 20 años</span>
+  <span class="bw-badge bw-badge--alerta">Requerido</span>
+  <span class="bw-badge bw-badge--outline">Outline</span>
+  <span class="bw-badge bw-badge--oro bw-badge--sticker bw-badge--lg">100% chilena</span>
+</div></div>
+<p class="ds-variant">Estados de disponibilidad (mapa y lista) — siempre con texto</p>
+
+<div class="bw-theme-papel ds-pad"><div class="ds-row">
+  <span class="bw-badge bw-badge--estado bw-badge--presencia">Con locales</span>
+  <span class="bw-badge bw-badge--estado bw-badge--disponible">Disponible</span>
+  <span class="bw-badge bw-badge--estado bw-badge--pocas">Pocas plazas</span>
+  <span class="bw-badge bw-badge--estado bw-badge--tomada">Tomada</span>
+</div></div>
+</section>
+<section class="ds-comp" id="c-section-header"><div class="ds-comp__head"><h2>SectionHeader</h2><p>Kicker script + titular UC + bajada sobria. Hereda SectionHeader.jsx. · <a href="components/core/section-header/section-header.card.html">Card</a> · <a href="components/core/section-header/section-header.md">Notas</a></p></div>
+<p class="ds-variant">Con kicker script (tema crema)</p>
+
+<div class="bw-theme-crema ds-pad">
+  <header class="bw-section-header">
+    <span class="bw-kicker">El negocio</span>
+    <h2 class="bw-section-header__title">¿Por qué franquiciar con nosotros?</h2>
+    <p class="bw-section-header__lead">Buffalo Waffles es una marca validada, con más de 50 locales y una propuesta que ya conecta con miles de clientes.</p>
+  </header>
+</div>
+<p class="ds-variant">Centrado, tema noche</p>
+
+<div class="bw-theme-noche ds-pad">
+  <header class="bw-section-header bw-section-header--center">
+    <span class="bw-kicker">Esto no es para todos</span>
+    <h2 class="bw-section-header__title">Buscamos socios, no compradores</h2>
+    <p class="bw-section-header__lead">Nosotros ponemos la marca, el sistema y el acompañamiento. Tú pones la energía para hacerlo crecer.</p>
+  </header>
+</div>
+<p class="ds-variant">Kicker en Mostin (.bw-kicker--mostin) — para textos con tildes o ñ mientras Teenage Dreams sea DEMO</p>
+
+<div class="bw-theme-blanco ds-pad">
+  <header class="bw-section-header">
+    <span class="bw-kicker bw-kicker--mostin">¿Cómo funciona?</span>
+    <h2 class="bw-section-header__title">Lo que cuesta y lo que incluye</h2>
+  </header>
+</div>
+</section>
+<section class="ds-comp" id="c-logo"><div class="ds-comp__head"><h2>Logo</h2><p>Arte maestro PNG, positivo/negativo, tamaños mínimos del brandbook. Hereda Logo.jsx. · <a href="components/core/logo/logo.card.html">Card</a> · <a href="components/core/logo/logo.md">Notas</a></p></div>
+<p class="ds-variant">Logotipo horizontal (web: header y footer) · positivo y negativo</p>
+
+<div class="bw-theme-papel ds-pad"><div class="ds-row">
+  <span class="bw-logo bw-logo--wordmark"><img src="assets/logos/logo-wordmark-positivo.png" alt="Buffalo Waffles" width="2510" height="419"></span>
+</div></div>
+<div class="bw-theme-noche ds-pad"><div class="ds-row">
+  <span class="bw-logo bw-logo--wordmark bw-logo--negativo"><img src="assets/logos/logo-wordmark-negativo.png" alt="Buffalo Waffles" width="2510" height="442"></span>
+</div></div>
+<p class="ds-variant">Isologotipo (badge) · mín. 113 px · rotación ≤ 45° antihorario</p>
+
+<div class="bw-theme-crema ds-pad"><div class="ds-row">
+  <span class="bw-logo bw-logo--badge" style="--bw-logo-size:140px"><img src="assets/logos/logo-badge-positivo.png" alt="Buffalo Waffles" width="1312" height="1296"></span>
+  <span class="bw-logo bw-logo--badge bw-logo--rotate" style="--bw-logo-size:140px"><img src="assets/logos/logo-badge-positivo.png" alt="Buffalo Waffles" width="1312" height="1296"></span>
+</div></div>
+<div class="bw-theme-noche ds-pad"><div class="ds-row">
+  <span class="bw-logo bw-logo--badge" style="--bw-logo-size:140px"><img src="assets/logos/logo-badge-negativo.png" alt="Buffalo Waffles" width="1064" height="1064"></span>
+</div></div>
+</section>
+<section class="ds-comp" id="c-field"><div class="ds-comp__head"><h2>Field (inputs)</h2><p>Inputs, selects, opciones tipo tarjeta y consentimiento. Hereda Input.jsx. · <a href="components/core/field/field.card.html">Card</a> · <a href="components/core/field/field.md">Notas</a></p></div>
+<p class="ds-variant">Campos (reposo, error, select, textarea)</p>
+
+<div class="bw-theme-blanco ds-pad">
+  <div class="bw-leadform__row bw-leadform__row--2" style="max-width:760px">
+    <div class="bw-field">
+      <label class="bw-field__label" for="f-nombre-xfield0">Nombre <span class="bw-field__req" aria-hidden="true">*</span></label>
+      <input class="bw-input" id="f-nombre-xfield0" name="firstname" autocomplete="given-name" required placeholder="Ej.: Camila">
+    </div>
+    <div class="bw-field is-invalid">
+      <label class="bw-field__label" for="f-mail-xfield0">Correo <span class="bw-field__req" aria-hidden="true">*</span></label>
+      <input class="bw-input" id="f-mail-xfield0" type="email" value="camila@correo" aria-invalid="true" aria-describedby="f-mail-err-xfield0">
+      <p class="bw-field__error" id="f-mail-err-xfield0">Revisa el correo: le falta el dominio (por ejemplo, @gmail.com).</p>
+    </div>
+    <div class="bw-field">
+      <label class="bw-field__label" for="f-region-xfield0">Región de interés</label>
+      <select class="bw-select" id="f-region-xfield0"><option>Selecciona una región</option><option>Metropolitana</option><option>Valparaíso</option></select>
+    </div>
+    <div class="bw-field">
+      <label class="bw-field__label" for="f-msg-xfield0">Mensaje <span class="bw-field__opt">(opcional)</span></label>
+      <textarea class="bw-textarea" id="f-msg-xfield0" placeholder="Cuéntanos lo que quieras saber"></textarea>
+    </div>
+  </div>
+</div>
+<p class="ds-variant">Opciones tipo tarjeta y consentimiento</p>
+
+<div class="bw-theme-blanco ds-pad" style="max-width:820px">
+  <fieldset class="bw-choices">
+    <legend class="bw-field__label">¿Cómo te imaginas el negocio?</legend>
+    <label class="bw-choice"><input type="radio" name="perfil-xfield1" checked><span class="bw-choice__box">Operarlo yo</span></label>
+    <label class="bw-choice"><input type="radio" name="perfil-xfield1"><span class="bw-choice__box">Invertir y contratar un administrador</span></label>
+    <label class="bw-choice"><input type="radio" name="perfil-xfield1"><span class="bw-choice__box">Aún no lo sé</span></label>
+  </fieldset>
+  <label class="bw-check" style="margin-top:20px"><input type="checkbox" required><span>Acepto que Buffalo Waffles trate mis datos para evaluar mi postulación y contactarme, según la <a href="#privacidad">Política de Privacidad</a>.</span></label>
+</div>
+</section>
+<section class="ds-comp" id="c-header"><div class="ds-comp__head"><h2>Header / Nav</h2><p>Sticky, opaco, logo fluido, CTA siempre visible y menú móvil con &lt;details&gt;. · <a href="components/modulos/header/header.card.html">Card</a> · <a href="components/modulos/header/header.md">Notas</a></p></div>
+<p class="ds-variant">Claro (papel) — por defecto</p>
+
+<header class="bw-header bw-theme-papel ds-static">
+  <div class="bw-header__inner">
+    <a class="bw-logo bw-logo--wordmark" href="#inicio"><img src="assets/logos/logo-wordmark-positivo.png" alt="Buffalo Waffles Franquicias — inicio" width="2510" height="419"></a>
+    <nav class="bw-nav" aria-label="Principal"><ul class="bw-nav__list"><li><a class="bw-nav__link" href="#negocio">El negocio</a></li><li><a class="bw-nav__link" href="#numeros">Números</a></li><li><a class="bw-nav__link" href="#proceso">Proceso</a></li><li><a class="bw-nav__link" href="#requisitos">Requisitos</a></li><li><a class="bw-nav__link" href="#faq">Preguntas</a></li></ul></nav>
+    <div class="bw-header__actions">
+      <a class="bw-btn bw-btn--ghost bw-btn--sm bw-header__cta-secondary" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agendar</a>
+      <a class="bw-btn bw-btn--primary bw-btn--sm bw-header__cta" href="#postula">Postula</a>
+      <details class="bw-menu">
+        <summary><span class="bw-sr-only">Menú</span><span class="bw-menu__open"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></span><span class="bw-menu__close"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg></span></summary>
+        <nav class="bw-menu__panel" aria-label="Menú móvil"><a href="#negocio">El negocio</a><a href="#numeros">Números</a><a href="#proceso">Proceso</a><a href="#requisitos">Requisitos</a><a href="#faq">Preguntas</a><a class="bw-btn bw-btn--primary bw-btn--block" href="#postula">Postula a tu franquicia</a><a class="bw-btn bw-btn--ghost bw-btn--block" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agenda una reunión</a></nav>
+      </details>
+    </div>
+  </div>
+</header>
+<p class="ds-variant">Oscuro (noche) — logo negativo</p>
+
+<header class="bw-header bw-theme-noche ds-static">
+  <div class="bw-header__inner">
+    <a class="bw-logo bw-logo--wordmark bw-logo--negativo" href="#inicio"><img src="assets/logos/logo-wordmark-negativo.png" alt="Buffalo Waffles Franquicias — inicio" width="2510" height="442"></a>
+    <nav class="bw-nav" aria-label="Principal"><ul class="bw-nav__list"><li><a class="bw-nav__link" href="#negocio">El negocio</a></li><li><a class="bw-nav__link" href="#numeros">Números</a></li><li><a class="bw-nav__link" href="#proceso">Proceso</a></li><li><a class="bw-nav__link" href="#requisitos">Requisitos</a></li><li><a class="bw-nav__link" href="#faq">Preguntas</a></li></ul></nav>
+    <div class="bw-header__actions">
+      <a class="bw-btn bw-btn--ghost bw-btn--sm bw-header__cta-secondary" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agendar</a>
+      <a class="bw-btn bw-btn--primary bw-btn--sm bw-header__cta" href="#postula">Postula</a>
+      <details class="bw-menu">
+        <summary><span class="bw-sr-only">Menú</span><span class="bw-menu__open"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg></span><span class="bw-menu__close"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg></span></summary>
+        <nav class="bw-menu__panel" aria-label="Menú móvil"><a href="#negocio">El negocio</a><a href="#numeros">Números</a><a href="#proceso">Proceso</a><a href="#requisitos">Requisitos</a><a href="#faq">Preguntas</a><a class="bw-btn bw-btn--primary bw-btn--block" href="#postula">Postula a tu franquicia</a><a class="bw-btn bw-btn--ghost bw-btn--block" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agenda una reunión</a></nav>
+      </details>
+    </div>
+  </div>
+</header>
+</section>
+<section class="ds-comp" id="c-hero"><div class="ds-comp__head"><h2>Hero</h2><p>H1 de propiedad + inversión + KPI con nota + 2 CTAs. Variantes foto, mascota y split. · <a href="components/modulos/hero/hero.card.html">Card</a> · <a href="components/modulos/hero/hero.md">Notas</a></p></div>
+<p class="ds-variant">Foto (tema noche) — H1 real del sitio, KPI con notas</p>
+
+<section class="bw-hero bw-hero--foto bw-theme-noche" aria-labelledby="hero-title-xhero0" id="inicio">
+  <picture class="bw-hero__bg"><source media="(max-width: 767px)" srcset="assets/fotos/lifestyle-amigas.jpg"><source srcset="assets/fotos/lifestyle-amigas-horizontal.webp" type="image/webp"><img src="assets/fotos/lifestyle-amigas-horizontal.jpg" alt="" width="1600" height="900" fetchpriority="high" style="--bw-focal:60% 35%"></picture>
+  <div class="bw-hero__inner">
+    <div class="bw-hero__content">
+      <span class="bw-badge bw-badge--oro">Franquicias en Chile</span>
+      <h1 class="bw-hero__title" id="hero-title-xhero0">Sé dueño de tu propio <span class="bw-kicker">Buffalo Waffles</span></h1>
+      <p class="bw-hero__lead">Emprende con el respaldo de una marca consolidada. Un modelo probado, soporte continuo y una red de +50 locales que sigue creciendo.</p>
+      <p class="bw-hero__invest"><span>Inversión total desde</span> <strong>$40.000.000</strong></p>
+      <div class="bw-btn-group bw-btn-group--stack-mobile">
+        <a class="bw-btn bw-btn--primary bw-btn--lg bw-btn--sticker" href="#postula">Postula a tu franquicia <svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <a class="bw-btn bw-btn--ghost bw-btn--lg" href="#numeros">Ver los números</a>
+      </div>
+      <p class="bw-hero__microcopy">Toma 1 minuto · Te contactamos en <mark class="bw-pending">[X] horas hábiles</mark></p>
+    </div>
+    <div class="bw-hero__stats bw-statbar bw-statbar--bar">
+      <dl class="bw-statbar__list">
+      <div class="bw-stat"><dt class="bw-stat__label">Locales en Chile</dt><dd class="bw-stat__value bw-num">+50<a class="bw-note-ref" href="#nota-1-xhero0" aria-label="Nota 1">1</a></dd></div>
+      <div class="bw-stat"><dt class="bw-stat__label">Socios franquiciados</dt><dd class="bw-stat__value bw-num">+40<a class="bw-note-ref" href="#nota-1-xhero0" aria-label="Nota 1">1</a></dd></div>
+      <div class="bw-stat"><dt class="bw-stat__label">Recupero estimado</dt><dd class="bw-stat__value bw-num">~2<small>años</small><a class="bw-note-ref" href="#nota-2-xhero0" aria-label="Nota 2">2</a></dd></div>
+      <div class="bw-stat"><dt class="bw-stat__label">EBITDA estimado</dt><dd class="bw-stat__value bw-num">15%<a class="bw-note-ref" href="#nota-2-xhero0" aria-label="Nota 2">2</a></dd></div>
+      </dl>
+    <div class="bw-statbar__notes bw-footnotes">
+      <ol>
+        <li id="nota-1-xhero0">Cifras publicadas en buffalofranquicias.com (consulta: 2-oct-2026). El blog del mismo sitio informa «más de 55 locales». <mark class="bw-pending">Unificar en una sola cifra con fecha de corte (ej.: «55 locales a sept. 2026»).</mark></li>
+        <li id="nota-2-xhero0">Estimación informada por Buffalo Waffles. <mark class="bw-pending">Falta: periodo, n.º de locales considerados, definición de EBITDA y cuántos locales alcanzan la cifra.</mark> Resultados individuales pueden variar según ubicación, formato y gestión; no constituye garantía de rentabilidad. <span class="bw-legal-flag">A validar por legal</span></li>
+      </ol>
+    </div>
+    </div>
+  </div>
+</section>
+<p class="ds-variant">Mascota (bloque oro) — mascota a sangre, sin cifras al lado</p>
+
+<section class="bw-hero bw-hero--mascota bw-block-oro" aria-labelledby="hero2-title-xhero1">
+  <div class="bw-hero__inner">
+    <div class="bw-hero__content">
+      <span class="bw-kicker">Franquicias Buffalo</span>
+      <h2 class="bw-hero__title" id="hero2-title-xhero1">Tú pones la energía. Nosotros, la marca.</h2>
+      <p class="bw-hero__lead">Nosotros ponemos la marca, el sistema y el acompañamiento. Tú pones la energía para hacerlo crecer.</p>
+      <p class="bw-hero__invest"><span>Inversión total desde</span> <strong>$40.000.000</strong></p>
+      <div class="bw-btn-group bw-btn-group--stack-mobile">
+        <a class="bw-btn bw-btn--primary bw-btn--lg bw-btn--sticker" href="#postula">Quiero ser franquiciado</a>
+        <a class="bw-btn bw-btn--ghost bw-btn--lg" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agenda una reunión</a>
+      </div>
+    </div>
+    <div class="bw-hero__mascot"><picture><source srcset="assets/mascota/mascota-streetwear.webp" type="image/webp"><img src="assets/mascota/mascota-streetwear.png" alt="" width="447" height="560" loading="lazy"></picture></div>
+  </div>
+</section>
+<p class="ds-variant">Split (tema crema) — producto en mano + sticker</p>
+
+<section class="bw-hero bw-hero--split bw-theme-crema" aria-labelledby="hero3-title-xhero2">
+  <div class="bw-hero__inner">
+    <div class="bw-hero__content">
+      <span class="bw-kicker">Crece con nosotros</span>
+      <h2 class="bw-hero__title" id="hero3-title-xhero2">Tu negocio, con una marca que ya conecta</h2>
+      <p class="bw-hero__lead">Buffalo Waffles es una marca validada, con más de 50 locales y una propuesta que ya conecta con miles de clientes.</p>
+      <p class="bw-hero__invest"><span>Inversión total desde</span> <strong>$40.000.000</strong> <span>· contrato de 20 años</span></p>
+      <div class="bw-btn-group bw-btn-group--stack-mobile">
+        <a class="bw-btn bw-btn--primary bw-btn--lg bw-btn--sticker" href="#postula">Postula a tu franquicia <svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <a class="bw-btn bw-btn--ghost bw-btn--lg" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agenda una reunión</a>
+      </div>
+    </div>
+    <div class="bw-hero__media">
+      <span class="bw-hero__media-bg" aria-hidden="true"></span>
+      <picture><source srcset="assets/recortes/mano-frutella.webp" type="image/webp"><img src="assets/recortes/mano-frutella.png" alt="Waffle Frutella de Buffalo Waffles en su envoltorio kraft, sostenido en la mano" width="427" height="640" loading="lazy"></picture>
+      <span class="bw-hero__sticker bw-badge bw-badge--magenta bw-badge--sticker bw-badge--lg">100% chilena</span>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-statbar"><div class="ds-comp__head"><h2>StatBar / KPI</h2><p>Cifras en HTML con superíndice y disclaimer obligatorio. Franja o bento. · <a href="components/modulos/statbar/statbar.card.html">Card</a> · <a href="components/modulos/statbar/statbar.md">Notas</a></p></div>
+<p class="ds-variant">Franja (--bar) sobre crema</p>
+
+<section class="bw-section bw-section--sm bw-theme-crema" aria-label="Cifras de la red">
+  <div class="bw-container">
+    <div class="bw-statbar bw-statbar--bar">
+      <dl class="bw-statbar__list">
+      <div class="bw-stat"><dt class="bw-stat__label">Locales en Chile</dt><dd class="bw-stat__value bw-num">+50<a class="bw-note-ref" href="#nota-1-xstatbar0" aria-label="Nota 1">1</a></dd></div>
+      <div class="bw-stat"><dt class="bw-stat__label">Socios franquiciados</dt><dd class="bw-stat__value bw-num">+40<a class="bw-note-ref" href="#nota-1-xstatbar0" aria-label="Nota 1">1</a></dd></div>
+      <div class="bw-stat"><dt class="bw-stat__label">Recupero estimado</dt><dd class="bw-stat__value bw-num">~2<small>años</small><a class="bw-note-ref" href="#nota-2-xstatbar0" aria-label="Nota 2">2</a></dd></div>
+      <div class="bw-stat"><dt class="bw-stat__label">EBITDA estimado</dt><dd class="bw-stat__value bw-num">15%<a class="bw-note-ref" href="#nota-2-xstatbar0" aria-label="Nota 2">2</a></dd></div>
+      </dl>
+    <div class="bw-statbar__notes bw-footnotes">
+      <ol>
+        <li id="nota-1-xstatbar0">Cifras publicadas en buffalofranquicias.com (consulta: 2-oct-2026). El blog del mismo sitio informa «más de 55 locales». <mark class="bw-pending">Unificar en una sola cifra con fecha de corte (ej.: «55 locales a sept. 2026»).</mark></li>
+        <li id="nota-2-xstatbar0">Estimación informada por Buffalo Waffles. <mark class="bw-pending">Falta: periodo, n.º de locales considerados, definición de EBITDA y cuántos locales alcanzan la cifra.</mark> Resultados individuales pueden variar según ubicación, formato y gestión; no constituye garantía de rentabilidad. <span class="bw-legal-flag">A validar por legal</span></li>
+      </ol>
+    </div>
+    </div>
+  </div>
+</section>
+<p class="ds-variant">Bento (--bento) sobre noche, con tarjeta destacada</p>
+
+<section class="bw-section bw-section--sm bw-theme-noche" aria-label="Cifras de la red (bento)">
+  <div class="bw-container">
+    <div class="bw-statbar bw-statbar--bento">
+      <dl class="bw-statbar__list">
+        <div class="bw-stat bw-stat--accent"><dt class="bw-stat__label">Inversión total desde</dt><dd class="bw-stat__value bw-num">$40M</dd><dd class="bw-stat__desc">Según formato y ubicación del local.</dd></div>
+        <div class="bw-stat"><dt class="bw-stat__label">Locales en Chile</dt><dd class="bw-stat__value bw-num">+50<a class="bw-note-ref" href="#nota-1-xstatbar1" aria-label="Nota 1">1</a></dd><dd class="bw-stat__desc">De Arica a Punta Arenas.</dd></div>
+        <div class="bw-stat"><dt class="bw-stat__label">Desde la firma a la apertura</dt><dd class="bw-stat__value bw-num">2–4<small>meses</small></dd><dd class="bw-stat__desc">Según disponibilidad del local y habilitación.</dd></div>
+        <div class="bw-stat"><dt class="bw-stat__label">Recupero estimado</dt><dd class="bw-stat__value bw-num">~2<small>años</small><a class="bw-note-ref" href="#nota-2-xstatbar1" aria-label="Nota 2">2</a></dd><dd class="bw-stat__desc">Con un EBITDA estimado de 15%.<a class="bw-note-ref" href="#nota-2-xstatbar1" aria-label="Nota 2">2</a></dd></div>
+      </dl>
+    <div class="bw-statbar__notes bw-footnotes">
+      <ol>
+        <li id="nota-1-xstatbar1">Cifras publicadas en buffalofranquicias.com (consulta: 2-oct-2026). El blog del mismo sitio informa «más de 55 locales». <mark class="bw-pending">Unificar en una sola cifra con fecha de corte (ej.: «55 locales a sept. 2026»).</mark></li>
+        <li id="nota-2-xstatbar1">Estimación informada por Buffalo Waffles. <mark class="bw-pending">Falta: periodo, n.º de locales considerados, definición de EBITDA y cuántos locales alcanzan la cifra.</mark> Resultados individuales pueden variar según ubicación, formato y gestión; no constituye garantía de rentabilidad. <span class="bw-legal-flag">A validar por legal</span></li>
+      </ol>
+    </div>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-features"><div class="ds-comp__head"><h2>Por qué Buffalo (features)</h2><p>Diferenciales del negocio en bento, con dato verificable por tarjeta. · <a href="components/modulos/features/features.card.html">Card</a> · <a href="components/modulos/features/features.md">Notas</a></p></div>
+<p class="ds-variant">Bento sobre papel — diferenciales del negocio (contenido real)</p>
+
+<section class="bw-section bw-theme-papel" id="negocio" aria-labelledby="feat-title-xfeatures0">
+  <div class="bw-container">
+    <header class="bw-section-header">
+      <span class="bw-kicker">El negocio</span>
+      <h2 class="bw-section-header__title" id="feat-title-xfeatures0">Un negocio que ya funciona</h2>
+      <p class="bw-section-header__lead">Un modelo probado, con productos de calidad y una experiencia que marca diferencia.</p>
+    </header>
+    <div class="bw-features bw-features--bento">
+      <article class="bw-feature bw-feature--wide">
+        <div class="bw-feature__body">
+          <span class="bw-badge bw-badge--oro">Marca 100% chilena</span>
+          <h3 class="bw-feature__title">No somos una franquicia tradicional</h3>
+          <p class="bw-feature__text">Una marca chilena, cercana y dinámica que ha desafiado las reglas de la comida rápida con una propuesta innovadora y una identidad propia.</p>
+        </div>
+        <picture class="bw-feature__media"><source srcset="assets/mascota/mascota-selfie.webp" type="image/webp"><img src="assets/mascota/mascota-selfie.png" alt="" width="540" height="560" loading="lazy"></picture>
+      </article>
+      <article class="bw-feature">
+        <span class="bw-feature__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9.5 5.5 4h13L20 9.5"/><path d="M4 9.5a2.7 2.7 0 0 0 5.3 0 2.7 2.7 0 0 0 5.4 0 2.7 2.7 0 0 0 5.3 0"/><path d="M5.5 11.5V20h13v-8.5"/><path d="M10 20v-5h4v5"/></svg></span>
+        <h3 class="bw-feature__title">Modelo probado</h3>
+        <p class="bw-feature__text">Más de cincuenta locales activos, operando con un modelo probado. Marca instalada con demanda real y crecimiento sostenido.</p>
+        <p class="bw-feature__data">+50 locales · de Arica a Punta Arenas</p>
+      </article>
+      <article class="bw-feature">
+        <span class="bw-feature__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8" r="3.2"/><path d="M3 19.5a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2a5 5 0 0 1 5 5.3"/></svg></span>
+        <h3 class="bw-feature__title">Equipo chico, gestión simple</h3>
+        <p class="bw-feature__text">La operación diaria no requiere un equipo grande: puedes operarlo tú o delegar en un administrador.</p>
+        <p class="bw-feature__data">2 personas full time + 2 part time (fin de semana)</p>
+      </article>
+      <article class="bw-feature">
+        <span class="bw-feature__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="16.5" r="3.5"/><circle cx="18" cy="16.5" r="3.5"/><path d="M6 16.5 9.5 9h5l3.5 7.5"/><path d="M9.5 9 12 16.5h-6"/><path d="M13.5 6h2.5l-1.5 3"/></svg></span>
+        <h3 class="bw-feature__title">Venta en local y delivery</h3>
+        <p class="bw-feature__text">Las ventas provienen de clientes presenciales y de plataformas de delivery, para aprovechar distintos momentos de consumo.</p>
+        <p class="bw-feature__data">2 canales de venta</p>
+      </article>
+      <article class="bw-feature">
+        <span class="bw-feature__icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10v4h3l7 4V6L7 10H4Z"/><path d="M17.5 9a4 4 0 0 1 0 6"/></svg></span>
+        <h3 class="bw-feature__title">Marketing de marca</h3>
+        <p class="bw-feature__text">Campañas de marketing digital, promociones y posicionamiento que benefician a toda la red.</p>
+        <p class="bw-feature__data">Fondo de marketing: 2% de las ventas netas</p>
+      </article>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-process"><div class="ds-comp__head"><h2>ProcessSteps</h2><p>Los 7 pasos reales y el plazo de 2 a 4 meses desde la firma. · <a href="components/modulos/process/process.card.html">Card</a> · <a href="components/modulos/process/process.md">Notas</a></p></div>
+<p class="ds-variant">Línea de tiempo (tema crema) — 7 pasos reales + plazo firma → apertura</p>
+
+<section class="bw-section bw-theme-crema" id="proceso" aria-labelledby="proc-title-xprocess0">
+  <div class="bw-container">
+    <header class="bw-section-header">
+      <span class="bw-kicker">Paso a paso</span>
+      <h2 class="bw-section-header__title" id="proc-title-xprocess0">Así te conviertes en franquiciado</h2>
+      <p class="bw-section-header__lead">Siete pasos claros, con acompañamiento en cada uno.</p>
+    </header>
+    <ol class="bw-steps bw-steps--marker">
+        <li class="bw-step"><img class="bw-step__marker" src="assets/mascota/mascota-streetwear.webp" alt="" width="56" height="70" loading="lazy"><h3 class="bw-step__title">Completa el formulario de interés</h3><p class="bw-step__text">Toma 1 minuto. Con eso preparamos la primera conversación.</p></li>
+        <li class="bw-step"><h3 class="bw-step__title">Reunión de presentación</h3><p class="bw-step__text">Conoces el modelo con un ejecutivo de franquicias y resuelves tus dudas.</p></li>
+        <li class="bw-step"><h3 class="bw-step__title">Evaluación de perfil e inversión</h3><p class="bw-step__text">Revisamos juntos tu perfil y tu capacidad de inversión.</p></li>
+        <li class="bw-step"><h3 class="bw-step__title">Búsqueda y aprobación del local</h3><p class="bw-step__text">Nuestro equipo te acompaña a buscar, evaluar y negociar la ubicación.</p></li>
+        <li class="bw-step bw-step--highlight"><h3 class="bw-step__title">Firma de contratos</h3><p class="bw-step__text">Contrato de franquicia por 20 años. El derecho de franquicia ($10.000.000 + IVA) se paga al firmar.</p></li>
+        <li class="bw-step bw-step--highlight"><h3 class="bw-step__title">Capacitación y habilitación</h3><p class="bw-step__text">Capacitación para ti y tu equipo, y habilitación y equipamiento del local.</p></li>
+        <li class="bw-step bw-step--highlight"><h3 class="bw-step__title">Apertura del local</h3><p class="bw-step__text">Apoyo comercial y de marketing para el lanzamiento, y acompañamiento presencial en la inauguración.</p></li>
+    </ol>
+    <p class="bw-steps__span"><strong>2 a 4 meses</strong> desde la firma hasta la apertura (pasos 5 a 7), según la disponibilidad del local y los tiempos de habilitación.</p>
+    <p class="bw-small">Postular no tiene costo. <mark class="bw-pending">«Sin compromiso»: confirmar con el cliente antes de usarlo.</mark></p>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-requisitos"><div class="ds-comp__head"><h2>Requisitos — «Esto no es para todos»</h2><p>Manifiesto real + requisitos medibles + buscamos/no buscamos + tabla de costos. · <a href="components/modulos/requisitos/requisitos.card.html">Card</a> · <a href="components/modulos/requisitos/requisitos.md">Notas</a></p></div>
+<p class="ds-variant">Tema blanco (capa de datos) — manifiesto real + requisitos medibles + costos publicados</p>
+
+<section class="bw-section bw-theme-blanco" id="requisitos" aria-labelledby="req-title-xrequisitos0">
+  <div class="bw-container bw-reqs">
+    <div class="bw-reqs__top">
+      <div class="bw-reqs__manifesto">
+        <span class="bw-kicker">Franquicia Buffalo Waffles</span>
+        <h2 class="bw-section-header__title" id="req-title-xrequisitos0">Esto no es para todos</h2>
+        <p>Buffalo Waffles es un modelo probado, pero necesita de alguien que lo ejecute bien. Buscamos personas con mentalidad emprendedora, foco en la operación y ganas reales de construir algo propio.</p>
+        <p class="bw-reqs__punch">Nosotros ponemos la marca, el sistema y el acompañamiento. Tú pones la energía para hacerlo crecer.</p>
+        <p>Si te hace sentido, este puede ser tu lugar.</p>
+      </div>
+      <div class="bw-req-cards">
+        <div class="bw-req"><span class="bw-req__value bw-num">$40M</span><span class="bw-req__label">Inversión total desde</span><span class="bw-req__note">Según formato y ubicación. <mark class="bw-pending">¿Incluye el derecho de franquicia?</mark></span></div>
+        <div class="bw-req"><span class="bw-req__value bw-num"><mark class="bw-pending">[$X]</mark></span><span class="bw-req__label">Capital propio mínimo</span><span class="bw-req__note">No publicado. Definir con el cliente (¿hay financiamiento?).</span></div>
+        <div class="bw-req"><span class="bw-req__value">Operar o delegar</span><span class="bw-req__label">Dedicación</span><span class="bw-req__note">Puedes operarlo tú o con un administrador, siguiendo los indicadores del local.</span></div>
+        <div class="bw-req"><span class="bw-req__value">Sin experiencia</span><span class="bw-req__label">en gastronomía</span><span class="bw-req__note">Muchos franquiciados vienen de otros rubros.</span></div>
+      </div>
+    </div>
+    <div class="bw-fit">
+      <div class="bw-fit__col bw-fit__col--yes">
+        <h3 class="bw-fit__title">Lo que buscamos</h3>
+        <ul class="bw-fit__list">
+          <li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Capacidad de inversión y orientación comercial.</span></li>
+          <li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Compromiso con la marca y con seguir sus estándares operativos.</span></li>
+          <li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Mentalidad emprendedora y foco en la operación.</span></li>
+        </ul>
+      </div>
+      <div class="bw-fit__col bw-fit__col--no">
+        <h3 class="bw-fit__title">Lo que no</h3>
+        <ul class="bw-fit__list">
+          <li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg><span>Una inversión 100% pasiva: incluso con administrador, te pedimos seguir los indicadores.</span></li>
+          <li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg><span>Atajos con los estándares de la marca.</span></li>
+          <li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg><span><mark class="bw-pending">Copy propuesto: validar con el cliente.</mark></span></li>
+        </ul>
+      </div>
+    </div>
+    <table class="bw-data-table bw-data-table--stack">
+      <caption>Costos publicados por Buffalo Waffles</caption>
+      <thead><tr><th scope="col">Concepto</th><th scope="col">Monto</th><th scope="col">Frecuencia</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Inversión total</th><td class="bw-data-table__value" data-label="Monto">Desde $40.000.000</td><td data-label="Frecuencia">Al inicio</td></tr>
+        <tr><th scope="row">Derecho de franquicia</th><td class="bw-data-table__value" data-label="Monto">$10.000.000 + IVA</td><td data-label="Frecuencia">Pago único, al firmar</td></tr>
+        <tr><th scope="row">Royalty</th><td class="bw-data-table__value" data-label="Monto">7% de las ventas netas</td><td data-label="Frecuencia">Mensual</td></tr>
+        <tr><th scope="row">Fondo de marketing</th><td class="bw-data-table__value" data-label="Monto">2% de las ventas netas</td><td data-label="Frecuencia">Mensual</td></tr>
+        <tr><th scope="row">Duración del contrato</th><td class="bw-data-table__value" data-label="Monto">20 años</td><td data-label="Frecuencia">—</td></tr>
+      </tbody>
+    </table>
+    <p class="bw-legal">Fuente: artículo «Cómo funciona una franquicia de comida» (blog de buffalofranquicias.com, 12-ago-2026) y FAQ del sitio. <mark class="bw-pending">Formatos de local (m² y rango por formato): pendiente.</mark></p>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-support"><div class="ds-comp__head"><h2>SupportGrid</h2><p>Soporte por etapa (antes, apertura, después) + KAM 1:10. · <a href="components/modulos/support/support.card.html">Card</a> · <a href="components/modulos/support/support.md">Notas</a></p></div>
+<p class="ds-variant">Bloque teal — por etapa + KAM (contenido real del blog y la FAQ)</p>
+
+<section class="bw-section bw-block-teal" aria-labelledby="sup-title-xsupport0">
+  <div class="bw-container">
+    <header class="bw-section-header">
+      <span class="bw-kicker">Siempre contigo</span>
+      <h2 class="bw-section-header__title" id="sup-title-xsupport0">Te acompañamos antes, durante y después</h2>
+    </header>
+    <div class="bw-support__kam">
+      <p class="bw-support__kam-figure bw-num">1 : 10</p>
+      <p class="bw-support__kam-text">Cada KAM (consultor de franquicia) acompaña a un máximo de 10 franquiciados: seguimiento cercano en la apertura y durante toda la operación.</p>
+    </div>
+    <div class="bw-support">
+      <article class="bw-support__stage">
+        <span class="bw-badge bw-badge--tinta bw-support__when">Antes de abrir</span>
+        <h3 class="bw-support__title">Partir bien</h3>
+        <ul class="bw-support__list"><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Búsqueda, evaluación y negociación del local.</span></li><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Capacitación inicial para ti y tu equipo (<mark class="bw-pending">[N] días</mark>).</span></li><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Manuales operativos y acceso a proveedores homologados.</span></li></ul>
+      </article>
+      <article class="bw-support__stage">
+        <span class="bw-badge bw-badge--oro bw-support__when">Apertura</span>
+        <h3 class="bw-support__title">Abrir con todo</h3>
+        <ul class="bw-support__list"><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Habilitación y equipamiento del espacio.</span></li><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Apoyo comercial y de marketing para el lanzamiento.</span></li><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Acompañamiento presencial durante la inauguración.</span></li></ul>
+      </article>
+      <article class="bw-support__stage">
+        <span class="bw-badge bw-badge--teal bw-support__when">Después</span>
+        <h3 class="bw-support__title">Crecer</h3>
+        <ul class="bw-support__list"><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Seguimiento comercial de los indicadores del local con tu KAM.</span></li><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Capacitación continua y desarrollo de nuevos productos.</span></li><li><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Marketing digital y campañas de marca a nivel nacional.</span></li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-testimonial"><div class="ds-comp__head"><h2>Testimonial</h2><p>Franquiciados reales con local; variante video con subtítulos. · <a href="components/modulos/testimonial/testimonial.card.html">Card</a> · <a href="components/modulos/testimonial/testimonial.md">Notas</a></p></div>
+<p class="ds-variant">Grilla de testimonios reales (tema papel) + variante video</p>
+
+<section class="bw-section bw-theme-papel" aria-labelledby="test-title-xtestimonial0">
+  <div class="bw-container">
+    <header class="bw-section-header">
+      <span class="bw-kicker">Franquiciados reales</span>
+      <h2 class="bw-section-header__title" id="test-title-xtestimonial0">Lo dicen los que ya están</h2>
+    </header>
+    <div class="bw-testimonials">
+      <figure class="bw-testimonial">
+        <span class="bw-testimonial__mark" aria-hidden="true">“</span>
+        <blockquote class="bw-testimonial__quote"><p>Ser parte de la red de franquicias de Buffalo Waffles ha significado trabajar junto a una marca que entrega confianza, cercanía y un verdadero acompañamiento en cada etapa. Más que una franquicia, hemos encontrado un espacio donde nuestros objetivos pueden crecer con respaldo, apoyo humano y una visión compartida de éxito.</p></blockquote>
+        <figcaption class="bw-testimonial__person">
+          <span class="bw-testimonial__photo bw-testimonial__photo--placeholder" aria-hidden="true">J</span>
+          <span><span class="bw-testimonial__name">Jonathan</span><br><span class="bw-testimonial__meta">Franquiciado de Boulevard Marina · <mark class="bw-pending">ciudad y años en la red</mark></span></span>
+        </figcaption>
+      </figure>
+      <figure class="bw-testimonial">
+        <span class="bw-testimonial__mark" aria-hidden="true">“</span>
+        <blockquote class="bw-testimonial__quote"><p>Gracias a nuestra pasión, la dedicación de todo nuestro equipo y una marca excepcional como Buffalo Waffles hemos conseguido instalar un negocio exitoso que ha conectado con las personas de Iquique y esperamos dejar huellas en la región de Tarapacá.</p></blockquote>
+        <figcaption class="bw-testimonial__person">
+          <span class="bw-testimonial__photo bw-testimonial__photo--placeholder" aria-hidden="true">E&amp;A</span>
+          <span><span class="bw-testimonial__name">Eduardo y Alex</span><br><span class="bw-testimonial__meta">Franquiciados de Mallplaza Iquique · Región de Tarapacá · <mark class="bw-pending">años en la red</mark></span></span>
+        </figcaption>
+      </figure>
+      <figure class="bw-testimonial bw-testimonial--video">
+        <div class="bw-video">
+          <img src="assets/fotos/lifestyle-oreo-mano.jpg" alt="" width="1066" height="1600" loading="lazy">
+          <button class="bw-video__play" type="button" aria-label="Reproducir testimonio en video (placeholder)"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor"/></svg></button>
+          <span class="bw-video__duration bw-badge bw-badge--tinta bw-badge--sm">0:45 · con subtítulos</span>
+        </div>
+        <blockquote class="bw-testimonial__quote"><p><mark class="bw-pending">Placeholder: video de 30–60 s de un franquiciado hablando del negocio (no hay material aún).</mark></p></blockquote>
+        <figcaption class="bw-testimonial__person">
+          <span class="bw-testimonial__photo bw-testimonial__photo--placeholder" aria-hidden="true">?</span>
+          <span><span class="bw-testimonial__name"><mark class="bw-pending">Nombre</mark></span><br><span class="bw-testimonial__meta"><mark class="bw-pending">Local · ciudad · años en la red · un dato de negocio</mark></span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-locations"><div class="ds-comp__head"><h2>LocationsMap</h2><p>Mapa estático placeholder + lista de regiones accesible + estados. · <a href="components/modulos/locations/locations.card.html">Card</a> · <a href="components/modulos/locations/locations.md">Notas</a></p></div>
+<p class="ds-variant">Mapa placeholder + lista de regiones (tema crema)</p>
+
+<section class="bw-section bw-theme-crema" aria-labelledby="loc-title-xlocations0">
+  <div class="bw-container">
+    <header class="bw-section-header">
+      <span class="bw-kicker">Buffalo in da house</span>
+      <h2 class="bw-section-header__title" id="loc-title-xlocations0">Desde Arica hasta Punta Arenas</h2>
+      <p class="bw-section-header__lead">Hoy tenemos locales en 11 regiones y buscamos crecer en distintas zonas del país. Evaluamos cada caso según el potencial comercial, la cobertura actual y la disponibilidad territorial.</p>
+    </header>
+    <div class="bw-locations">
+      <figure class="bw-map">
+        <svg class="bw-map__svg" viewBox="0 0 278 767" role="img" aria-labelledby="bw-map-title-xlocations0">
+<title id="bw-map-title-xlocations0">Mapa esquemático de Chile con las 11 regiones donde hoy hay locales Buffalo Waffles (placeholder, no es cartografía)</title>
+<path class="bw-map__land" d="M135.6 17.8 L147.0 38.7 L156.5 61.5 L160.3 91.9 L179.3 118.5 L183.1 145.1 L160.3 175.5 L152.7 205.9 L137.5 228.7 L128.0 259.1 L124.2 293.3 L128.0 323.7 L120.4 352.2 L110.9 386.4 L107.1 424.4 L97.6 462.4 L93.8 498.5 L97.6 528.9 L99.5 559.3 L84.3 589.7 L67.2 623.9 L82.4 646.7 L95.7 671.4 L139.4 677.1 L154.6 686.6 L154.6 730.3 L177.4 745.5 L135.6 741.7 L97.6 726.5 L53.9 692.3 L33.0 654.3 L27.3 608.7 L38.7 559.3 L48.2 521.3 L52.0 490.9 L53.9 470.0 L59.6 437.7 L57.7 394.0 L74.8 361.7 L93.8 329.4 L97.6 300.9 L99.5 255.3 L103.3 224.9 L110.9 198.3 L116.6 167.9 L118.5 131.8 L124.2 93.8 L124.2 57.7 L120.4 33.0 Z"/>
+<path d="M122.3 36.4 L188.9 36.4" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="122.3" cy="36.4" r="6"/>
+<text class="bw-map__label" x="192.9" y="40.9">XV</text>
+<path d="M125.1 69.3 L188.9 69.3" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="125.1" cy="69.3" r="6"/>
+<text class="bw-map__label" x="192.9" y="73.8">I</text>
+<path d="M120.4 134.6 L188.9 134.6" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="120.4" cy="134.6" r="6"/>
+<text class="bw-map__label" x="192.9" y="139.1">II</text>
+<path d="M97.6 313.2 L188.9 313.2" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="97.6" cy="313.2" r="6"/>
+<text class="bw-map__label" x="192.9" y="317.7">V</text>
+<path d="M115.6 320.9 L188.9 328.2" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="115.6" cy="320.9" r="6"/>
+<text class="bw-map__label" x="192.9" y="332.7">RM</text>
+<path d="M113.9 334.5 L188.9 343.2" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="113.9" cy="334.5" r="6"/>
+<text class="bw-map__label" x="192.9" y="347.7">VI</text>
+<path d="M96.6 358.5 L188.9 358.5" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="96.6" cy="358.5" r="6"/>
+<text class="bw-map__label" x="192.9" y="363.0">VII</text>
+<path d="M70.1 384.9 L188.9 384.9" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="70.1" cy="384.9" r="6"/>
+<text class="bw-map__label" x="192.9" y="389.4">VIII</text>
+<path d="M78.6 421.4 L188.9 421.4" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="78.6" cy="421.4" r="6"/>
+<text class="bw-map__label" x="192.9" y="425.9">IX</text>
+<path d="M66.4 441.7 L188.9 441.7" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="66.4" cy="441.7" r="6"/>
+<text class="bw-map__label" x="192.9" y="446.2">XIV</text>
+<path d="M110.9 695.3 L188.9 695.3" stroke="currentColor" stroke-width="1" opacity=".45"/>
+<circle class="bw-map__pin" cx="110.9" cy="695.3" r="6"/>
+<text class="bw-map__label" x="192.9" y="699.8">XII</text>
+</svg>
+        <figcaption class="bw-map__caption">Esquema ilustrativo, no es cartografía. <mark class="bw-pending">Reemplazar por el mapa definitivo y la lista de locales con dirección.</mark></figcaption>
+      </figure>
+      <div class="bw-stack">
+        <div class="bw-locations__legend" aria-label="Leyenda de estados">
+          <span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span>
+          <span class="bw-badge bw-badge--estado bw-badge--disponible bw-badge--sm">Disponible</span>
+          <span class="bw-badge bw-badge--estado bw-badge--pocas bw-badge--sm">Pocas plazas</span>
+          <span class="bw-badge bw-badge--estado bw-badge--tomada bw-badge--sm">Tomada</span>
+        </div>
+        <p class="bw-small"><mark class="bw-pending">Estados de disponibilidad por zona: pendientes. Mostrar «Pocas plazas» solo con datos reales.</mark></p>
+        <ul class="bw-regions" aria-label="Regiones con locales Buffalo Waffles">
+          <li class="bw-region"><span class="bw-region__code">XV</span><span class="bw-region__name">Arica y Parinacota<small>Referencia: Arica</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">I</span><span class="bw-region__name">Tarapacá<small>Referencia: Iquique</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">II</span><span class="bw-region__name">Antofagasta<small>Referencia: Antofagasta</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">V</span><span class="bw-region__name">Valparaíso<small>Referencia: Valparaíso</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">RM</span><span class="bw-region__name">Metropolitana<small>Referencia: Santiago</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">VI</span><span class="bw-region__name">O'Higgins<small>Referencia: Rancagua</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">VII</span><span class="bw-region__name">Maule<small>Referencia: Talca</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">VIII</span><span class="bw-region__name">Biobío<small>Referencia: Concepción</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">IX</span><span class="bw-region__name">La Araucanía<small>Referencia: Temuco</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">XIV</span><span class="bw-region__name">Los Ríos<small>Referencia: Valdivia</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+          <li class="bw-region"><span class="bw-region__code">XII</span><span class="bw-region__name">Magallanes<small>Referencia: Punta Arenas</small></span><span class="bw-badge bw-badge--estado bw-badge--presencia bw-badge--sm">Con locales</span></li>
+        </ul>
+        <div><a class="bw-btn bw-btn--primary" href="#postula">¿Hay cupo en mi comuna? Consúltanos <svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-leadform"><div class="ds-comp__head"><h2>LeadForm multipaso</h2><p>3 pasos con progreso, tramos coherentes con $40M, consentimiento y gracias con Pipedrive. · <a href="components/modulos/leadform/leadform.card.html">Card</a> · <a href="components/modulos/leadform/leadform.md">Notas</a></p></div>
+<p class="ds-variant">Formulario de 3 pasos (dentro de sección noche, en isla clara). Prueba &quot;Siguiente&quot; con campos vacíos.</p>
+
+<section class="bw-section bw-theme-noche" id="postula" aria-labelledby="lf-title-xleadform0">
+  <div class="bw-container bw-split bw-split--40-60">
+    <header class="bw-section-header">
+      <span class="bw-kicker">Postula</span>
+      <h2 class="bw-section-header__title">Da el primer paso</h2>
+      <p class="bw-section-header__lead">Completa tu postulación y un ejecutivo de franquicias revisará tu perfil. Después puedes elegir tu reunión inicial.</p>
+      <ul class="bw-leadform__reassure"><li><span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg> Toma 1 minuto</span></li><li><span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8 7.5 9.5 4.3-1.5 7.5-5 7.5-9.5V6L12 3Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg> Postular no tiene costo</span></li></ul>
+    </header>
+    <div class="bw-leadform bw-island" data-bw-leadform data-bw-demo>
+      <form novalidate action="#" aria-labelledby="lf-title-xleadform0">
+        <div class="bw-leadform__head">
+          <p class="bw-leadform__title" id="lf-title-xleadform0">Postula a tu franquicia</p>
+          <p class="bw-leadform__meta">Campos con <span class="bw-field__req" aria-hidden="true">*</span> son obligatorios.</p>
+        </div>
+        <ol class="bw-progress" aria-label="Progreso">
+          <li class="bw-progress__step" aria-current="step">Contacto</li>
+          <li class="bw-progress__step">Perfil</li>
+          <li class="bw-progress__step">Zona</li>
+        </ol>
+        <p class="bw-progress__count" aria-live="polite" data-bw-count>Paso 1 de 3</p>
+
+        <fieldset class="bw-leadform__step is-active" data-bw-step>
+          <legend class="bw-leadform__legend" tabindex="-1">Hablemos</legend>
+          <div class="bw-leadform__row bw-leadform__row--2">
+            <div class="bw-field"><label class="bw-field__label" for="lf-nombre-xleadform0">Nombre <span class="bw-field__req" aria-hidden="true">*</span></label><input class="bw-input" id="lf-nombre-xleadform0" name="firstname" autocomplete="given-name" required aria-describedby="lf-nombre-e-xleadform0"><p class="bw-field__error" id="lf-nombre-e-xleadform0">Escribe tu nombre.</p></div>
+            <div class="bw-field"><label class="bw-field__label" for="lf-apellido-xleadform0">Apellido <span class="bw-field__opt">(opcional)</span></label><input class="bw-input" id="lf-apellido-xleadform0" name="lastname" autocomplete="family-name"></div>
+          </div>
+          <div class="bw-field"><label class="bw-field__label" for="lf-mail-xleadform0">Correo <span class="bw-field__req" aria-hidden="true">*</span></label><input class="bw-input" id="lf-mail-xleadform0" name="email" type="email" autocomplete="email" required aria-describedby="lf-mail-e-xleadform0"><p class="bw-field__error" id="lf-mail-e-xleadform0">Revisa el correo (ejemplo: nombre@gmail.com).</p></div>
+          <div class="bw-field"><label class="bw-field__label" for="lf-tel-xleadform0">WhatsApp o teléfono <span class="bw-field__req" aria-hidden="true">*</span></label><input class="bw-input" id="lf-tel-xleadform0" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" required pattern="[0-9+ ()-]{8,}" aria-describedby="lf-tel-h-xleadform0 lf-tel-e-xleadform0"><p class="bw-field__hint" id="lf-tel-h-xleadform0">Solo para contactarte por tu postulación.</p><p class="bw-field__error" id="lf-tel-e-xleadform0">Revisa el número: incluye el 9 y los 8 dígitos.</p></div>
+        </fieldset>
+
+        <fieldset class="bw-leadform__step" data-bw-step>
+          <legend class="bw-leadform__legend" tabindex="-1">Tu perfil de inversión</legend>
+          <fieldset class="bw-choices"><legend class="bw-field__label">¿Con cuánto capital cuentas para invertir? <span class="bw-field__req" aria-hidden="true">*</span></legend>
+            <label class="bw-choice"><input type="radio" name="capital-xleadform0" value="Menos de $40 millones" required><span class="bw-choice__box">Menos de $40 millones</span></label><label class="bw-choice"><input type="radio" name="capital-xleadform0" value="Entre $40 y $60 millones"><span class="bw-choice__box">Entre $40 y $60 millones</span></label><label class="bw-choice"><input type="radio" name="capital-xleadform0" value="Entre $60 y $100 millones"><span class="bw-choice__box">Entre $60 y $100 millones</span></label><label class="bw-choice"><input type="radio" name="capital-xleadform0" value="Más de $100 millones"><span class="bw-choice__box">Más de $100 millones</span></label><label class="bw-choice"><input type="radio" name="capital-xleadform0" value="Prefiero conversarlo"><span class="bw-choice__box">Prefiero conversarlo</span></label>
+            <p class="bw-field__error">Elige una opción (puede ser «Prefiero conversarlo»).</p>
+          </fieldset>
+          <p class="bw-field__hint">La inversión total parte en $40.000.000, según formato y ubicación. <span class="bw-legal-flag">Tramos a validar con el cliente</span></p>
+          <fieldset class="bw-choices"><legend class="bw-field__label">¿Cuándo te gustaría partir?</legend>
+            <label class="bw-choice"><input type="radio" name="plazo-xleadform0" value="En menos de 6 meses"><span class="bw-choice__box">En menos de 6 meses</span></label><label class="bw-choice"><input type="radio" name="plazo-xleadform0" value="Entre 6 y 12 meses"><span class="bw-choice__box">Entre 6 y 12 meses</span></label><label class="bw-choice"><input type="radio" name="plazo-xleadform0" value="En más de un año"><span class="bw-choice__box">En más de un año</span></label><label class="bw-choice"><input type="radio" name="plazo-xleadform0" value="Estoy explorando"><span class="bw-choice__box">Estoy explorando</span></label>
+          </fieldset>
+          <fieldset class="bw-choices"><legend class="bw-field__label">¿Cómo te imaginas el negocio?</legend>
+            <label class="bw-choice"><input type="radio" name="rol-xleadform0" value="Operarlo yo"><span class="bw-choice__box">Operarlo yo</span></label><label class="bw-choice"><input type="radio" name="rol-xleadform0" value="Invertir con un administrador"><span class="bw-choice__box">Invertir con un administrador</span></label><label class="bw-choice"><input type="radio" name="rol-xleadform0" value="Aún no lo sé"><span class="bw-choice__box">Aún no lo sé</span></label>
+          </fieldset>
+          <fieldset class="bw-choices"><legend class="bw-field__label">¿Has tenido un negocio antes?</legend>
+            <label class="bw-choice"><input type="radio" name="exp-xleadform0" value="Sí, en gastronomía"><span class="bw-choice__box">Sí, en gastronomía</span></label><label class="bw-choice"><input type="radio" name="exp-xleadform0" value="Sí, en otro rubro"><span class="bw-choice__box">Sí, en otro rubro</span></label><label class="bw-choice"><input type="radio" name="exp-xleadform0" value="No, sería el primero"><span class="bw-choice__box">No, sería el primero</span></label>
+          </fieldset>
+          <p class="bw-field__hint">No necesitas experiencia en gastronomía.</p>
+        </fieldset>
+
+        <fieldset class="bw-leadform__step" data-bw-step>
+          <legend class="bw-leadform__legend" tabindex="-1">¿Dónde quieres abrir?</legend>
+          <div class="bw-leadform__row bw-leadform__row--2">
+            <div class="bw-field"><label class="bw-field__label" for="lf-region-xleadform0">Región <span class="bw-field__req" aria-hidden="true">*</span></label><select class="bw-select" id="lf-region-xleadform0" name="region" required aria-describedby="lf-region-e-xleadform0"><option value="">Selecciona una región</option><option>Arica y Parinacota</option><option>Tarapacá</option><option>Antofagasta</option><option>Atacama</option><option>Coquimbo</option><option>Valparaíso</option><option>Metropolitana de Santiago</option><option>Libertador General Bernardo O'Higgins</option><option>Maule</option><option>Ñuble</option><option>Biobío</option><option>La Araucanía</option><option>Los Ríos</option><option>Los Lagos</option><option>Aysén del General Carlos Ibáñez del Campo</option><option>Magallanes y de la Antártica Chilena</option></select><p class="bw-field__error" id="lf-region-e-xleadform0">Elige una región.</p></div>
+            <div class="bw-field"><label class="bw-field__label" for="lf-comuna-xleadform0">Comuna o ciudad</label><input class="bw-input" id="lf-comuna-xleadform0" name="comuna" autocomplete="address-level2"></div>
+          </div>
+          <fieldset class="bw-choices"><legend class="bw-field__label">¿Tienes un local en vista?</legend>
+            <label class="bw-choice"><input type="radio" name="local-xleadform0" value="Sí"><span class="bw-choice__box">Sí</span></label><label class="bw-choice"><input type="radio" name="local-xleadform0" value="Lo estoy buscando"><span class="bw-choice__box">Lo estoy buscando</span></label><label class="bw-choice"><input type="radio" name="local-xleadform0" value="Todavía no"><span class="bw-choice__box">Todavía no</span></label>
+          </fieldset>
+          <div class="bw-field"><label class="bw-field__label" for="lf-msg-xleadform0">¿Algo más que quieras contarnos? <span class="bw-field__opt">(opcional)</span></label><textarea class="bw-textarea" id="lf-msg-xleadform0" name="mensaje"></textarea></div>
+          <div class="bw-field">
+            <label class="bw-check"><input type="checkbox" name="consentimiento" required aria-describedby="lf-cons-e-xleadform0"><span>Acepto que Buffalo Waffles trate mis datos para evaluar mi postulación y contactarme, según la <a href="#privacidad">Política de Privacidad</a>. <span class="bw-field__req" aria-hidden="true">*</span></span></label>
+            <p class="bw-field__error" id="lf-cons-e-xleadform0">Necesitamos tu autorización para revisar tu postulación.</p>
+          </div>
+          <label class="bw-check"><input type="checkbox" name="novedades"><span>Quiero recibir novedades de la red de franquicias (opcional).</span></label>
+          <p class="bw-leadform__legal"><span class="bw-legal-flag">A validar por legal · Ley 21.719</span> Responsable de los datos: <mark class="bw-pending">[razón social y RUT]</mark>. Puedes pedir acceso, rectificación o eliminación de tus datos escribiendo a franquicias@buffalowaffles.com. Ningún casillero viene marcado por defecto.</p>
+        </fieldset>
+
+        <div class="bw-leadform__nav">
+          <button class="bw-btn bw-btn--ghost" type="button" data-bw-prev hidden>Atrás</button>
+          <button class="bw-btn bw-btn--primary" type="button" data-bw-next>Siguiente <svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          <button class="bw-btn bw-btn--primary bw-btn--sticker" type="submit" data-bw-submit>Enviar postulación</button>
+        </div>
+      </form>
+      <div class="bw-leadform__done" role="status" tabindex="-1" data-bw-done>
+        <picture><source srcset="assets/mascota/mascota-angel.webp" type="image/webp"><img src="assets/mascota/mascota-angel.png" alt="" width="540" height="560" loading="lazy"></picture>
+        <p class="bw-leadform__title">¡Buena! Ya tenemos tu postulación</p>
+        <p class="bw-body">Un ejecutivo de franquicias revisará tu perfil y te contactará en <mark class="bw-pending">[X] horas hábiles</mark>. ¿Quieres adelantar? Elige tu reunión inicial.</p>
+        <div class="bw-btn-group">
+          <a class="bw-btn bw-btn--primary bw-btn--lg" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Elige tu reunión inicial</a>
+          <a class="bw-btn bw-btn--secondary" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 11.5h.01"/><path d="M12 11.5h.01"/><path d="M15 11.5h.01"/></svg> Escríbenos por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-faq"><div class="ds-comp__head"><h2>FAQ</h2><p>Acordeón &lt;details&gt; con las 17 preguntas reales en 4 categorías. · <a href="components/modulos/faq/faq.card.html">Card</a> · <a href="components/modulos/faq/faq.md">Notas</a></p></div>
+<p class="ds-variant">Acordeón &lt;details&gt; en 4 categorías — las 17 preguntas y respuestas reales (tema papel)</p>
+
+<section class="bw-section bw-theme-papel" id="faq" aria-labelledby="faq-title-xfaq0">
+  <div class="bw-container bw-faq bw-faq--cols">
+    <header class="bw-section-header">
+      <span class="bw-kicker">Resolvemos tus dudas</span>
+      <h2 class="bw-section-header__title" id="faq-title-xfaq0">Preguntas frecuentes</h2>
+      <p class="bw-section-header__lead">¿Tienes preguntas sobre cómo empezar? Aquí las respondemos.</p>
+      <div class="bw-btn-group"><a class="bw-btn bw-btn--secondary" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 11.5h.01"/><path d="M12 11.5h.01"/><path d="M15 11.5h.01"/></svg> Pregúntanos por WhatsApp</a></div>
+    </header>
+    <div>
+      <div class="bw-faq__group"><h3 class="bw-label bw-faq__group-title">Inversión</h3><details class="bw-faq__item"><summary class="bw-faq__q">¿Cuánto cuesta abrir una franquicia de Buffalo Waffles?</summary><div class="bw-faq__a"><p>La inversión total depende del formato y ubicación del local, pero generalmente parte desde los $40 millones de pesos. Este monto considera la habilitación del local, equipamiento, capacitación y otros elementos necesarios para comenzar a operar.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Qué incluye la inversión?</summary><div class="bw-faq__a"><p>La inversión considera el derecho de franquicia, capacitación inicial, apoyo en la apertura, manuales operativos, acompañamiento comercial y acceso a proveedores homologados. El detalle específico se entrega durante el proceso de evaluación.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Puedo tener la franquicia como inversión y contratar a un administrador?</summary><div class="bw-faq__a"><p>Sí. Existen franquiciados que participan activamente en la operación y otros que administran el negocio a través de un encargado. En ambos casos, recomendamos involucrarse en el seguimiento de los indicadores del local.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Puedo abrir más de una franquicia?</summary><div class="bw-faq__a"><p>Sí. Varios de nuestros franquiciados han continuado creciendo junto a la marca incorporando nuevos locales una vez consolidada su primera operación.</p></div></details></div>
+      <div class="bw-faq__group"><h3 class="bw-label bw-faq__group-title">Operación</h3><details class="bw-faq__item"><summary class="bw-faq__q">¿Necesito experiencia en gastronomía para ser franquiciado?</summary><div class="bw-faq__a"><p>No. Muchos de nuestros franquiciados provienen de rubros completamente distintos. Lo más importante es tener compromiso con la operación, capacidad de gestión y ganas de hacer crecer el negocio.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Cuántas personas necesito para operar un local?</summary><div class="bw-faq__a"><p>Depende del formato y volumen de ventas, pero normalmente un local opera con equipos pequeños, lo que facilita la gestión y el control de costos.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Cómo se generan las ventas?</summary><div class="bw-faq__a"><p>Las ventas provienen tanto de clientes presenciales como de plataformas de delivery, permitiendo diversificar los ingresos y aprovechar distintos momentos de consumo.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿La marca realiza acciones de marketing?</summary><div class="bw-faq__a"><p>Sí. Buffalo Waffles desarrolla campañas de marketing digital, promociones y acciones de posicionamiento de marca que benefician a toda la red de franquicias.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Qué apoyo entrega Buffalo Waffles?</summary><div class="bw-faq__a"><p>Acompañamos a nuestros franquiciados antes, durante y después de la apertura. Esto incluye capacitación, soporte operacional, marketing, asesoría comercial, desarrollo de productos y seguimiento permanente del negocio.</p></div></details></div>
+      <div class="bw-faq__group"><h3 class="bw-label bw-faq__group-title">Proceso</h3><details class="bw-faq__item"><summary class="bw-faq__q">¿Cuál es el proceso para convertirme en franquiciado?</summary><div class="bw-faq__a"><ol><li>Completar el formulario de interés.</li><li>Participar en una reunión de presentación de la franquicia.</li><li>Evaluación del perfil y capacidad de inversión.</li><li>Búsqueda y aprobación del local.</li><li>Firma de contratos.</li><li>Capacitación y habilitación.</li><li>Apertura del local.</li></ol></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Cuánto tiempo demora abrir una franquicia?</summary><div class="bw-faq__a"><p>Dependiendo de la disponibilidad del local y los tiempos de habilitación, el proceso suele tardar entre 2 y 4 meses desde la firma hasta la apertura.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Puedo abrir una franquicia en cualquier ciudad de Chile?</summary><div class="bw-faq__a"><p>Buscamos crecer en distintas regiones del país. Evaluamos cada caso según el potencial comercial de la zona, la cobertura actual de la marca y la disponibilidad territorial.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Me ayudan a encontrar un local?</summary><div class="bw-faq__a"><p>Sí. Nuestro equipo acompaña a los franquiciados en la búsqueda, evaluación y negociación de ubicaciones que cumplan con los estándares de la marca.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Qué requisitos debo cumplir para postular?</summary><div class="bw-faq__a"><p>Buscamos personas con capacidad de inversión, compromiso con la marca, orientación comercial y disposición para seguir los estándares operativos establecidos.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Cómo puedo obtener más información?</summary><div class="bw-faq__a"><p>Completa el formulario de contacto y uno de nuestros ejecutivos te ayudará a evaluar si Buffalo Waffles es la oportunidad adecuada para ti.</p></div></details></div>
+      <div class="bw-faq__group"><h3 class="bw-label bw-faq__group-title">Contrato y marca</h3><details class="bw-faq__item"><summary class="bw-faq__q">¿Cuánto dura el contrato de franquicia?</summary><div class="bw-faq__a"><p>El contrato de franquicia otorga al franquiciado el derecho a usufructuar la marca y operar bajo el modelo Buffalo Waffles por un período de 20 años. Esto entrega estabilidad y una visión de largo plazo para desarrollar y hacer crecer el negocio junto a la marca.</p></div></details><details class="bw-faq__item"><summary class="bw-faq__q">¿Qué hace diferente a Buffalo Waffles?</summary><div class="bw-faq__a"><p>No somos una franquicia tradicional. Buffalo Waffles es una marca chilena, cercana y dinámica que ha desafiado las reglas de la comida rápida con una propuesta innovadora y una identidad propia. Contamos con más de 50 locales operando a lo largo de Chile, un modelo de negocio probado y un equipo que acompaña a los franquiciados en cada etapa del camino. Más que una franquicia, buscamos construir una comunidad de emprendedores que crecen junto a la marca.</p></div></details></div>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-blog-teaser"><div class="ds-comp__head"><h2>BlogTeaser</h2><p>Un solo bloque de 3 artículos reales, imágenes livianas. · <a href="components/modulos/blog-teaser/blog-teaser.card.html">Card</a> · <a href="components/modulos/blog-teaser/blog-teaser.md">Notas</a></p></div>
+<p class="ds-variant">3 artículos reales del blog (tema crema). Imágenes: placeholders del DS</p>
+
+<section class="bw-section bw-theme-crema" aria-labelledby="blog-title-xblog-teaser0">
+  <div class="bw-container">
+    <header class="bw-section-header">
+      <span class="bw-kicker">Nuestro blog</span>
+      <h2 class="bw-section-header__title" id="blog-title-xblog-teaser0">El blog de los que van en serio</h2>
+      <p class="bw-section-header__lead">Lo que nadie te cuenta antes de abrir una franquicia. Casos reales, métricas de operación y todo lo que necesitas saber antes de invertir.</p>
+    </header>
+    <div class="bw-posts">
+      <article class="bw-post">
+        <div class="bw-post__media"><img src="assets/fotos/producto-bites-frambuesa.jpg" alt="" width="1254" height="1254" loading="lazy"></div>
+        <div class="bw-post__body">
+          <p class="bw-post__meta"><span class="bw-badge bw-badge--crema bw-badge--sm">Modelo de negocio</span><span>12 ago 2026 · 3 min de lectura</span></p>
+          <h3 class="bw-post__title"><a href="https://buffalofranquicias.com/blog/cmo-funciona-una-franquicia-de-comida-y-c%C3%B3mo-opera-buffalo-waffles-explicado-de-forma-simpleo">Cómo funciona una franquicia de comida (y cómo opera Buffalo Waffles) explicado de forma simple</a></h3>
+          <p class="bw-post__excerpt">Qué se paga, cuándo se paga y qué tan compleja es la operación, usando el modelo de Buffalo Waffles como ejemplo.</p>
+          <span class="bw-post__more" aria-hidden="true">Leer más →</span>
+        </div>
+      </article>
+      <article class="bw-post">
+        <div class="bw-post__media"><img src="assets/fotos/lifestyle-frutilla-estudio.jpg" alt="" width="1254" height="1254" loading="lazy"></div>
+        <div class="bw-post__body">
+          <p class="bw-post__meta"><span class="bw-badge bw-badge--crema bw-badge--sm">Vida franquiciada</span><span>5 jun 2026 · 2 min de lectura</span></p>
+          <h3 class="bw-post__title"><a href="https://buffalofranquicias.com/blog/por-qu%C3%A9-ser-franquiciado-en-lugar-de-emprender-desde-cero-la-respuesta-puede-estar-m%C3%A1s-cerca-de-lo-que-crees">¿Por qué ser franquiciado en lugar de emprender desde cero? La respuesta puede estar más cerca de lo que crees</a></h3>
+          <p class="bw-post__excerpt">Emprender con una marca, procesos probados y un KAM que te acompaña.</p>
+          <span class="bw-post__more" aria-hidden="true">Leer más →</span>
+        </div>
+      </article>
+      <article class="bw-post">
+        <div class="bw-post__media"><img src="assets/fotos/producto-teriyaki-estudio.jpg" alt="" width="1254" height="1254" loading="lazy"></div>
+        <div class="bw-post__body">
+          <p class="bw-post__meta"><span class="bw-badge bw-badge--crema bw-badge--sm">Expansión Buffalo</span><span>5 jun 2026 · 1 min de lectura</span></p>
+          <h3 class="bw-post__title"><a href="https://buffalofranquicias.com/blog/de-emprendimiento-a-55-locales-la-historia-de-buffalo-waffles-la-franquicia-chilena-que-conquist%C3%B3-chile">De emprendimiento a 55 locales: la historia de Buffalo Waffles, la franquicia chilena que conquistó Chile</a></h3>
+          <p class="bw-post__excerpt">Cómo una idea de emprendimiento puro se convirtió en una red de franquicias a lo largo de Chile.</p>
+          <span class="bw-post__more" aria-hidden="true">Leer más →</span>
+        </div>
+      </article>
+    </div>
+    <a class="bw-btn bw-btn--ghost" href="https://buffalofranquicias.com/blog">Ver todos los artículos</a>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-cta-band"><div class="ds-comp__head"><h2>CTA band</h2><p>Cierre con voz de marca, CTA principal y secundario. · <a href="components/modulos/cta-band/cta-band.card.html">Card</a> · <a href="components/modulos/cta-band/cta-band.md">Notas</a></p></div>
+<p class="ds-variant">Bloque oro con mascota</p>
+
+<section class="bw-section bw-ctaband bw-block-oro" aria-labelledby="cta-title-xcta-band0">
+  <div class="bw-ctaband__inner">
+    <div>
+      <span class="bw-kicker">¿Te hace sentido?</span>
+      <h2 class="bw-ctaband__title" id="cta-title-xcta-band0">Este puede ser tu lugar</h2>
+      <p class="bw-ctaband__text">Buscamos socios para seguir creciendo. Súmate y construye tu propio negocio con una marca en expansión.</p>
+      <div class="bw-btn-group bw-btn-group--stack-mobile">
+        <a class="bw-btn bw-btn--primary bw-btn--lg bw-btn--sticker" href="#postula">Quiero ser franquiciado <svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+        <a class="bw-btn bw-btn--ghost bw-btn--lg" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agenda una reunión</a>
+      </div>
+    </div>
+    <div class="bw-ctaband__mascot"><picture><source srcset="assets/mascota/mascota-shake.webp" type="image/webp"><img src="assets/mascota/mascota-shake.png" alt="" width="442" height="560" loading="lazy"></picture></div>
+  </div>
+</section>
+<p class="ds-variant">Tema noche, sin mascota</p>
+
+<section class="bw-section bw-section--sm bw-ctaband bw-theme-noche" aria-labelledby="cta2-title-xcta-band1">
+  <div class="bw-ctaband__inner">
+    <div>
+      <h2 class="bw-ctaband__title" id="cta2-title-xcta-band1">Sé dueño de tu propio <span class="bw-hl">Buffalo Waffles</span></h2>
+      <div class="bw-btn-group bw-btn-group--stack-mobile">
+        <a class="bw-btn bw-btn--primary bw-btn--lg" href="#postula">Postula a tu franquicia</a>
+        <a class="bw-btn bw-btn--ghost bw-btn--lg" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 11.5h.01"/><path d="M12 11.5h.01"/><path d="M15 11.5h.01"/></svg> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+<section class="ds-comp" id="c-footer"><div class="ds-comp__head"><h2>Footer</h2><p>Contacto real, navegación, redes y aviso legal sobre cifras. · <a href="components/modulos/footer/footer.card.html">Card</a> · <a href="components/modulos/footer/footer.md">Notas</a></p></div>
+<p class="ds-variant">Tema noche — contacto real + aviso legal sobre cifras</p>
+
+<footer class="bw-footer bw-theme-noche">
+  <div class="bw-footer__inner">
+    <div class="bw-footer__top">
+      <div>
+        <span class="bw-logo bw-logo--wordmark bw-logo--negativo"><img src="assets/logos/logo-wordmark-negativo.png" alt="Buffalo Waffles" width="2510" height="442" loading="lazy"></span>
+        <p class="bw-footer__claim">Más de 50 locales, un modelo validado y una oportunidad real de crecimiento.</p>
+      </div>
+      <div>
+        <p class="bw-footer__title">Contacto</p>
+        <ul class="bw-footer__list">
+          <li><a href="mailto:franquicias@buffalowaffles.com">franquicias@buffalowaffles.com</a></li>
+          <li><a href="tel:+56933758164">+56 9 3375 8164</a></li>
+          <li><a href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F">WhatsApp</a></li>
+          <li><a href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles">Agenda una reunión</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="bw-footer__title">Páginas</p>
+        <ul class="bw-footer__list">
+          <li><a href="#negocio">El negocio</a></li><li><a href="#numeros">Números</a></li><li><a href="#proceso">Proceso</a></li>
+          <li><a href="#requisitos">Requisitos</a></li><li><a href="#faq">Preguntas</a></li><li><a href="https://buffalofranquicias.com/blog">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="bw-footer__title">Conéctate</p>
+        <div class="bw-footer__social">
+          <a href="https://www.instagram.com/buffalowaffles/"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Instagram"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></a>
+          <a href="https://www.facebook.com/buffalowaffles"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Facebook"><path d="M14.5 21v-7.5h2.5l.5-3h-3V8.8c0-.9.4-1.6 1.7-1.6h1.4V4.6c-.5-.1-1.4-.2-2.4-.2-2.4 0-3.9 1.4-3.9 4v2.1H9v3h2.3V21"/></svg></a>
+          <a href="https://www.linkedin.com/company/buffalo-waffles/"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="LinkedIn"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><path d="M8 10.5V16"/><path d="M8 7.5v.01"/><path d="M12 16v-3.2a2.2 2.2 0 0 1 4.4 0V16"/><path d="M12 10.5V16"/></svg></a>
+          <a href="https://x.com/BuffaloWaffles"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="X"><path d="M4.5 4.5 19.5 19.5"/><path d="M19.5 4.5 4.5 19.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="bw-footer__legal">
+      <p>Las cifras de este sitio son informadas por Buffalo Waffles; cada cifra de desempeño indica su base y periodo en una nota. No constituyen promesa ni garantía de resultados: los resultados de cada local dependen de su ubicación, formato y gestión. <span class="bw-legal-flag">A validar por legal</span></p>
+    </div>
+    <div class="bw-footer__bottom">
+      <span>© 2026 <mark class="bw-pending">[Razón social] · RUT [X]</mark></span>
+      <span><a href="#privacidad">Política de privacidad</a> · <a href="#terminos">Términos</a></span>
+    </div>
+  </div>
+</footer>
+</section>
+<section class="ds-comp" id="c-sticky-cta"><div class="ds-comp__head"><h2>Sticky CTA móvil</h2><p>Barra inferior fija bajo 768 px: WhatsApp + Agendar. · <a href="components/modulos/sticky-cta/sticky-cta.card.html">Card</a> · <a href="components/modulos/sticky-cta/sticky-cta.md">Notas</a></p></div>
+<p class="ds-variant">Barra móvil WhatsApp + Agendar (vista estática; en la card real aparece fija bajo 768 px)</p>
+
+<div class="ds-pad bw-theme-papel" style="max-width:420px">
+  <div class="bw-sticky-cta bw-sticky-cta--static bw-theme-papel">
+    <a class="bw-btn bw-btn--secondary" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 11.5h.01"/><path d="M12 11.5h.01"/><path d="M15 11.5h.01"/></svg> WhatsApp</a>
+    <a class="bw-btn bw-btn--primary" href="https://buffalowaffles.pipedrive.com/scheduler/57xeMet7/reunion-inicial-buffalo-waffles"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/></svg> Agendar</a>
+  </div>
+</div>
+<p class="ds-variant">Alternativa recomendada por A1: Postula + WhatsApp (ver notas)</p>
+
+<div class="ds-pad bw-theme-noche" style="max-width:420px">
+  <div class="bw-sticky-cta bw-sticky-cta--static bw-theme-noche">
+    <a class="bw-btn bw-btn--ghost" href="https://patg.ai/api/v1/r/agt_01K7JJSCPT8K81DBA2J18KE126?text=Hola+quiero+mas+informaci%C3%B3n+sobre+sus+franquicias+Buffalo+Waffles&amp;landing_url=https%3A%2F%2Fbuffalofranquicias.com%2Fes-cl%2F"><svg class="bw-btn__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.2A8 8 0 1 1 20 11.5Z"/><path d="M9 11.5h.01"/><path d="M12 11.5h.01"/><path d="M15 11.5h.01"/></svg> WhatsApp</a>
+    <a class="bw-btn bw-btn--primary" href="#postula">Postula</a>
+  </div>
+</div>
+</section>
+</main>
+
+<script src="components/modulos/header/header.js" defer></script>
+<script src="components/modulos/leadform/leadform.js" defer></script>
+<script src="components/modulos/sticky-cta/sticky-cta.js" defer></script>
+</body>
+</html>

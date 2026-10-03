@@ -1,0 +1,37 @@
+/* Features — "Por qué Buffalo": 3–4 diferenciales del NEGOCIO (no del producto).
+   Cada tarjeta: ícono en sticker, titular corto con voz de marca, texto sobrio y, si existe,
+   un dato verificable. Layout bento: la primera tarjeta puede ser destacada (--wide). */
+
+.bw-features{ display:grid; gap:var(--grid-gap); grid-template-columns:repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+@media (min-width:1024px){
+  .bw-features--bento{ grid-template-columns:repeat(6, minmax(0,1fr)); }
+  .bw-features--bento .bw-feature{ grid-column:span 2; }
+  .bw-features--bento .bw-feature--wide{ grid-column:span 4; }
+}
+.bw-feature{
+  position:relative; display:flex; flex-direction:column; gap:12px;
+  background:var(--surface-raised); color:var(--text);
+  border:var(--border-bold) solid var(--border); border-radius:var(--radius-lg);
+  padding:clamp(1.25rem, 1rem + 1vw, 2rem);
+  transition:transform var(--dur-base) var(--ease-standard), box-shadow var(--dur-base) var(--ease-standard);
+}
+.bw-feature:hover{ transform:translateY(-3px); box-shadow:var(--shadow-pop); }
+.bw-feature__icon{
+  display:grid; place-items:center; width:56px; height:56px; border-radius:50%;
+  background:var(--bw-gold); color:var(--bw-ink); border:var(--border-bold) solid var(--bw-ink);
+  box-shadow:0 3px 0 var(--bw-ink);
+}
+.bw-feature__icon svg{ width:26px; height:26px; }
+.bw-feature__title{
+  font-family:var(--font-display); font-weight:var(--fw-black); font-size:var(--fs-h4);
+  line-height:var(--lh-snug); text-transform:uppercase; letter-spacing:var(--ls-heading); color:var(--heading);
+}
+.bw-feature__text{ font-size:var(--fs-body); line-height:var(--lh-body); color:var(--text-soft); }
+.bw-feature__data{
+  margin-top:auto; padding-top:12px; border-top:1px solid var(--border-soft);
+  font-size:var(--fs-sm); font-weight:600; color:var(--text); font-variant-numeric:tabular-nums;
+}
+.bw-feature--wide{ background:var(--bw-ink); color:var(--bw-cream); --heading:var(--bw-cream); --text-soft:var(--bw-cream); --text:var(--bw-cream); --border-soft:rgba(246,231,198,.2); }
+.bw-feature--wide .bw-feature__media{ position:absolute; right:-8px; bottom:-8px; width:min(42%, 220px); pointer-events:none; }
+@media (max-width:599px){ .bw-feature--wide .bw-feature__media{ position:static; width:60%; align-self:flex-end; margin:-8px -8px -8px 0; } }
+.bw-feature--wide .bw-feature__body{ max-width:min(100%, 30rem); display:flex; flex-direction:column; gap:12px; }

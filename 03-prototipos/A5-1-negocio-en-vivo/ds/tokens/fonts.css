@@ -1,0 +1,9 @@
+/* Copia recortada de 02-design-system-web/tokens/fonts.css (DS web v2).
+   Solo se declaran los archivos que este prototipo copia en ds/assets/fonts/ (carpeta autocontenida).
+   Montserrat sigue viniendo de Google Fonts, igual que en el DS. font-display: swap en todas. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Medium.woff2') format('woff2'),url('../assets/fonts/Mostin-Medium.woff') format('woff');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Bold.woff2') format('woff2'),url('../assets/fonts/Mostin-Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin';src:url('../assets/fonts/Mostin-Black.woff2') format('woff2'),url('../assets/fonts/Mostin-Black.woff') format('woff');font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:'Mostin Outline';src:url('../assets/fonts/Mostin-Outline.woff2') format('woff2'),url('../assets/fonts/Mostin-Outline.woff') format('woff');font-weight:900;font-style:normal;font-display:swap}

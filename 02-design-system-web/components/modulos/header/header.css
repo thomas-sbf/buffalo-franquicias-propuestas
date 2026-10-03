@@ -1,0 +1,66 @@
+/* Header / Nav — sticky, opaco (no translúcido: NN/g), pequeño, con CTA principal siempre visible.
+   Corrige el problema medido por A1: en móvil el logo de 500 px fijos empujaba la hamburguesa
+   fuera de pantalla. Aquí el logo es fluido (máx. 60 % del ancho) y el menú móvil es un
+   <details> nativo: funciona sin JavaScript y es accesible por teclado. */
+
+.bw-header{
+  position:sticky; top:0; z-index:100;
+  background:var(--surface);
+  color:var(--text);
+  border-bottom:var(--border-bold) solid var(--border);
+}
+.bw-header__inner{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  min-height:var(--header-h);
+  width:min(var(--container-wide), 100% - 2 * var(--gutter)); margin-inline:auto;
+}
+.bw-header .bw-logo--wordmark img{ width:clamp(189px, 6vw + 160px, 240px); min-width:189px; max-width:none; }
+/* 189 px = mínimo del brandbook (5 cm a 96 dpi). Para que quepa a 360 px, bajo 480 px el CTA
+   sale del header y vive en la barra inferior fija (.bw-sticky-cta). */
+.bw-header__cta{ display:none; }
+@media (min-width:480px){ .bw-header__cta{ display:inline-flex; } }
+
+.bw-nav{ display:none; }
+.bw-nav__list{ display:flex; align-items:center; gap:clamp(16px, 2vw, 32px); }
+.bw-nav__link{
+  font-family:var(--font-display); font-weight:var(--fw-bold); font-size:var(--fs-sm);
+  letter-spacing:var(--ls-caps); text-transform:uppercase; color:var(--text);
+  text-decoration:none; padding:8px 0; border-bottom:3px solid transparent;
+}
+.bw-nav__link:hover{ color:var(--text); border-bottom-color:var(--accent); }
+.bw-nav__link[aria-current="true"],.bw-nav__link[aria-current="page"]{ border-bottom-color:var(--accent); }
+
+.bw-header__actions{ display:flex; align-items:center; gap:10px; }
+.bw-header__cta-secondary{ display:none; }
+
+/* Menú móvil (<details>) */
+.bw-menu{ position:static; }
+.bw-menu > summary{
+  list-style:none; display:inline-flex; align-items:center; justify-content:center;
+  width:var(--control-h); height:var(--control-h); border-radius:var(--radius-pill);
+  border:var(--border-bold) solid var(--border); color:var(--text); background:transparent;
+}
+.bw-menu > summary::-webkit-details-marker{ display:none; }
+.bw-menu > summary svg{ width:22px; height:22px; }
+.bw-menu__close{ display:none; }
+.bw-menu[open] .bw-menu__open{ display:none; }
+.bw-menu[open] .bw-menu__close{ display:block; }
+.bw-menu__panel{
+  position:absolute; left:0; right:0; top:100%;
+  background:var(--surface); border-bottom:var(--border-bold) solid var(--border);
+  padding:8px var(--gutter) 24px;
+  box-shadow:var(--shadow-lg);
+  max-height:calc(100vh - var(--header-h)); overflow-y:auto;
+}
+.bw-menu__panel a:not(.bw-btn){
+  display:block; padding:14px 0; border-bottom:1px solid var(--border-soft);
+  font-family:var(--font-display); font-weight:var(--fw-bold); font-size:1.125rem;
+  text-transform:uppercase; letter-spacing:var(--ls-caps); color:var(--text); text-decoration:none;
+}
+.bw-menu__panel .bw-btn{ margin-top:20px; }
+
+@media (min-width:1024px){
+  .bw-nav{ display:block; }
+  .bw-menu{ display:none; }
+  .bw-header__cta-secondary{ display:inline-flex; }
+}

@@ -1,0 +1,24 @@
+/* Footer — razón social, contacto real, navegación, redes y AVISO LEGAL sobre cifras.
+   Tema: .bw-theme-noche. Logo horizontal negativo (Brandbook p.12: "Uso en web: footer, header"). */
+
+.bw-footer{ padding-block:var(--section-y-sm) calc(var(--section-y-sm) * .6); border-top:var(--border-sticker) solid var(--bw-gold); }
+.bw-footer__inner{ width:min(var(--container-max), 100% - 2 * var(--gutter)); margin-inline:auto; display:grid; gap:var(--stack-lg); }
+.bw-footer__top{ display:grid; gap:var(--stack-lg); }
+@media (min-width:768px){ .bw-footer__top{ grid-template-columns:1.3fr 1fr 1fr; } }
+@media (min-width:1024px){ .bw-footer__top{ grid-template-columns:1.4fr 1fr 1fr 1fr; } }
+.bw-footer__claim{ font-size:var(--fs-sm); line-height:1.5; color:var(--text-muted); max-width:34ch; margin-top:14px; }
+.bw-footer__title{ font-family:var(--font-display); font-weight:700; font-size:var(--fs-sm); letter-spacing:var(--ls-caps); text-transform:uppercase; color:var(--accent-text); margin-bottom:12px; }
+.bw-footer__list{ display:grid; gap:8px; }
+.bw-footer__list a{ display:inline-block; padding:4px 0; color:var(--text); text-decoration:none; font-size:var(--fs-sm); }   /* objetivo táctil ≥ 24 px */
+.bw-footer__list a:hover{ color:var(--link); text-decoration:underline; }
+.bw-footer__social{ display:flex; gap:10px; flex-wrap:wrap; }
+.bw-footer__social a{
+  display:grid; place-items:center; width:44px; height:44px; border-radius:50%;
+  border:var(--border-bold) solid var(--border); color:var(--text);
+}
+.bw-footer__social a:hover{ background:var(--accent); color:var(--accent-contrast); border-color:var(--accent); }
+.bw-footer__social svg{ width:20px; height:20px; }
+.bw-footer__legal{ border-top:1px solid var(--border-soft); padding-top:var(--stack-md); display:grid; gap:10px; }
+.bw-footer__legal p{ font-size:var(--fs-xs); line-height:1.55; color:var(--text-muted); max-width:90ch; }
+.bw-footer__bottom{ display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between; font-size:var(--fs-xs); color:var(--text-muted); }
+.bw-footer__bottom a{ color:var(--text-muted); }

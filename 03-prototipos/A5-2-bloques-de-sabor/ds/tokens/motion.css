@@ -1,0 +1,45 @@
+/* Buffalo Waffles DS web v2 — motion
+   Principio: movimiento corto y con propósito (feedback de botón, abrir/cerrar, entrada de
+   elementos SECUNDARIOS). Nunca animar cifras, requisitos, formularios ni texto obligatorio
+   al hacer scroll (NN/g; tendencias-web.md §3.4). Nada de scrolljacking ni loaders de marca.
+
+   REGLA OBLIGATORIA: con prefers-reduced-motion: reduce todas las duraciones pasan a 0 y
+   se cortan animaciones/transiciones/scroll suave (bloque al final de este archivo). */
+
+:root{
+  --dur-instant:80ms;   /* @kind other · press de botón */
+  --dur-fast:120ms;     /* @kind other · hover, color */
+  --dur-base:180ms;     /* @kind other · elevación de tarjetas, foco */
+  --dur-slow:280ms;     /* @kind other · acordeón, menú móvil, cambio de paso del formulario */
+  --dur-slower:480ms;   /* @kind other · entrada de elementos decorativos (mascota, stickers) */
+
+  --ease-standard:cubic-bezier(.4,0,.2,1);  /* @kind other · por defecto */
+  --ease-out:cubic-bezier(.16,1,.3,1);      /* @kind other · entradas */
+  --ease-in:cubic-bezier(.5,0,.75,0);       /* @kind other · salidas */
+  --ease-sticker:cubic-bezier(.34,1.56,.64,1); /* @kind other · rebote "sticker": SOLO énfasis puntual (CTA, mascota) */
+
+  /* Alias del DS original */
+  --transition-fast:var(--dur-fast) var(--ease-standard);   /* @kind other */
+  --transition:var(--dur-base) var(--ease-standard);        /* @kind other */
+  --transition-bounce:260ms var(--ease-sticker);            /* @kind other */
+}
+
+@media (prefers-reduced-motion:reduce){
+  :root{
+    --dur-instant:0ms;
+    --dur-fast:0ms;
+    --dur-base:0ms;
+    --dur-slow:0ms;
+    --dur-slower:0ms;
+    --transition-fast:0ms linear;
+    --transition:0ms linear;
+    --transition-bounce:0ms linear;
+  }
+  html:focus-within{ scroll-behavior:auto; }
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+}
