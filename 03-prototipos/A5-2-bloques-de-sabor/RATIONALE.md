@@ -22,8 +22,8 @@ Navegación: **la carta de colores**. En escritorio, 9 pestañas de color en el 
 |---|---|---|---|
 | 00 | Portada (oro) | H1 «Chile ya lo probó. Ahora, ábrelo tú.» con palabras que caen como sticker; **selector de sabor** (King Kong, Strawberry Fields, Limonada Carioca, Especial Palta*, Bites Nutella*) que cambia el color de la portada y el producto con View Transition | **Nuevo** |
 | 01 | La masa (crema) | «Lo que no se importa»: pista horizontal de 6 «ingredientes» (100 % chilena, 11 regiones, presencial + delivery, equipo 2 + 2, locales +50·55 pendiente, se come en la mano) | **Nuevo** |
-| 02 | La cuenta (ink) | «La cuenta, clarita»: los costos publicados como **pizarra de precios** con puntos guía; «¿Cuánto es el 9 %?»; «Lo que no está en la carta (todavía)»: EBITDA y recupero en revisión; foto de marca | **Nuevo** (hoy los costos solo están en el blog) |
-| 03 | Paso a paso (magenta) | «Del antojo a la apertura»: los 7 pasos como **comandas** en pista horizontal + destacado 2–4 meses | **Nuevo** (hoy en FAQ 5) |
+| 02 | La cuenta (ink) | «La cuenta, clarita»: las cifras de inversión como **pizarra de precios** con puntos guía, encabezada por la inversión inicial total y su desglose; «Resultado modelado» (resultado operacional y payback con su supuesto); «Lo que no está en la carta (todavía)»; foto de marca | **Nuevo** (hoy los costos solo están en el blog) |
+| 03 | Paso a paso (magenta) | «Del antojo a la apertura»: los 7 pasos como **comandas** en pista horizontal + destacado 3 a 6 meses | **Nuevo** (hoy en FAQ 5) |
 | 04 | Respaldo (teal) | «No estás solo»: tarjetas Antes / Durante / Después que **se apilan con el scroll**; mascota con alas (respaldo) y KAM 1 : 10 | **Nuevo** |
 | 05 | La red (Persian Plum, exploratorio) | «Ellos ya pidieron»: los 2 testimonios en gran formato + campos faltantes + 3 slots de video | Rediseño + campos nuevos |
 | 06 | ¿Es para ti? (Laird Green, exploratorio) | «La receta del franquiciado»: «Sí va» como **autoevaluación** (casillas, puntaje x/5 y mensaje) y «No hace falta» (experiencia, estar todo el día, tener local) | **Nuevo** (hoy «Esto no es para todos» sin criterios) |
@@ -64,10 +64,10 @@ Sin 3D, sin WebGL, sin librerías: ~20 KB de JS (≈7 KB gzip), ~55 KB de CSS (�
 - **A2 §3.4** (scroll-driven nativo con `@supports`; NN/g: no animar texto obligatorio): solo se animan titulares, bloques y decoración.
 - **A2 §3.7** (2.2.2 Pause, Stop, Hide): ningún movimiento autónomo de más de 5 s.
 - **A1 §4.11 + hallazgo 4** (dos registros): voz de marca en titulares («Del antojo a la apertura», «¿Te tinca?»), registro sobrio en la pizarra, las comandas y las notas.
-- **A1 §4.2** (transparencia de inversión + base de cifras): la pizarra publica derecho, royalty, fondo, inversión, contrato y plazo; EBITDA y recupero quedan «en revisión».
-- **A1 §4.4 + hallazgo 1** (embudo de calificación; preguntas de corte; tiempo de respuesta; gracias con agenda): el chat pregunta región, comuna, capital (tramos alineados con $40M), plazo, operar/delegar y experiencia, y termina en Pipedrive.
+- **A1 §4.2** (transparencia de inversión + base de cifras): la pizarra publica la inversión inicial total (con el derecho de franquicia y el capital de trabajo incluidos), royalty, fondo, contrato y apertura; el resultado operacional y el payback van con su supuesto al lado.
+- **A1 §4.4 + hallazgo 1** (embudo de calificación; preguntas de corte; tiempo de respuesta; gracias con agenda): el chat pregunta región, comuna, capital (tramos alineados con $43M), plazo, operar/delegar y experiencia, y termina en Pipedrive.
 - **A1 §4.8** («Esto no es para todos» concreto, perfil «accesible» tipo Cinnaholic/Kung Fu Tea): receta con requisitos y lo que no hace falta.
-- **A1 §4.6** (proceso visible con plazo): comandas + «2–4 meses».
+- **A1 §4.6** (proceso visible con plazo): comandas + «3 a 6 meses».
 - **A1 §4.7** (soporte por etapas: Sweet Paris «in business for yourself, not by yourself»): Antes / Durante / Después.
 
 **Sobre el chat (contradice A2 §3.6, A2 §5 y la regla 9 de la guía «sin chatbot como formulario»).** El brief de A5 lo pide explícitamente, y lo diseñé para esquivar el problema que señala NN/g (los usuarios no conversan con bots y el lead necesita estructura): **no es un bot**. Es un formulario por pasos con forma de conversación: guion fijo, una pregunta por vez, respuestas en chips que mapean 1 a 1 a propiedades del CRM, progreso visible («Pregunta n de 8»), cada respuesta editable, comanda final revisable y **formulario clásico como alternativa** (y como respaldo sin JS). No hay campo libre de «pregúntame lo que quieras».
@@ -90,20 +90,17 @@ Sin 3D, sin WebGL, sin librerías: ~20 KB de JS (≈7 KB gzip), ~55 KB de CSS (�
 
 ## 6. Datos pendientes (todos visibles con `<mark class="bw-pending">`)
 
-1. Derecho ($10M + IVA), royalty 7 %, fondo 2 %: solo en el blog → validar.
-2. ¿Los $40M incluyen el derecho? (#5).
-3. Locales +50 vs. 55 con fecha de corte (#2).
-4. Base del 15 % EBITDA y del recupero ~2 años (#1).
-5. Desglose por formato; capital propio mínimo y financiamiento (#4, #5); tramos de capital propuestos.
-6. Duración de las etapas antes de firmar; días/horas de capacitación (#14).
-7. Estado de zonas por comuna (#13).
-8. Testimonios: ciudad, años en la red, dato de negocio, fotos y videos (#6, #7).
-9. Criterios de exclusión («lo que no buscamos»).
-10. Tiempo de respuesta al lead (#15) · «sin costo ni compromiso» (#18) · folio de la comanda.
-11. Consentimiento, responsable, RUT y canal de derechos (Ley 21.719, #3).
-12. Persian Plum y Laird Green: valores, rol y si son primarios o secundarios (#10).
-13. Licencia web de Teenage Dreams y Mostin (#8, #9).
-14. Fotos de locales y franquiciados reales (la foto usada es de marca, #6).
+1. Locales +50 vs. 55 con fecha de corte (#2).
+2. Desglose por formato; capital propio mínimo y financiamiento (#4); tramos de capital propuestos.
+3. Duración de las etapas antes de firmar; días/horas de capacitación (#14).
+4. Estado de zonas por comuna (#13).
+5. Testimonios: ciudad, años en la red, dato de negocio, fotos y videos (#6, #7).
+6. Criterios de exclusión («lo que no buscamos»).
+7. Tiempo de respuesta al lead (#15) · «sin costo ni compromiso» (#18) · folio de la comanda.
+8. Consentimiento, responsable, RUT y canal de derechos (Ley 21.719, #3).
+9. Persian Plum y Laird Green: valores, rol y si son primarios o secundarios (#10).
+10. Licencia web de Teenage Dreams y Mostin (#8, #9).
+11. Fotos de locales y franquiciados reales (la foto usada es de marca, #6).
 
 ---
 
@@ -151,3 +148,8 @@ Pares del DS ya verificados que también se usan: ink/oro 10,08 · ink/magenta 4
   - Si hay muchos chips (las 16 regiones), el área de chips se desplaza por dentro.
 - **Hero móvil:** el producto (118 × 170 px) queda junto al H1, y el selector de sabor sube a una sola fila desplazable antes del texto. Los dos quedan en la primera pantalla de 375 × 812, sobre la barra fija.
 - **Formulario clásico:** queda oculto de forma explícita (`.classic:not([open])`) mientras el `<details>` esté cerrado.
+
+## 10. Ronda 2 (5 oct 2026): cifras oficiales de inversión aplicadas
+- **La cuenta:** la pizarra la encabeza la inversión inicial total desde $43.000.000 y, en una fila propia debajo y más chica, «Incluye el derecho de franquicia ($10.000.000) y el capital de trabajo ($3.000.000).». Se eliminaron la línea propia del derecho de franquicia (con IVA), la tarjeta «¿Cuánto es el 9 %?» (un monto calculado sobre una venta hipotética) y las tarjetas de desempeño pendientes. La columna lateral queda con dos tarjetas: «Resultado modelado» (12 % de resultado operacional y 2,6 años de payback, con el supuesto «Resultado modelado en base a un escenario promedio de un local tipo Módulo.») y «Lo que no está en la carta (todavía)» (desglose por formato y capital propio mínimo, pendientes).
+- **Resto:** royalty 9 % y fondo 2 % de la venta neta; contrato «5 años, renovable por 4 periodos» (pizarra, comanda de la firma, FAQ); apertura «3 a 6 meses desde la firma» (lede, comandas, destacado, FAQ); receta «Puedo invertir desde $43.000.000»; chat y formulario clásico con «Menos de $43M» / «$43M a $60M» y reacciones con $43.000.000; notas 1, 2 y 5 con la fuente «Cifras entregadas por Buffalo Waffles, octubre 2026».
+- `a5-2.css?v=4` y `a5-2.js?v=2`.

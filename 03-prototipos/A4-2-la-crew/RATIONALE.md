@@ -15,10 +15,10 @@ Modelo de navegación: **multipágina tipo revista**. La portada funciona como �
 | Pág. | Sección | Qué hace | ¿Nueva respecto del sitio actual? |
 |---|---|---|---|
 | 00 | **Portada** | Cabecera «LA CREW» con desregistro riso, H1 «No buscamos compradores. Buscamos *crew*.», bajada con datos publicados, CTA «Postula: saca tu carnet» + «Hojea el fanzine» y 5 cover lines que navegan | **Nueva** |
-| 02 | **Manifiesto: las 7 reglas** | Sistema, sin experiencia gastronómica, operar o delegar, KAM 1:10, 20 años, crecer de a uno y fondo de marketing 2 %, más el recuadro «Lo que la crew no es» | **Nueva.** Reemplaza «Esto no es para todos» con criterios concretos |
+| 02 | **Manifiesto: las 7 reglas** | Sistema, sin experiencia gastronómica, operar o delegar, KAM 1:10, contrato de 5 años renovable por 4 periodos, crecer de a uno y fondo de marketing 2 %, más el recuadro «Lo que la crew no es» | **Nueva.** Reemplaza «Esto no es para todos» con criterios concretos |
 | 04 | **La crew** | Cartas coleccionables que se voltean (Jonathan; Eduardo y Alex; «Tú»; el mazo de +40) | **Nueva** (hoy los testimonios son texto plano) |
 | 06 | **El álbum** | Álbum de 16 láminas, una por región, con 11 pegadas según el mapa publicado. Al tocar una lámina se abre una ficha y el CTA «Pega tú esta lámina» → `carnet.html?region=`. Debajo van 3 postales en riso con fotos reales de locales (isla, local a la calle, local en centro comercial) | **Nueva** (hoy el mapa es una imagen) |
-| 08 | **La letra grande** | Recortes con el derecho de franquicia, la inversión, el royalty, el fondo de marketing, el contrato y el plazo, con el sello «Por validar». Bloque «Falta la base» para el EBITDA y el recupero | **Nueva** (los costos hoy solo están en el blog) |
+| 08 | **La letra grande** | Recortes encabezados por la inversión inicial total (desde $43.000.000, recorte a dos columnas) con su desglose debajo y más chico; luego royalty, fondo de marketing, contrato y apertura. Bloque «Resultado modelado» con el resultado operacional, el payback y su supuesto | **Nueva** (los costos hoy solo están en el blog) |
 | 10 | **El carnet** | El proceso en 7 timbres: el carnet queda fijo mientras los pasos lo timbran al hacer scroll | **Nueva** (hoy está en la FAQ 5) |
 | 12 | **El staff** | Página de créditos: KAM, capacitación, apertura, local, marketing, operación, producto y seguimiento | **Nueva** (hoy solo en la FAQ 9) |
 | 14 | **Correo de lectores** | 10 FAQ como cartas con estampilla de categoría | Rediseño |
@@ -49,7 +49,7 @@ Al emitir, el carnet recibe el timbre **«EN REVISIÓN»**, se muestra el perfil
 - §1.3 y §4.8, «esto no es para todos» concreto: manifiesto de 7 reglas, «lo que la crew no es» (al estilo de Chick-fil-A) y la pregunta de encaje sobre el estándar. La frase «We don't sell franchises. We choose partners.» de Sweet Paris se reescribió con voz propia.
 - §1.1 y §4.4, formulario como embudo de calificación, multipaso con progreso, preguntas de operar o invertir, experiencia y capital (Fast Not Junk, Tropical) y pantalla de gracias con voz de marca más Pipedrive (§4.4, interpretación).
 - §4.11, la metáfora de marca convertida en sistema (Kung Fu Tea, Crumbl Crew): crew, cartas, álbum, carnet, staff y correo de lectores.
-- §1.2 y §4.2, cifras con base: notas al pie y bloque «Falta la base» con la plantilla legal.
+- §1.2 y §4.2, cifras con base: notas al pie y bloque «Resultado modelado» con el supuesto junto a las cifras.
 - §1.5, disponibilidad territorial sin urgencia inventada: el álbum muestra solo lo que dice el mapa publicado (anti-patrón 8).
 - §1.6 y §4.3, prueba social de inversionistas: cartas con nombre, local y ciudad, y espacios marcados para años en la red y un dato de negocio.
 - §4.5 y §7.2, un verbo principal («Postula») repetido en header, portada, cartas, álbum y contraportada, más la barra fija en móvil.
@@ -78,19 +78,18 @@ Al emitir, el carnet recibe el timbre **«EN REVISIÓN»**, se muestra el perfil
 ## 6. Datos pendientes (todos marcados en pantalla con `.bw-pending`)
 1. **Locales: +50 vs. 55**, con fecha de corte (PENDIENTES #2, nota 1).
 2. **«+40 socios»**: base y fecha de corte (nota 7).
-3. **Base del EBITDA ~15 % y del recupero ~2 años** (#1, nota 3).
-4. **¿Los $40M incluyen el derecho de franquicia?** (#5, nota 2), desglose por formato, capital propio mínimo y financiamiento.
-5. **Tramos de capital** del test (#4).
-6. **Fotos de franquiciados** con su local y permiso de uso (#6).
-7. **Testimonios:** ciudad de Boulevard Marina, años en la red, formato y dato de negocio (#7).
-8. **Lista de locales con dirección y zonas disponibles por comuna** para las fichas del álbum (#13). Ojo: en `uploads/` hay un flyer de La Serena (Coquimbo), una región que el mapa publicado no marca. Hay que confirmar si el mapa está desactualizado.
-9. **Capacitación** (días u horas), qué incluye la apertura y nombres o roles del staff (#14).
-10. **Plazo típico de los timbres 1 a 5** (antes de la firma).
-11. **Tiempo de respuesta al lead**, «[X horas hábiles]» (#15).
-12. **Consentimiento (Ley 21.719):** texto, razón social, RUT, política de privacidad, canal de derechos y terceros (#3).
-13. **WhatsApp:** ¿bot (patg.ai) o número directo? (#17). Se usó el link real del bot.
-14. **Licencias web** de Teenage Dreams (#8; aquí solo en «crew», «sin letra chica» y «si igual te tinca, sigue leyendo», sin tildes) y de Mostin (#9).
-15. **Doodles en SVG** sueltos (#12).
+3. **Desglose de la inversión por formato**, capital propio mínimo y financiamiento.
+4. **Tramos de capital** del test (#4).
+5. **Fotos de franquiciados** con su local y permiso de uso (#6).
+6. **Testimonios:** ciudad de Boulevard Marina, años en la red, formato y dato de negocio (#7).
+7. **Lista de locales con dirección y zonas disponibles por comuna** para las fichas del álbum (#13). Ojo: en `uploads/` hay un flyer de La Serena (Coquimbo), una región que el mapa publicado no marca. Hay que confirmar si el mapa está desactualizado.
+8. **Capacitación** (días u horas), qué incluye la apertura y nombres o roles del staff (#14).
+9. **Plazo típico de los timbres 1 a 5** (antes de la firma).
+10. **Tiempo de respuesta al lead**, «[X horas hábiles]» (#15).
+11. **Consentimiento (Ley 21.719):** texto, razón social, RUT, política de privacidad, canal de derechos y terceros (#3).
+12. **WhatsApp:** ¿bot (patg.ai) o número directo? (#17). Se usó el link real del bot.
+13. **Licencias web** de Teenage Dreams (#8; aquí solo en «crew», «sin letra chica» y «si igual te tinca, sigue leyendo», sin tildes) y de Mostin (#9).
+14. **Doodles en SVG** sueltos (#12).
 
 ## 7. Mapeo a HubSpot (breve)
 - **Tema:** `marca.css` y `zine.css` globales. `zine.js` va en la plantilla del fanzine y `carnet.js` en la del test (2 plantillas de página).
@@ -103,3 +102,4 @@ Al emitir, el carnet recibe el timbre **«EN REVISIÓN»**, se muestra el perfil
 - **Flujos probados de punta a punta:** índice (abrir, Esc, trampa y vuelta del foco); folio que cambia por página; volteo de cartas (con `inert` en la cara oculta y carrusel con scroll-snap en móvil); lámina del álbum → ficha → `carnet.html?region=` prellenado; timbres del carnet ligados al scroll; test completo (Siguiente deshabilitado hasta responder, datos de encaje y capital que muestran el aviso, errores de datos, consentimiento obligatorio), emisión con timbre «EN REVISIÓN», perfil y temas a conversar, y volteo del carnet al dorso. 0 errores de consola durante los flujos.
 - Los CSS y JS llevan `?v=` para evitar caché al revisar.
 - **Ronda 1 (3 oct 2026):** en móvil la mascota streetwear con el sticker «Buffalo Army» va sobre la línea de la cabecera «LA CREW», sin bajar el CTA (Postula termina en 612 px de 812). El álbum pasa a una grilla de 3 columnas, las postales a carrusel y el correo de lectores muestra 4 cartas más el botón «Ver las 10 preguntas». También se compactaron las páginas, y las notas al pie quedan plegables. Altura a 375 px: `index.html` 17.741 → 13.017 px; `carnet.html` ~1.800 px. El escritorio queda igual.
+- **Ronda 2 (5 oct 2026): cifras oficiales de inversión aplicadas.** La letra grande ahora la encabeza la inversión inicial total desde $43.000.000 (recorte oro a dos columnas) con «Incluye el derecho de franquicia ($10.000.000) y el capital de trabajo ($3.000.000).» debajo y más chico; se eliminaron el recorte propio del derecho de franquicia (con IVA), el sello de pendiente sobre los costos, el bloque de desempeño sin respaldo y la plantilla legal de la nota 3. Royalty 9 % y fondo de marketing 2 % de la venta neta; contrato «5 años, renovable por 4 periodos» (regla 5, carnet, timbre 5); apertura «3 a 6 meses desde la firma». Bloque «Resultado modelado»: 12 % de resultado operacional y 2,6 años de payback con el supuesto «Resultado modelado en base a un escenario promedio de un local tipo Módulo.». Test: tramos «Menos de $43M» y «$43M a $60M» (siguen pendientes) y avisos con $43.000.000 en `carnet.html` y `carnet.js`. Notas 2, 3 y 5 con la fuente «Cifras entregadas por Buffalo Waffles, octubre 2026». `zine.css?v=14`, `carnet.js?v=13`.

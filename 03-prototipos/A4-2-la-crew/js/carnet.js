@@ -145,7 +145,7 @@
       var ul = $('#g-conversar'); ul.innerHTML = '';
       var temas = [];
       if (est && est.hasAttribute('data-ojo')) temas.push('Conversemos el estándar: seguirlo es parte del trato.');
-      if (cap && cap.hasAttribute('data-ojo')) temas.push('Conversemos el capital: la inversión total parte en $40.000.000.');
+      if (cap && cap.hasAttribute('data-ojo')) temas.push('Conversemos el capital: la inversión inicial total parte en $43.000.000.');
       if (!temas.length) temas.push('Partimos la conversación desde tu carnet.');
       temas.forEach(function (t) { var li = d.createElement('li'); li.textContent = t; ul.appendChild(li); });
       // Timbre "en revisión" + vuelta del carnet al dorso

@@ -260,8 +260,9 @@ sup.nota a{ color:inherit; text-decoration:none; border-bottom:1.5px solid curre
 .recorte dd.cifra{ order:1; color:var(--bw-ink); font-family:var(--font-display); font-weight:900; font-size:clamp(2.3rem, 1.8rem + 2vw, 3.4rem); line-height:.95; font-variant-numeric:tabular-nums; }
 .recorte--oro dd.cifra span{ background:var(--bw-gold); padding:0 .1em; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
 .recorte--oro::before{ content:""; position:absolute; z-index:2; top:-15px; left:calc(50% - 55px); width:110px; height:30px; background:rgba(246,231,198,.72); border:1px solid rgba(61,32,18,.18); transform:rotate(-5deg); }
-.sello-validar{ position:absolute; z-index:6; right:clamp(8px, 2vw, 30px); top:clamp(-30px, -2vw, -18px); padding:10px 16px 9px; border:3.5px solid var(--bw-magenta-700); border-radius:12px; background:rgba(255,255,255,.92); color:var(--bw-magenta-700); font-family:var(--font-display); font-weight:900; text-transform:uppercase; letter-spacing:.06em; line-height:1; text-align:center; transform:rotate(-8deg); font-size:1.05rem; }
-.sello-validar small{ display:block; font-size:.66rem; letter-spacing:.14em; margin-top:3px; }
+/* Inversión inicial total: la cifra protagonista ocupa dos columnas; el desglose va debajo y más chico */
+@media (min-width:700px){ .recorte--total{ grid-column:span 2; } }
+.supuesto{ font-weight:700; }
 .base-falta{ margin-top:26px; display:grid; gap:16px; padding:clamp(18px, 1rem + 1vw, 30px); background:var(--bw-ink); color:var(--bw-cream); border-radius:10px; --focus-ring:var(--bw-gold); }
 @media (min-width:900px){ .base-falta{ grid-template-columns:auto auto 1fr; align-items:center; gap:28px; } }
 .base-falta__cifra{ display:grid; gap:2px; }
@@ -496,8 +497,6 @@ html:not(.js) .carta__voltear{ display:none; }
   .cartas__pista{ display:block; }
 }
 .cartas__pista{ display:none; margin-top:-6px; font-size:.8125rem; font-weight:700; }
-/* El sello nunca tapa cifras: en pantallas angostas va antes de los recortes */
-@media (max-width:1099px){ .sello-validar{ position:relative; display:inline-block; top:auto; right:auto; margin:0 0 22px; transform:rotate(-4deg); } }
 /* Carnet vivo compacto en móvil */
 @media (max-width:999px){
   .vivo .carnet{ min-height:0; }

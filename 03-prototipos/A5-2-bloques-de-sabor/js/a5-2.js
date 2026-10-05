@@ -138,11 +138,11 @@
         : `Aún no hay Buffalo Waffles publicado en ${v}. La marca evalúa cada zona según su potencial, así que vale la pena conversarlo.` },
     { id: 'comuna', label: 'Comuna', kind: 'text', field: 'Comuna o ciudad', ac: 'address-level2',
       bot: () => ['¿Y en qué comuna o ciudad?'], check: v => v.length > 1 ? '' : 'Escribe tu comuna o ciudad.' },
-    { id: 'capital', label: 'Capital', kind: 'chips', opts: ['Menos de $40M', '$40M a $60M', '$60M a $100M', 'Más de $100M', 'Prefiero conversarlo'],
+    { id: 'capital', label: 'Capital', kind: 'chips', opts: ['Menos de $43M', '$43M a $60M', '$60M a $100M', 'Más de $100M', 'Prefiero conversarlo'],
       note: 'Tramos propuestos, a confirmar con Buffalo.',
       bot: () => ['¿Con cuánto capital cuentas para invertir?'],
-      react: v => v === 'Menos de $40M' ? 'Te lo decimos claro: la inversión total parte en $40.000.000, según formato y ubicación. Igual podemos conversarlo.'
-        : v === 'Prefiero conversarlo' ? 'Perfecto, lo vemos en la reunión.' : 'Anotado. La inversión total parte en $40.000.000, según formato y ubicación.' },
+      react: v => v === 'Menos de $43M' ? 'Te lo decimos claro: la inversión inicial total parte en $43.000.000, según formato y ubicación. Igual podemos conversarlo.'
+        : v === 'Prefiero conversarlo' ? 'Perfecto, lo vemos en la reunión.' : 'Anotado. La inversión inicial total parte en $43.000.000, según formato y ubicación.' },
     { id: 'plazo', label: 'Cuándo', kind: 'chips', opts: ['Menos de 6 meses', '6 meses a un año', 'Más de un año', 'Aún no lo sé'],
       bot: () => ['¿Cuándo te gustaría partir?'] },
     { id: 'modo', label: 'Modalidad', kind: 'chips', opts: ['Opero yo', 'Con administrador', 'Aún no lo sé'],

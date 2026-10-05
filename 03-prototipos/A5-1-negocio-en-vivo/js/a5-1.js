@@ -16,14 +16,11 @@
     return t;
   };
 
-  /* ---------- Datos publicados (fuente única para el prototipo) ---------- */
+  /* ---------- Cifras oficiales (entregadas por Buffalo Waffles, octubre 2026) ----------
+     El simulador solo compara el capital que ingresa el usuario con la inversión inicial total.
+     No calcula montos mensuales ni fechas: royalty, fondo, contrato y apertura se muestran tal cual en el HTML. */
   const DATA = {
-    piso: 40000000,          // "desde $40.000.000" (FAQ 1)
-    derecho: 10000000,       // blog, a validar
-    iva: 0.19,               // IVA Chile sobre el derecho
-    royalty: 0.07,           // blog, a validar
-    marketing: 0.02,         // blog, a validar
-    aperturaMin: 2, aperturaMax: 4 // meses desde la firma (FAQ 6)
+    inversion: 43000000      // inversión inicial total, "desde $43.000.000" (incluye derecho $10M y capital de trabajo $3M)
   };
   const REG = {
     XV: ['Arica y Parinacota', true], I: ['Tarapacá', true], II: ['Antofagasta', true], III: ['Atacama', false],
@@ -77,55 +74,28 @@
 
   /* ---------- Simulador ---------- */
   const sim = $('[data-sim]');
-  const state = { cap: 40000000, reg: 'RM', fmt: 'isla', read: 'faq', ven: 1000000 };
+  const state = { cap: DATA.inversion, reg: 'RM', fmt: 'isla' };
   const fillRange = r => r.style.setProperty('--fill', ((r.value - r.min) / (r.max - r.min) * 100) + '%');
-  const monthLabel = d => d.toLocaleDateString('es-CL', { month: 'short', year: 'numeric' }).replace('.', '').replace(' de ', ' ');
-  const addMonths = (d, m) => new Date(d.getFullYear(), d.getMonth() + m, 1);
+  const inv = money(DATA.inversion);
 
   function renderSim() {
     if (!sim) return;
-    const derechoIVA = DATA.derecho * (1 + DATA.iva);
-    const piso = state.read === 'faq' ? DATA.piso : DATA.piso + derechoIVA;
     $('#o-cap').textContent = money(state.cap);
-    $('#o-ven').textContent = money(state.ven);
-    $('#r-piso').textContent = money(piso);
-    $('#r-piso-note').textContent = state.read === 'faq'
-      ? 'Lectura FAQ: el piso de $40.000.000 ya considera el derecho de franquicia. Falta confirmar si el IVA del derecho va incluido.'
-      : 'Lectura blog: el derecho de franquicia ($10.000.000 + IVA) se paga además de una inversión que parte en $40.000.000.';
 
-    // Barra apilada del piso
-    const stack = $('#r-stack'), keys = $('#r-keys');
-    const segs = state.read === 'faq'
-      ? [['s-derecho', DATA.derecho, 'Derecho de franquicia'], ['s-resto', DATA.piso - DATA.derecho, 'Habilitación, equipamiento y capacitación · desglose a confirmar']]
-      : [['s-derecho', DATA.derecho, 'Derecho de franquicia'], ['s-iva', DATA.derecho * DATA.iva, 'IVA del derecho (19 %)'], ['s-habil', DATA.piso, 'Inversión de habilitación · desde, desglose a confirmar']];
-    stack.innerHTML = segs.map(([c, v]) => `<span class="stack__seg ${c}" style="flex-basis:${(v / piso * 100).toFixed(2)}%">${money(v)}</span>`).join('');
-    keys.innerHTML = segs.map(([c, v, l]) => `<li><i class="${c}" aria-hidden="true"></i>${l}: <b>${money(v)}</b></li>`).join('');
-
-    // Capital vs piso
-    const max = Math.max(state.cap, piso) * 1.15;
+    // Tu capital frente a la inversión inicial total (cifra oficial)
+    const max = Math.max(state.cap, DATA.inversion) * 1.15;
     const g = $('#r-gauge');
     g.style.setProperty('--g', (state.cap / max * 100).toFixed(1) + '%');
-    g.querySelector('.gauge__mark').style.setProperty('--m', (piso / max * 100).toFixed(1) + '%');
-    const ok = state.cap >= piso;
+    g.querySelector('.gauge__mark').style.setProperty('--m', (DATA.inversion / max * 100).toFixed(1) + '%');
+    const ok = state.cap >= DATA.inversion;
     g.dataset.state = ok ? 'ok' : 'short';
     const v = $('#r-verdict');
     v.dataset.ok = String(ok);
     v.innerHTML = ok
-      ? `<svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Tu capital (${money(state.cap)}) cubre el piso publicado de ${money(piso)}.</span>`
-      : `<svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg><span>Te faltan ${money(piso - state.cap)} para el piso publicado de ${money(piso)}. Igual puedes postular y conversarlo.</span>`;
-
-    // Mensual
-    $('#r-ven').textContent = money(state.ven);
-    $('#r-roy').textContent = money(state.ven * DATA.royalty);
-    $('#r-mkt').textContent = money(state.ven * DATA.marketing);
-    $('#r-tot').textContent = money(state.ven * (DATA.royalty + DATA.marketing));
-    const mp = $('[data-mini-piso]'), mm = $('[data-mini-mes]'), mo = $('[data-mini-ok]');
-    if (mp) { mp.textContent = money(piso); mm.textContent = money(state.ven * (DATA.royalty + DATA.marketing)); mo.textContent = ok ? '✓ tu capital cubre el piso' : '✕ falta capital'; mo.classList.toggle('no', !ok); }
-
-    // Calendario
-    const now = new Date();
-    $('#r-firma').textContent = monthLabel(now);
-    $('#r-abre').textContent = `${monthLabel(addMonths(now, DATA.aperturaMin))} – ${monthLabel(addMonths(now, DATA.aperturaMax))}`;
+      ? `<svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span>Tu capital (${money(state.cap)}) alcanza la inversión inicial total desde ${inv}.</span>`
+      : `<svg class="ico" aria-hidden="true"><use href="#i-alert"/></svg><span>Te faltan ${money(DATA.inversion - state.cap)} para la inversión inicial total desde ${inv}. Igual puedes postular y conversarlo.</span>`;
+    const mc = $('[data-mini-cap]'), mo = $('[data-mini-ok]');
+    if (mc) { mc.textContent = money(state.cap); mo.textContent = ok ? '✓ alcanza' : '✕ falta capital'; mo.classList.toggle('no', !ok); }
 
     // Región y formato
     const [nom, on] = REG[state.reg];
@@ -137,30 +107,29 @@
   }
 
   if (sim) {
-    const rc = $('#s-cap'), rv = $('#s-ven');
-    [rc, rv].forEach(r => {
-      fillRange(r);
-      r.addEventListener('input', () => {
-        fillRange(r);
-        state[r === rc ? 'cap' : 'ven'] = +r.value;
-        r.setAttribute('aria-valuetext', money(+r.value));
-        renderSim();
-      });
-      r.setAttribute('aria-valuetext', money(+r.value));
+    const rc = $('#s-cap');
+    state.cap = +rc.value;
+    fillRange(rc);
+    rc.addEventListener('input', () => {
+      fillRange(rc);
+      state.cap = +rc.value;
+      rc.setAttribute('aria-valuetext', money(+rc.value));
+      renderSim();
     });
+    rc.setAttribute('aria-valuetext', money(+rc.value));
     $('#s-reg').addEventListener('change', e => { state.reg = e.target.value; renderSim(); selectRegion(state.reg, false); });
     $$('input[name="s-fmt"]').forEach(i => i.addEventListener('change', () => { state.fmt = i.value; renderSim(); }));
-    $$('input[name="s-read"]').forEach(i => i.addEventListener('change', () => { state.read = i.value; renderSim(); }));
     renderSim();
 
     $('[data-sim-copy]').addEventListener('click', async () => {
-      const piso = $('#r-piso').textContent;
+      const ok = state.cap >= DATA.inversion;
       const txt = [
-        'Mi escenario Buffalo Waffles (simulación ilustrativa, datos a validar)',
+        'Mi escenario Buffalo Waffles (simulación ilustrativa, no es una proyección)',
         `Capital: ${money(state.cap)} · Región: ${REG[state.reg][0]} · Formato: ${FMT[state.fmt]}`,
-        `Piso publicado (lectura ${state.read === 'faq' ? 'FAQ' : 'blog'}): ${piso}`,
-        `Venta neta de prueba ${money(state.ven)} → royalty ${$('#r-roy').textContent} + marketing ${$('#r-mkt').textContent} = ${$('#r-tot').textContent} al mes`,
-        `Apertura estimada: ${$('#r-abre').textContent}`
+        `Inversión inicial total: desde ${inv}. Incluye el derecho de franquicia ($10.000.000) y el capital de trabajo ($3.000.000).`,
+        ok ? 'Mi capital alcanza la inversión inicial total.' : `Me faltan ${money(DATA.inversion - state.cap)} para la inversión inicial total.`,
+        'Royalty: 9 % de la venta neta · Fondo de marketing: 2 % de la venta neta (mensuales)',
+        'Contrato: 5 años, renovable por 4 periodos · Apertura: 3 a 6 meses desde la firma'
       ].join('\n');
       const out = $('[data-sim-copied]');
       try { await navigator.clipboard.writeText(txt); out.textContent = 'Copiado. Pégalo donde quieras.'; }
@@ -169,7 +138,7 @@
     });
 
     $('[data-sim-apply]').addEventListener('click', () => {
-      const tramo = state.cap < 40000000 ? 'Menos de $40M' : state.cap < 60000000 ? '$40M a $60M' : state.cap <= 100000000 ? '$60M a $100M' : 'Más de $100M';
+      const tramo = state.cap < DATA.inversion ? 'Menos de $43M' : state.cap < 60000000 ? '$43M a $60M' : state.cap <= 100000000 ? '$60M a $100M' : 'Más de $100M';
       prefillForm({ capital: tramo, region: state.reg }, `Traemos lo que elegiste en el simulador: capital ${tramo} y región ${REG[state.reg][0]}. Puedes cambiarlo.`);
     });
   }

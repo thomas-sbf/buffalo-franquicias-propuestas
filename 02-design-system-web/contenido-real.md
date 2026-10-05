@@ -1,7 +1,7 @@
 # Contenido real del sitio actual (para usar en los prototipos)
 
 - **Fuente:** https://buffalofranquicias.com/es-cl/ y su blog, revisados con el navegador el **2 de octubre de 2026** (texto visible + DOM, incluidas las respuestas del acordeón y las opciones del formulario).
-- **Regla:** todo lo de este documento está publicado hoy por Buffalo Waffles. **No se inventó ninguna cifra.** Lo que falta está en §10 y en `PENDIENTES-CLIENTE.md`. En los prototipos, marca cualquier dato faltante con `<mark class="bw-pending">`.
+- **Regla:** todo lo de este documento está publicado hoy por Buffalo Waffles, salvo la tabla «Cifras oficiales (octubre 2026)» de §3, que entregó el cliente el 5 de octubre de 2026 y **manda sobre lo publicado**. **No se inventó ninguna cifra.** Lo que falta está en §10 y en `PENDIENTES-CLIENTE.md`. En los prototipos, marca cualquier dato faltante con `<mark class="bw-pending">`.
 - Los textos van tal cual (solo se corrigieron espacios perdidos del HTML, p. ej. "apertura,manuales" → "apertura, manuales").
 
 ---
@@ -55,21 +55,44 @@ CTA: **Hablemos** (abre WhatsApp, sale del sitio). Fondo: video `Banner home.mp4
 **Blog (índice):** «EL BLOG DE LOS QUE VAN EN SERIO» · «Lo que nadie te cuenta antes de abrir una franquicia. Casos reales, métricas de operación y todo lo que necesitas saber antes de invertir.» Categorías en la home: Expansión Buffalo · Vida franquiciada · Modelo de negocio · Novedades de marca.
 
 ## 3. Cifras y datos publicados (fuente única para los prototipos)
+
+### Cifras oficiales (octubre 2026)
+Entregadas por Buffalo Waffles el 5 de octubre de 2026. **Reemplazan a las cifras publicadas de la tabla siguiente** y son las únicas que usan los prototipos para inversión, costos, plazos y desempeño. Fuente para notas al pie: «Cifras entregadas por Buffalo Waffles, octubre 2026».
+
+| Concepto | Valor | Cómo se muestra |
+|---|---|---|
+| Inversión inicial total | **desde $43.000.000** | Siempre encabeza cualquier bloque de inversión: es la cifra protagonista. |
+| Derecho de franquicia | $10.000.000, **incluido** en la inversión inicial total | Nunca destacado: debajo de la inversión inicial total y más chico, sin tarjeta propia ni color de acento. Sin «+ IVA». |
+| Capital de trabajo | $3.000.000, **incluido** en la inversión inicial total | Igual que el derecho de franquicia: debajo y más chico. |
+| Royalty | 9 % de la venta neta | Mensual. |
+| Fondo de marketing | 2 % de la venta neta | Mensual. |
+| Contrato | 5 años, renovable por 4 periodos | Exactamente esta frase. No se calcula un total de años. |
+| Apertura | 3 a 6 meses desde la firma | «3 a 6 meses» en todas partes. |
+| Resultado operacional | 12 % | Reemplaza el «15 % EBITDA». |
+| Payback | 2,6 años | Reemplaza el «recupero en 2 años». Con coma decimal. |
+| Supuesto (obligatorio junto a las dos cifras anteriores) | «Resultado modelado en base a un escenario promedio de un local tipo Módulo.» | Visible al lado de las cifras, no solo en el pie. Nota al pie opcional: «Resultados individuales pueden variar según ubicación, formato y gestión.» |
+
+Patrón del bloque de inversión: **Inversión inicial total desde $43.000.000** (grande) y, debajo y más chico, «Incluye el derecho de franquicia ($10.000.000) y el capital de trabajo ($3.000.000).».
+**No usar datos parciales ni calculados** (pedido explícito del cliente): nada de montos sobre una venta hipotética, totales derivados (p. ej. sumar royalty y fondo, o sumar años de contrato) ni fechas de apertura proyectadas.
+
+### Lo publicado hoy en el sitio y el blog (referencia)
+Las filas marcadas «Reemplazado» ya no se usan en los prototipos: valen las cifras oficiales de arriba.
+
 | Dato | Valor publicado | Dónde | Base / nota | Estado |
 |---|---|---|---|---|
 | Locales | **+50** / "más de cincuenta" | Hero, tarjetas, FAQ 16, footer | Sin fecha de corte | (!) Inconsistente con 55 |
 | Locales | **más de 55** | Blog (2 artículos, 5-jun-2026) y título del artículo | Sin fecha de corte | (!) Inconsistente con +50 |
 | Socios franquiciados | **+40** | Tarjetas | — | Sin base |
 | Regiones con locales | **11** (XV a XII) | Imagen del mapa | — | Contado de la imagen |
-| Inversión total | **desde $40.000.000** | Hero, FAQ 1, blog | "Depende del formato y ubicación" | (!) No queda claro si incluye el derecho de franquicia (§9) |
-| Derecho de franquicia | **$10.000.000 + IVA**, pago único al firmar | Blog «Cómo funciona…» (12-ago-2026) | — | Publicado solo en el blog |
-| Royalty | **7 % de las ventas netas**, mensual | Blog | — | Solo en el blog |
-| Fondo de marketing | **2 % de las ventas netas**, mensual | Blog | "Se destina íntegramente a campañas…" | Solo en el blog |
-| Total mensual al sistema | **9 %** de las ventas netas | Blog | 7 % + 2 % | Solo en el blog |
-| Recupero de la inversión | **"en un plazo de 2 años"** / "~2 años" | Tarjeta "Buena inversión", blog | **Sin base, periodo ni muestra** | (!) Requiere nota y validación legal |
-| EBITDA | **15 %** / "ronda el 15 %" | Tarjeta, blog | **Sin base**; el blog lo llama "margen operacional (EBITDA)" | (!) Requiere nota y validación legal |
-| Duración del contrato | **20 años** | FAQ 14, blog | — | OK |
-| Plazo de apertura | **2 a 4 meses desde la firma** | FAQ 6, blog | "Según disponibilidad del local y habilitación" | OK |
+| Inversión total | **desde $40.000.000** | Hero, FAQ 1, blog | "Depende del formato y ubicación" | **Reemplazado:** inversión inicial total desde $43.000.000, que incluye el derecho de franquicia y el capital de trabajo |
+| Derecho de franquicia | **$10.000.000 + IVA**, pago único al firmar | Blog «Cómo funciona…» (12-ago-2026) | — | **Reemplazado:** $10.000.000, incluido en la inversión inicial total |
+| Royalty | **7 % de las ventas netas**, mensual | Blog | — | **Reemplazado (cambió):** 9 % de la venta neta |
+| Fondo de marketing | **2 % de las ventas netas**, mensual | Blog | "Se destina íntegramente a campañas…" | Confirmado: 2 % de la venta neta |
+| Total mensual al sistema | **9 %** de las ventas netas | Blog | 7 % + 2 % | **No usar** (total derivado) |
+| Recupero de la inversión | **"en un plazo de 2 años"** / "~2 años" | Tarjeta "Buena inversión", blog | Sin base, periodo ni muestra | **Reemplazado:** payback de 2,6 años, con el supuesto del local tipo Módulo |
+| EBITDA | **15 %** / "ronda el 15 %" | Tarjeta, blog | Sin base; el blog lo llama "margen operacional (EBITDA)" | **Reemplazado:** resultado operacional de 12 %, con el supuesto del local tipo Módulo |
+| Duración del contrato | **20 años** | FAQ 14, blog | — | **Reemplazado (cambió):** 5 años, renovable por 4 periodos |
+| Plazo de apertura | **2 a 4 meses desde la firma** | FAQ 6, blog | "Según disponibilidad del local y habilitación" | **Reemplazado (cambió):** 3 a 6 meses desde la firma |
 | Equipo para operar | **2 full time (lun–vie) + 2 part time (fin de semana)** | Blog | "En términos generales" | La FAQ 10 solo dice "equipos pequeños" |
 | KAM | **1 consultor por máximo 10 franquiciados** | Blog (2 artículos) | — | OK, no está en la landing |
 | Experiencia en gastronomía | **No se requiere** | FAQ 3 | — | OK |
@@ -148,21 +171,21 @@ Propiedades internas: `firstname`, `lastname`, `email`, `phone`, `city`, `comuna
 Frases reutilizables del blog: «tú pones la inversión y la gestión diaria del local, y la marca pone el sistema, la reputación y el respaldo» · «No estás solo en ningún punto de este proceso» · «Una marca 100 % chilena… Eso no se importa: se construye con el tiempo y con trabajo» · «El KAM: más que un número de teléfono».
 
 ## 8. Diferenciales verificables (para "Por qué Buffalo")
-Modelo probado con +50 locales · presencia en 11 regiones, de Arica a Punta Arenas · marca 100 % chilena con identidad propia · equipo chico (2 + 2) · venta presencial + delivery · KAM cada 10 franquiciados · apertura en 2–4 meses desde la firma · contrato de 20 años · sin experiencia gastronómica previa · se puede operar o delegar · marketing de red financiado por el fondo del 2 %.
+Modelo probado con +50 locales · presencia en 11 regiones, de Arica a Punta Arenas · marca 100 % chilena con identidad propia · equipo chico (2 + 2) · venta presencial + delivery · KAM cada 10 franquiciados · apertura en 3 a 6 meses desde la firma · contrato de 5 años, renovable por 4 periodos · sin experiencia gastronómica previa · se puede operar o delegar · marketing de red financiado por el fondo del 2 % de la venta neta (cifras oficiales, octubre 2026).
 
 ## 9. Inconsistencias detectadas
 1. **Locales: "+50" (hero, tarjetas, FAQ, footer) vs. "más de 55" (blog y título de artículo).** Unificar con fecha de corte (p. ej., "55 locales a septiembre de 2026").
-2. **¿Los $40M incluyen el derecho de franquicia?** La FAQ 2 dice que "la inversión considera el derecho de franquicia"; el blog lo presenta como "además del derecho de franquicia, está la inversión de habilitación… esta inversión total parte desde los $40.000.000".
+2. ~~**¿Los $40M incluyen el derecho de franquicia?**~~ **Resuelto (5 oct 2026):** la inversión inicial total parte en $43.000.000 e incluye el derecho de franquicia ($10.000.000) y el capital de trabajo ($3.000.000). (Antes, la FAQ 2 decía que "la inversión considera el derecho de franquicia" y el blog lo presentaba aparte.)
 3. **Fechas del blog:** la home muestra "29 may ’26" para dos artículos que dicen "junio 5, 2026".
-4. **Tramos de capital del formulario** casi todos bajo la inversión mínima ($40M) y un *value* interno mal cargado.
+4. **Tramos de capital del formulario** casi todos bajo la inversión mínima (hoy, $43M oficial) y un *value* interno mal cargado.
 5. **"Socios" y "franquiciados"** se usan como sinónimos; la meta description dice "mayor crecimiento en Chile" sin respaldo.
 6. **4 etiquetas H1** (una en inglés: "Our Recent Blogs"), "Follow us on Facebook" que abre WhatsApp, testimonios de plantilla ocultos, 2 bloques de blog seguidos.
 7. **El hero manda a WhatsApp** ("Hablemos") antes de cualquier argumento; el "Más información" de "¿Por qué franquiciar?" lleva al blog.
 8. Ortografía: «¿Tienes preguntas sobre como empezar?» (falta tilde en "cómo"); slugs con errores ("cmo-funciona…", "…simpleo").
 
 ## 10. Lo que falta (no inventar; pedir al cliente)
-- **Base del 15 % de EBITDA y del recupero en 2 años:** periodo, n.º de locales considerados (y con cuántos meses de operación), definición (¿EBITDA sobre ventas netas?), cuántos locales alcanzan la cifra, y texto de advertencia validado por legal.
-- **Desglose de la inversión por formato** (isla, local, food court…): m², rango de inversión, habilitación, equipamiento, capital de trabajo.
+- ~~Base del EBITDA y del recupero~~ **Resuelto (5 oct 2026):** resultado operacional 12 % y payback 2,6 años, «Resultado modelado en base a un escenario promedio de un local tipo Módulo.» (ver §3).
+- **Desglose de la inversión por formato** (isla, local, food court…): m², rango de inversión, habilitación y equipamiento. (El capital de trabajo ya está: $3.000.000, incluido en la inversión inicial total.)
 - **Capital propio mínimo / liquidez** exigida y si existe financiamiento.
 - **Fotos de locales** (fachadas, interiores, equipo trabajando) y **de franquiciados** con su local; idealmente 3–5 testimonios en video de 30–60 s con años en la red y un dato de negocio.
 - **Días u horas de capacitación** y roles/nombres del equipo de soporte.

@@ -12,13 +12,13 @@ Modelo de navegación: **una sola página lineal con paradas**. En escritorio (�
 
 | # | Parada | Qué hace | ¿Nueva respecto del sitio actual? |
 |---|---|---|---|
-| 00 | **Salida** (hero kraft) | H1 «Empezó en la calle. Sigue en tu local.», tira-ticket TL;DR (inversión desde $40.000.000 · 2–4 meses · 20 años), Postula + Arma tu Buffalo | **Nueva.** Hoy: «Sé dueño…», video y CTA a WhatsApp |
+| 00 | **Salida** (hero kraft) | H1 «Empezó en la calle. Sigue en tu local.», tira-ticket TL;DR (inversión inicial total desde $43.000.000 · 3 a 6 meses desde la firma · 5 años de contrato, renovable por 4 periodos), Postula + Arma tu Buffalo | **Nueva.** Hoy: «Sé dueño…», video y CTA a WhatsApp |
 | 01 | **La calle** | Relato de origen con fotos reales del Brandbook (carro y local a la calle) y 3 claves del modelo (mesón + delivery, equipo 2+2, sin experiencia gastronómica) | **Nueva** (hoy no hay relato de origen) |
 | 02 | **El paquete** | Qué incluye la franquicia (9 ítems) más «Pone Buffalo / Pones tú». Se revela al desenvolverse el kraft (en móvil, como dos puertas); junto al título va la bolsa delivery kraft del Brandbook | **Nueva** (hoy está repartido en las FAQ 2, 8, 9 y 12) |
-| 03 | **La cuenta** | Pre-cuenta térmica con el derecho de franquicia, la inversión, el royalty, el fondo de marketing, el contrato y la apertura, con el timbre «Por validar». Al lado: el desempeño con nota y sin base | **Nueva** (los costos hoy solo están en el blog) |
+| 03 | **La cuenta** | Pre-cuenta térmica encabezada por la inversión inicial total (desde $43.000.000) y, debajo y más chico, su desglose (incluye el derecho de franquicia y el capital de trabajo); luego royalty, fondo de marketing, contrato y apertura. Al lado: el resultado modelado (resultado operacional y payback) con su supuesto | **Nueva** (los costos hoy solo están en el blog) |
 | 04 | **De norte a sur** | «La Ruta 5 llega hasta Chiloé. Buffalo, hasta Punta Arenas.» 16 letreros de carretera (11 con Buffalo según el mapa publicado). Cada uno abre una ficha de región, y el botón «Quiero abrir aquí» la envía al configurador | **Nueva** (hoy el mapa es una imagen sin texto) |
 | 05 | **Arma tu Buffalo** | Configurador: formato (con fotos reales), región y comuna, rol, plazo y capital. Arma una **comanda** en vivo; «Enviar mi comanda» prellena la postulación | **Flujo nuevo** |
-| 06 | **Los kilómetros** | 7 hitos kilométricos con el tramo «2 a 4 meses desde la firma» y la mascota como «estás aquí» en el km 0 | **Nueva** (hoy está escondido en la FAQ 5) |
+| 06 | **Los kilómetros** | 7 hitos kilométricos con el tramo «3 a 6 meses desde la firma» y la mascota como «estás aquí» en el km 0 | **Nueva** (hoy está escondido en la FAQ 5) |
 | 07 | **Los que ya abrieron** | Afiches de paradero con los 2 testimonios reales y un «afiche libre» para el próximo franquiciado | Rediseño completo; los datos que faltan van marcados |
 | 08 | **Postula** | Formulario propio de 3 pasos prellenado con la comanda, consentimiento (Ley 21.719) y pantalla de gracias con Pipedrive y WhatsApp | **Flujo nuevo** (hoy: 9 campos, 1 paso, sin consentimiento) |
 | 09 | **Preguntas de mesón** | Pizarra de menú con 11 FAQ en 4 categorías | Rediseño (hoy son 17 preguntas sin categorías) |
@@ -38,11 +38,11 @@ Modelo de navegación: **una sola página lineal con paradas**. En escritorio (�
 ## 4. Hallazgos de A1 y A2 aplicados
 **A1 (benchmark)**
 - §1.1 y §4.4, embudo de calificación: el configurador más el formulario de 3 pasos. Se agenda **después** de calificar (§4.4, interpretación): Pipedrive va en la pantalla de gracias.
-- §1.2 y §4.2, cifras con base: cada cifra tiene superíndice y nota. El EBITDA y el recupero se muestran explícitamente **sin base** y con la plantilla legal de `voz-inversionista.md` §3.
+- §1.2 y §4.2, cifras con base: cada cifra tiene superíndice y nota. El resultado operacional y el payback se muestran con su supuesto al lado («Resultado modelado en base a un escenario promedio de un local tipo Módulo.»).
 - §1.4 y §4.11, dos registros: el envoltorio es de marca (kraft, stickers, paraderos) y los datos van en una capa limpia (pre-cuenta blanca, Montserrat tabular).
 - §1.5 y §6 (fila 5), disponibilidad territorial: la Ruta 5 muestra las 16 regiones con su estado real según el mapa publicado, **sin urgencia inventada** (anti-patrón 8).
 - §1.7, §4.5 y §7.2: un CTA principal («Postula») con secundario («Arma tu Buffalo»), barra fija en móvil y WhatsApp fuera del hero (anti-patrón 11).
-- §4.6: el proceso es visible y destaca «2–4 meses desde la firma».
+- §4.6: el proceso es visible y destaca «3 a 6 meses desde la firma».
 - §4.3 y §8.11: testimonios con nombre, local y ciudad, y los huecos de datos marcados.
 - §4.9: FAQ por categorías (Inversión, Operación, Proceso, Contrato).
 - §4.10 y §8.14: un solo `<h1>`, cifras en HTML y sin contadores animados.
@@ -69,24 +69,23 @@ Modelo de navegación: **una sola página lineal con paradas**. En escritorio (�
 
 ## 6. Datos pendientes (todos marcados en pantalla con `.bw-pending`)
 1. **Locales: +50 vs. 55**, con fecha de corte (PENDIENTES #2, nota 1).
-2. **Base del EBITDA ~15 % y del recupero ~2 años**: periodo, muestra, cuántos lo alcanzan y texto legal (#1, nota 3).
-3. **¿Los $40M incluyen el derecho de franquicia?** (#5, nota 2). También el desglose por formato, el capital propio mínimo y si hay financiamiento.
-4. **Formatos que se franquician** (isla, local a la calle, food court), con m² e inversión de cada uno. El configurador los usa como referencia.
-5. **Tramos de capital** del configurador y del formulario (#4).
-6. **Fotos del Brandbook:** qué locales son y permiso de uso web. Fotos de franquiciados con su local (#6).
-7. **Testimonios:** ciudad de Boulevard Marina, años en la red, un dato de negocio y video de 30–60 s (#7).
-8. **Lista de locales con dirección y zonas disponibles por comuna** para la ficha de región (#13).
-9. **Capacitación** (días u horas) y qué incluye el acompañamiento en la apertura (#14).
-10. **Plazo típico del km 1 al km 5** (antes de la firma).
-11. **Tiempo de respuesta al lead**, «[X horas hábiles]» (#15).
-12. **Consentimiento (Ley 21.719):** texto, razón social, RUT, política de privacidad, canal de derechos y con quién se comparten los datos (#3).
-13. **WhatsApp:** ¿bot (patg.ai) o número directo? (#17). Se usó el link real del bot.
-14. **Licencias web** de Teenage Dreams (#8; aquí solo en «de la calle a tu local» y «fin de la ruta», sin tildes) y de Mostin (#9).
-15. **Doodles en SVG** sueltos para reemplazar los recortes (#12).
+2. **Desglose de la inversión por formato**, capital propio mínimo y si hay financiamiento.
+3. **Formatos que se franquician** (isla, local a la calle, food court), con m² e inversión de cada uno. El configurador los usa como referencia.
+4. **Tramos de capital** del configurador y del formulario (#4).
+5. **Fotos del Brandbook:** qué locales son y permiso de uso web. Fotos de franquiciados con su local (#6).
+6. **Testimonios:** ciudad de Boulevard Marina, años en la red, un dato de negocio y video de 30–60 s (#7).
+7. **Lista de locales con dirección y zonas disponibles por comuna** para la ficha de región (#13).
+8. **Capacitación** (días u horas) y qué incluye el acompañamiento en la apertura (#14).
+9. **Plazo típico del km 1 al km 5** (antes de la firma).
+10. **Tiempo de respuesta al lead**, «[X horas hábiles]» (#15).
+11. **Consentimiento (Ley 21.719):** texto, razón social, RUT, política de privacidad, canal de derechos y con quién se comparten los datos (#3).
+12. **WhatsApp:** ¿bot (patg.ai) o número directo? (#17). Se usó el link real del bot.
+13. **Licencias web** de Teenage Dreams (#8; aquí solo en «de la calle a tu local» y «fin de la ruta», sin tildes) y de Mostin (#9).
+14. **Doodles en SVG** sueltos para reemplazar los recortes (#12).
 
 ## 7. Mapeo a HubSpot (breve)
 - **Tema:** `marca.css` y `ruta.css` van al CSS global del tema; `ruta.js` al JS del tema. Montserrat se carga desde Google Fonts y Mostin y Teenage Dreams se suben a File Manager.
-- **Módulos** (1 por parada): `header-ruta` (repeater de paradas: número, nombre, ancla), `hero-kraft` (H1, bajada, repeater de datos de la tira, 2 CTA, imagen y stickers), `parada-collage`, `paquete` (repeater de ítems, más el toggle del envoltorio), `precuenta` (repeater de bloques y renglones, timbre on/off, cifras de desempeño con nota), `ruta5`, `configurador` (repeater de opciones por paso; el formato lleva imagen), `kilometros` (repeater de hitos más el tramo), `afiches` (repeater de testimonios: nombre, local, ciudad, cita, foto, año y dato), `postula`, `pizarra-faq` (repeater pregunta/respuesta/categoría con schema FAQPage) y `cierre`. El footer lleva un repeater de notas.
+- **Módulos** (1 por parada): `header-ruta` (repeater de paradas: número, nombre, ancla), `hero-kraft` (H1, bajada, repeater de datos de la tira, 2 CTA, imagen y stickers), `parada-collage`, `paquete` (repeater de ítems, más el toggle del envoltorio), `precuenta` (repeater de bloques y renglones, cifras de resultado modelado con su supuesto), `ruta5`, `configurador` (repeater de opciones por paso; el formato lleva imagen), `kilometros` (repeater de hitos más el tramo), `afiches` (repeater de testimonios: nombre, local, ciudad, cita, foto, año y dato), `postula`, `pizarra-faq` (repeater pregunta/respuesta/categoría con schema FAQPage) y `cierre`. El footer lleva un repeater de notas.
 - **HubDB «regiones»** (código, nombre, presencia, locales, zonas disponibles): alimenta los letreros, la ficha, el configurador y el select del formulario desde una sola fuente.
 - **Formulario:** es un módulo propio que envía a la Forms API de HubSpot (el embed nativo no tiene pasos). Mantiene las propiedades actuales (`firstname`, `lastname`, `email`, `phone`, `comuna`, plazo y capital) y suma `formato_interes`, `region`, `rol_operacion`, `experiencia_previa`, `local_en_vista` y `consentimiento`. La pantalla de gracias enlaza al agendador de Pipedrive.
 
@@ -96,3 +95,4 @@ Modelo de navegación: **una sola página lineal con paradas**. En escritorio (�
 - **Animaciones:** envoltorio de kraft (solapas en escritorio, puertas en móvil), stickers, progreso del rail y timbre de la comanda, verificados con scroll-driven nativo. El fallback por IO y la ruta de reduced-motion están en CSS y JS (`.no-sda`, `@media (prefers-reduced-motion)`).
 - Los CSS y JS llevan `?v=` para evitar caché al revisar.
 - **Ronda 1 (3 oct 2026):** en móvil la primera pantalla muestra una versión reducida de la mano con el waffle y el sticker B★W junto al H1, sin bajar el CTA (el CTA termina en 756 px de 812). Para compactar sin quitar secciones, las claves, los letreros de región (sobre una carretera horizontal) y los afiches pasan a carruseles con scroll-snap. La comanda queda en un resumen fijo y colapsable, que muestra el talón «Enviar mi comanda» cuando está lista. También se compactaron los hitos y el resto de los bloques, y las notas al pie quedan plegables (abiertas en escritorio; se abren al seguir un superíndice). Altura a 375 px: 20.799 → 14.623 px. El escritorio queda igual.
+- **Ronda 2 (5 oct 2026): cifras oficiales de inversión aplicadas.** Inversión inicial total desde $43.000.000 (encabeza la pre-cuenta, la tira del hero, el configurador, el formulario y la FAQ); debajo y más chico: «Incluye el derecho de franquicia ($10.000.000) y el capital de trabajo ($3.000.000).». Se eliminaron el renglón «Al firmar» (el derecho de franquicia como línea propia, con IVA), el total derivado «al sistema», el timbre de pendiente sobre los costos y la plantilla legal de la nota 3. Royalty 9 % y fondo de marketing 2 % de la venta neta; contrato «5 años, renovable por 4 periodos» (paquete, comanda, km 5, FAQ); apertura «3 a 6 meses desde la firma». El bloque «Desempeño de la red» pasa a «Resultado modelado»: 12 % de resultado operacional y 2,6 años de payback, con el supuesto «Resultado modelado en base a un escenario promedio de un local tipo Módulo.» al lado. Tramos de capital: «Menos de $43M» y «$43M a $60M» (siguen marcados como pendientes). Notas 2, 3 y 5 reescritas con la fuente «Cifras entregadas por Buffalo Waffles, octubre 2026». `ruta.css?v=19`.
