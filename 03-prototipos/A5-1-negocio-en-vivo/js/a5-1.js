@@ -128,7 +128,7 @@
         `Capital: ${money(state.cap)} · Región: ${REG[state.reg][0]} · Formato: ${FMT[state.fmt]}`,
         `Inversión inicial total: desde ${inv}. Incluye el derecho de franquicia ($10.000.000) y el capital de trabajo ($3.000.000).`,
         ok ? 'Mi capital alcanza la inversión inicial total.' : `Me faltan ${money(DATA.inversion - state.cap)} para la inversión inicial total.`,
-        'Royalty: 9 % de la venta neta · Fondo de marketing: 2 % de la venta neta (mensuales)',
+        'Royalty: 7 % de la venta neta · Fondo de marketing: 2 % de la venta neta (mensuales)',
         'Contrato: 5 años, renovable por 4 periodos · Apertura: 3 a 6 meses desde la firma'
       ].join('\n');
       const out = $('[data-sim-copied]');

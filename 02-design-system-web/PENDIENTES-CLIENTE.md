@@ -2,7 +2,7 @@
 
 Ordenados por impacto en el rediseño. Mientras no se resuelvan, los prototipos los muestran con `<mark class="bw-pending">` y nada se inventa.
 
-**Actualización 5 oct 2026:** el cliente entregó las cifras oficiales de inversión (ver «Cifras oficiales (octubre 2026)» en `contenido-real.md` §3). Quedan **resueltos #1 y #5**, y #4 se ajusta al nuevo piso de $43M. Ojo: **contrato, royalty y apertura cambiaron respecto de lo publicado hoy en el sitio y el blog** (ver la tabla al final): hay que actualizar también el sitio actual, la FAQ y el artículo del blog para que no se contradigan con la nueva landing.
+**Actualización 5 oct 2026:** el cliente entregó las cifras oficiales de inversión (ver «Cifras oficiales (octubre 2026)» en `contenido-real.md` §3). Quedan **resueltos #1 y #5**, y #4 se ajusta al nuevo piso de $43M. Ojo: **contrato y apertura cambiaron respecto de lo publicado hoy en el sitio y el blog** (ver la tabla al final): hay que actualizar también el sitio actual, la FAQ y el artículo del blog para que no se contradigan con la nueva landing.
 
 | # | Pendiente | Por qué importa | Qué necesitamos | Bloquea |
 |---|---|---|---|---|
@@ -33,7 +33,7 @@ Ordenados por impacto en el rediseño. Mientras no se resuelvan, los prototipos 
 |---|---|---|---|
 | Inversión | desde $40.000.000 | **Inversión inicial total desde $43.000.000** (incluye derecho de franquicia $10.000.000 y capital de trabajo $3.000.000) | Actualizar hero, FAQ 1 y 2 y blog |
 | Derecho de franquicia | $10.000.000 + IVA, aparte | **$10.000.000, incluido** en la inversión inicial total | Actualizar blog |
-| Royalty | 7 % de las ventas netas | **9 % de la venta neta**, mensual | **Cambió:** actualizar blog |
+| Royalty | 7 % de las ventas netas | 7 % de la venta neta, mensual | Sin cambio |
 | Fondo de marketing | 2 % | 2 % de la venta neta, mensual | Sin cambio |
 | Contrato | 20 años | **5 años, renovable por 4 periodos** | **Cambió:** actualizar FAQ 14 y blog |
 | Apertura | 2 a 4 meses desde la firma | **3 a 6 meses desde la firma** | **Cambió:** actualizar FAQ 6 y blog |

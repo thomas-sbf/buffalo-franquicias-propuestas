@@ -64,7 +64,7 @@ Entregadas por Buffalo Waffles el 5 de octubre de 2026. **Reemplazan a las cifra
 | Inversión inicial total | **desde $43.000.000** | Siempre encabeza cualquier bloque de inversión: es la cifra protagonista. |
 | Derecho de franquicia | $10.000.000, **incluido** en la inversión inicial total | Nunca destacado: debajo de la inversión inicial total y más chico, sin tarjeta propia ni color de acento. Sin «+ IVA». |
 | Capital de trabajo | $3.000.000, **incluido** en la inversión inicial total | Igual que el derecho de franquicia: debajo y más chico. |
-| Royalty | 9 % de la venta neta | Mensual. |
+| Royalty | 7 % de la venta neta | Mensual. (Corregido el 6 oct 2026: antes decía 9 %.) |
 | Fondo de marketing | 2 % de la venta neta | Mensual. |
 | Contrato | 5 años, renovable por 4 periodos | Exactamente esta frase. No se calcula un total de años. |
 | Apertura | 3 a 6 meses desde la firma | «3 a 6 meses» en todas partes. |
@@ -86,7 +86,7 @@ Las filas marcadas «Reemplazado» ya no se usan en los prototipos: valen las ci
 | Regiones con locales | **11** (XV a XII) | Imagen del mapa | — | Contado de la imagen |
 | Inversión total | **desde $40.000.000** | Hero, FAQ 1, blog | "Depende del formato y ubicación" | **Reemplazado:** inversión inicial total desde $43.000.000, que incluye el derecho de franquicia y el capital de trabajo |
 | Derecho de franquicia | **$10.000.000 + IVA**, pago único al firmar | Blog «Cómo funciona…» (12-ago-2026) | — | **Reemplazado:** $10.000.000, incluido en la inversión inicial total |
-| Royalty | **7 % de las ventas netas**, mensual | Blog | — | **Reemplazado (cambió):** 9 % de la venta neta |
+| Royalty | **7 % de las ventas netas**, mensual | Blog | — | Confirmado: 7 % de la venta neta |
 | Fondo de marketing | **2 % de las ventas netas**, mensual | Blog | "Se destina íntegramente a campañas…" | Confirmado: 2 % de la venta neta |
 | Total mensual al sistema | **9 %** de las ventas netas | Blog | 7 % + 2 % | **No usar** (total derivado) |
 | Recupero de la inversión | **"en un plazo de 2 años"** / "~2 años" | Tarjeta "Buena inversión", blog | Sin base, periodo ni muestra | **Reemplazado:** payback de 2,6 años, con el supuesto del local tipo Módulo |

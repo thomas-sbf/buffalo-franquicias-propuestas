@@ -90,13 +90,13 @@ Aplicadas de forma idéntica en los 4 prototipos (ronda 2):
 | Inversión inicial total | desde $43.000.000 | Siempre encabeza el bloque de inversión |
 | Derecho de franquicia | $10.000.000, incluido | Debajo y más chico, nunca destacado |
 | Capital de trabajo | $3.000.000, incluido | Debajo y más chico |
-| Royalty | 9 % de la venta neta | — |
+| Royalty | 7 % de la venta neta | — |
 | Fondo de marketing | 2 % de la venta neta | — |
 | Contrato | 5 años, renovable por 4 periodos | — |
 | Apertura | 3 a 6 meses desde la firma | — |
 | Resultado operacional / payback | 12 % / 2,6 años | Con el supuesto: «Resultado modelado en base a un escenario promedio de un local tipo Módulo» |
 
-Regla: no se muestran montos calculados sobre ventas hipotéticas, totales derivados ni fechas proyectadas. Contrato, royalty y apertura difieren de lo que hoy publica el sitio actual (20 años, 7 %, 2–4 meses): conviene corregir también el sitio vigente y el blog.
+Regla: no se muestran montos calculados sobre ventas hipotéticas, totales derivados ni fechas proyectadas. Contrato y apertura difieren de lo que hoy publica el sitio actual (20 años y 2–4 meses): conviene corregir también el sitio vigente y el blog.
 
 ## 7. Pendientes del cliente (bloquean la publicación, no el diseño)
 Detalle completo en [PENDIENTES-CLIENTE.md](../02-design-system-web/PENDIENTES-CLIENTE.md). Los críticos:
